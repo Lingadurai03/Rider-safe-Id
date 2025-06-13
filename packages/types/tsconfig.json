@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "composite": true,
+        "declaration": true,
+        "declarationMap": true,
+        "outDir": "dist",
+        "module": "ESNext",
+        "target": "ES2020",
+        "moduleResolution": "node",
+        "incremental": true,
+        "skipLibCheck": true,
+        "baseUrl": "./src",
+        "paths": {
+            "src/*": ["./*"]
+        }
+    },
+    "include": ["src/**/*", "src/index.ts"],
+    "exclude": ["node_modules", "dist"]
+}

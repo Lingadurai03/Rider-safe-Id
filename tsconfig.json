@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "target": "ES2020",
+        "module": "ESNext",
+        "moduleResolution": "node",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "allowJs": true,
+        "baseUrl": ".",
+        "paths": {
+            "@ridersafeid/*": ["packages/*/src"]
+        },
+        "incremental": true,
+        "composite": true
+    },
+    "include": ["packages/*/src", "packages/types/src/index.ts"],
+    "exclude": ["node_modules", "dist"]
+}

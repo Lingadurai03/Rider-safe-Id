@@ -1,0 +1,57 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          String   @id @default(uuid())
+  email       String   @unique
+  phone       String   @unique
+  password    String   // hashed
+  name        String?  // optional display name
+  editCount   Int      @default(0) // Max 3 free edits
+  role        String   @default("user") // 'user' | 'admin'
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  profile     Profile?  // 🔥 The missing relation (1:1 optional)
+}
+
+model Profile {
+  id                     String   @id @default(uuid())
+  userId                 String   @unique
+  profileName            String
+  bloodGroup             String
+  address                String
+  pincode                String
+  state                  String
+  city                   String
+  imageUrl               String? // optional rider image
+
+  // Control flag for private data
+  showPrivateData        Boolean  @default(false)
+
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id])
+  
+  // Relations
+  emergencyContacts      EmergencyContact[] // One profile -> multiple emergency contacts (max 3)
+}
+
+model EmergencyContact {
+  id         String   @id @default(uuid())
+  profileId  String
+  name       String
+  phone      String
+
+  profile    Profile  @relation(fields: [profileId], references: [id])
+
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}

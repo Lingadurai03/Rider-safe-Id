@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@ridersafeid/types": ["packages/types/src"],
+            "@ridersafeid/types/*": ["packages/types/src/*"]
+        }
+    }
+}
