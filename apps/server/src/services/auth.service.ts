@@ -1,16 +1,20 @@
 import {
     BadRequestException,
-    Injectable, // Added for generic server errors
+    Injectable,
     UnauthorizedException,
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library'; // Import for Prisma specific errors
+import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
+import {
+    LoginApiPayload,
+    RefreshTokenPayload,
+    RegisterApiPayload,
+} from '@ridersafeid/types';
 import * as bcrypt from 'bcrypt';
 
 import { Role } from '@/constant';
-import { LoginDto, RegisterDto } from '@/dto';
 import { PrismaService } from '@/services';
-import { JwtPayload } from '@/type';
+import { JwtPayload } from '@/types';
 
 @Injectable()
 export class AuthService {
@@ -20,7 +24,7 @@ export class AuthService {
     ) {}
 
     // Register
-    async register(userData: RegisterDto) {
+    async register(userData: RegisterApiPayload) {
         try {
             const existingUser = await this.prisma.user.findFirst({
                 where: {
@@ -59,7 +63,7 @@ export class AuthService {
     }
 
     // Login
-    async login(loginData: LoginDto) {
+    async login(loginData: LoginApiPayload) {
         const { email, password } = loginData;
         try {
             const user = await this.prisma.user.findFirst({
@@ -122,5 +126,41 @@ export class AuthService {
                 );
             }
         }
+    }
+
+    async refreshToken(body: RefreshTokenPayload) {
+        const { refreshToken } = body;
+        try {
+            const payload = this.jwtService.verify(refreshToken, {
+                secret: process.env.REFRESH_TOKEN_SECRET!,
+            });
+
+            const user = await this.prisma.user.findUnique({
+                where: { id: payload.sub },
+            });
+
+            if (!user || !user.refreshToken) {
+                throw new UnauthorizedException('Invalid refresh token');
+            }
+
+            const isMatch = await bcrypt.compare(
+                refreshToken,
+                user.refreshToken,
+            );
+            if (!isMatch)
+                throw new UnauthorizedException('Invalid refresh token');
+
+            const tokens = await this.generateTokens(user);
+            await this.updateRefreshToken(user.id, tokens.refreshToken);
+
+            return tokens;
+        } catch (_err) {
+            throw new UnauthorizedException('Invalid refresh token');
+        }
+    }
+
+    async logout(userId: string) {
+        await this.updateRefreshToken(userId, null);
+        return { message: 'Logged out' };
     }
 }
