@@ -6,8 +6,11 @@ import { AuthController } from '@/controllers';
 import { AuthService } from '@/services';
 import { JwtStrategy } from '@/strategy';
 
+import { PrismaModule } from './prisma.module';
+
 @Module({
     imports: [
+        PrismaModule,
         JwtModule.register({
             secret: process.env.ACCESS_TOKEN_SECRET!,
             signOptions: { expiresIn: '1h' },

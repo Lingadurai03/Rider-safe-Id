@@ -7,8 +7,10 @@ import { JwtService } from '@nestjs/jwt';
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library'; // Import for Prisma specific errors
 import * as bcrypt from 'bcrypt';
 
+import { Role } from '@/constant';
 import { LoginDto, RegisterDto } from '@/dto';
 import { PrismaService } from '@/services';
+import { JwtPayload } from '@/type';
 
 @Injectable()
 export class AuthService {
@@ -65,7 +67,6 @@ export class AuthService {
                     OR: [{ email: email }],
                 },
             });
-
             if (!user || !(await bcrypt.compare(password, user.password))) {
                 throw new UnauthorizedException('Invalid credentials');
             }
@@ -87,8 +88,12 @@ export class AuthService {
         }
     }
 
-    async generateTokens(user: { email: string; id: string }) {
-        const payload = { email: user.email, sub: user.id };
+    async generateTokens(user: { email: string; id: string; role: string }) {
+        const payload: JwtPayload = {
+            email: user.email,
+            sub: user.id,
+            role: user.role == Role.ADMIN ? Role.ADMIN : Role.USER,
+        };
 
         const accessToken = this.jwtService.sign(payload);
 
