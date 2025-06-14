@@ -14,19 +14,17 @@ const LoginForm = () => {
         formState: { errors },
     } = useForm<LoginApiPayload>();
 
-    // const [login, { isLoading }] = useLoginMutation();
-
     const navigate = useRouter();
 
     const onSubmit = async (data) => {};
     return (
-        <form className='space-y-4'>
+        <form className='space-y-4' onSubmit={handleSubmit(onSubmit)}>
             <Input
                 label='Email'
                 registration={register('email', {
                     required: 'Username is required',
                 })}
-                error={errors.password}
+                error={errors.email}
             />
             <Input
                 label='Password'
@@ -37,7 +35,7 @@ const LoginForm = () => {
                 error={errors.password}
             />
             <div className='flex justify-center items-center '>
-                <Button type='submit' label='Submit' />
+                <Button glow type='submit' label='Submit' />
             </div>
         </form>
     );
