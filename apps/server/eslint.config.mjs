@@ -1,19 +1,23 @@
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import { FlatCompat } from '@eslint/eslintrc';
+import rootConfig from '../../eslint.config.mjs';
 
-import baseConfig from '../../eslint.config.mjs';
-
-// Fix __dirname for ES module
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __dirname = dirname(__filename);
 
-export default baseConfig.map((config) => {
-    if (config.languageOptions?.parserOptions) {
-        config.languageOptions.parserOptions.project = path.resolve(
-            __dirname,
-            'tsconfig.json',
-        );
-        config.languageOptions.parserOptions.tsconfigRootDir = __dirname;
-    }
-    return config;
+const compat = new FlatCompat({
+  baseDirectory: __dirname,
 });
+
+export default [
+  ...rootConfig,
+  {
+    files: ['src/**/*.ts'],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.eslint.json'], // for server side
+      },
+    },
+  },
+];

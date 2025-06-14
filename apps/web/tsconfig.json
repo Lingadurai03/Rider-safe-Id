@@ -19,7 +19,8 @@
             }
         ],
         "paths": {
-            "@/*": ["./src/*"]
+            "@/*": ["./src/*"],
+            "@ridersafeid/types": ["../../packages/types"]
         }
     },
     "include": [
