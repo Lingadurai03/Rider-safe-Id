@@ -45,6 +45,9 @@
       background-color: var(--color-muted);
     }
 
+    .bg-white-xs{
+     background-color:  oklch(95% 0.01 250/0.02);
+    }
     .bg-white-sm{
      background-color:  oklch(95% 0.01 250/0.05);
     }
@@ -56,11 +59,22 @@
     }
 
     .border-white-sm{
-        border-color:  oklch(95% 0.01 250/0.2);
+        border: 1px solid  oklch(95% 0.01 250/0.1);
+       
+    }
+    .border-b-white-sm{
+        border-bottom: 1px solid  oklch(95% 0.01 250/0.1);
+
     }
 
     .text{
         color:var(--color-text)
+    }
+    .text-primary{
+        color:var(--color-primary)
+    }
+    .text-secondary{
+        color:var(--color-secondary)
     }
     .text-white{
         color: oklch(95% 0.01 250);

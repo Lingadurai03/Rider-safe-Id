@@ -16,7 +16,7 @@ export default async function RootLayout({
 
     return (
         <html className={isDark ? 'dark' : ''}>
-            <body>
+            <body className='text-muted'>
                 <ToastContainer />
                 <StoreProvider>{children}</StoreProvider>
             </body>
