@@ -4,7 +4,6 @@ import { Loader2 } from 'lucide-react';
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     label: string;
     isLoading?: boolean;
-    glow?: boolean;
     loadingText?: string;
 }
 
@@ -13,7 +12,6 @@ const Button: React.FC<ButtonProps> = ({
     isLoading,
     loadingText,
     disabled,
-    glow,
     ...props
 }) => {
     return (
@@ -25,7 +23,6 @@ const Button: React.FC<ButtonProps> = ({
                 font-semibold transition-all duration-300
                 ${isLoading ? 'opacity-80 hover:opacity-70' : 'hover:opacity-80'} 
                 text-white disabled:cursor-not-allowed ${disabled && 'bg-muted'} cursor-pointer
-                ${glow && 'shadow-[0_0_10px_var(--color-primary)] hover:shadow-[0_0_20px_var(--color-primary)] '}
             `}
         >
             {props.children}

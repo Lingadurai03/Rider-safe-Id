@@ -5,3 +5,6 @@ export { default as Error } from './Error';
 export { default as Navbar } from './Navbar';
 export { default as LanguageSelect } from './LanguageSelect';
 export { default as GlowingButton } from './GlowButton';
+export { default as Modal } from './Modal';
+export { default as ImagePickerWithCrop } from './ImagePickerWithCrop';
+export { default as ProfileImageWithEdit } from './ProfileImageWithEdit';
