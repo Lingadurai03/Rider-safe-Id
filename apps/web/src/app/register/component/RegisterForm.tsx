@@ -2,10 +2,15 @@
 
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { RegisterApiPayload } from '@ridersafeid/types';
+import { toast } from 'react-toastify';
+import { RegisterApiPayload, RTKError } from '@ridersafeid/types';
 import { useRouter } from 'next/navigation';
 
-import { Button, Input } from '@/components';
+import { ACCESS_TOKEN, REFRESH_TOKEN } from '@/constant';
+import { saveToken } from '@/utils';
+
+import { Button, Error, Input } from '@/components';
+import { useRegisterMutation } from '@/store/auth/authApi';
 
 interface RegisterData extends RegisterApiPayload {
     confirmPassword: string;
@@ -21,9 +26,26 @@ const RegisterForm = () => {
 
     const passwordInputText = watch('password');
 
+    const [registerFn, { isLoading }] = useRegisterMutation();
+
     const navigate = useRouter();
 
-    const onSubmit = async (data) => {};
+    const onSubmit = async (data: RegisterApiPayload) => {
+        try {
+            const userData = await registerFn(data).unwrap();
+            saveToken(ACCESS_TOKEN, userData.accessToken);
+            saveToken(REFRESH_TOKEN, userData.refreshToken);
+            navigate.push('/');
+        } catch (err) {
+            const error = err as RTKError;
+            toast.error(
+                <Error
+                    title={error.data?.error}
+                    message={error.data?.message}
+                />,
+            );
+        }
+    };
     return (
         <form className='space-y-4' onSubmit={handleSubmit(onSubmit)}>
             <Input
@@ -35,16 +57,16 @@ const RegisterForm = () => {
                 error={errors.email}
             />
             <Input
-                label='Name'
+                label='FullName'
                 registration={register('fullName', {
-                    required: 'Name is required',
+                    required: 'Full Name is required',
                 })}
                 error={errors.fullName}
             />
             <Input
-                label='Username'
+                label='Phone Number'
                 registration={register('phone', {
-                    required: 'Username is required',
+                    required: 'Phone Number is required',
                 })}
                 error={errors.phone}
             />
@@ -67,7 +89,13 @@ const RegisterForm = () => {
                 error={errors.confirmPassword}
             />
             <div className='flex justify-center items-center '>
-                <Button glow type='submit' label='Submit' />
+                <Button
+                    isLoading={isLoading}
+                    loadingText='Submiting'
+                    glow
+                    type='submit'
+                    label='Submit'
+                />
             </div>
         </form>
     );
