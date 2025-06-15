@@ -55,6 +55,7 @@ const RegisterForm = () => {
                 })}
                 type='email'
                 error={errors.email}
+                isDarkPage
             />
             <Input
                 label='FullName'
@@ -62,6 +63,7 @@ const RegisterForm = () => {
                     required: 'Full Name is required',
                 })}
                 error={errors.fullName}
+                isDarkPage
             />
             <Input
                 label='Phone Number'
@@ -69,6 +71,7 @@ const RegisterForm = () => {
                     required: 'Phone Number is required',
                 })}
                 error={errors.phone}
+                isDarkPage
             />
             <Input
                 label='Password'
@@ -77,6 +80,7 @@ const RegisterForm = () => {
                     required: 'Password is required',
                 })}
                 error={errors.password}
+                isDarkPage
             />
             <Input
                 label='Confirm Password'
@@ -87,6 +91,7 @@ const RegisterForm = () => {
                         value === passwordInputText || 'Passwords do not match',
                 })}
                 error={errors.confirmPassword}
+                isDarkPage
             />
             <div className='flex justify-center items-center '>
                 <Button

@@ -8,6 +8,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     label: string;
     registration: UseFormRegisterReturn;
     error?: FieldError;
+    isDarkPage?: boolean;
 }
 
 export default function Input({
@@ -15,6 +16,7 @@ export default function Input({
     type = 'text',
     registration,
     error,
+    isDarkPage = false,
     ...props
 }: InputProps) {
     const [showPassword, setShowPassword] = useState(false);
@@ -31,7 +33,7 @@ export default function Input({
                     type={isPassword && showPassword ? 'text' : type}
                     {...registration}
                     {...props}
-                    className='block w-full rounded-md border border-white-sm  p-2 pr-10 outline-none text-white-medium focus:shadow'
+                    className={`block w-full rounded-md border border-white-sm p-2 pr-10 outline-none ${isDarkPage ? 'text-white-medium' : 'text'} shadow-sm inset-shadow-2xs`}
                 />
 
                 {isPassword && (
