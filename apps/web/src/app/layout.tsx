@@ -1,4 +1,7 @@
+import { ToastContainer } from 'react-toastify';
 import { cookies } from 'next/headers';
+
+import { StoreProvider } from '@/components';
 
 import './globals.css';
 
@@ -13,7 +16,10 @@ export default async function RootLayout({
 
     return (
         <html className={isDark ? 'dark' : ''}>
-            <body>{children}</body>
+            <body>
+                <ToastContainer />
+                <StoreProvider>{children}</StoreProvider>
+            </body>
         </html>
     );
 }
