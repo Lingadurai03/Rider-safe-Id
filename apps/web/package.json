@@ -10,10 +10,16 @@
         "lint:fix": "eslint src --ext .ts,.tsx,.js,.jsx --fix --no-cache"
     },
     "dependencies": {
+        "@reduxjs/toolkit": "^2.8.2",
         "@ridersafeid/types": "workspace:*",
+        "js-cookie": "^3.0.5",
+        "lucide-react": "^0.515.0",
         "next": "15.3.3",
         "react": "^19.0.0",
-        "react-dom": "^19.0.0"
+        "react-dom": "^19.0.0",
+        "react-hook-form": "^7.57.0",
+        "react-redux": "^9.2.0",
+        "react-toastify": "^11.0.5"
     },
     "devDependencies": {
         "@eslint/eslintrc": "^3",

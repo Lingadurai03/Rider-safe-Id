@@ -10,15 +10,17 @@ datasource db {
 model User {
   id          String   @id @default(uuid())
   email       String   @unique
-  phone       String   @unique
+  phone       String?   @unique
   password    String   // hashed
-  name        String?  // optional display name
+  fullName        String?  
+  refreshToken String?
+
   editCount   Int      @default(0) // Max 3 free edits
   role        String   @default("user") // 'user' | 'admin'
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
-  profile     Profile?  // 🔥 The missing relation (1:1 optional)
+  profile     Profile?  
 }
 
 model Profile {
@@ -28,6 +30,7 @@ model Profile {
   bloodGroup             String
   address                String
   pincode                String
+  dob                    DateTime
   state                  String
   city                   String
   imageUrl               String? // optional rider image

@@ -49,10 +49,6 @@ export default [
             parser: tsParser,
             ecmaVersion: 2021,
             sourceType: 'module',
-            parserOptions: {
-                project: path.resolve(__dirname, 'apps/web/tsconfig.eslint.json'),
-                tsconfigRootDir: __dirname,
-            },
             globals: {
                 React: 'readonly',
             },
