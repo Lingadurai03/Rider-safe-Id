@@ -8,6 +8,6 @@ import {
 const router = express.Router();
 
 router.post('/generate/:userId', generateAndUploadQR);
-router.get('/generate/:userId', getQRImageUrl);
+router.get('/:userId', getQRImageUrl);
 
 export default router;

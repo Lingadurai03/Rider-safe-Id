@@ -66,7 +66,6 @@ export class ProfileService {
     }
 
     async getProfile(id: string) {
-        console.log('userProfile', id);
         try {
             const userProfile = await this.prisma.profile.findUnique({
                 where: { userId: id },

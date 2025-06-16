@@ -1,5 +1,7 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Request, UseGuards } from '@nestjs/common';
+import { GetQrApiResponse } from '@ridersafeid/types';
 
+import { JwtAuthGuard } from '@/guards';
 import { AppService } from '@/services';
 
 @Controller()
@@ -9,5 +11,11 @@ export class AppController {
     @Get()
     getHello(): string {
         return this.appService.getHello();
+    }
+
+    @UseGuards(JwtAuthGuard)
+    @Get('getQr')
+    getQr(@Request() req: { user: { id: string } }): Promise<GetQrApiResponse> {
+        return this.appService.getQrData(req.user.id);
     }
 }

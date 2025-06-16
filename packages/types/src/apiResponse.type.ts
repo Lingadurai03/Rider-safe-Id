@@ -55,3 +55,13 @@ export interface GetProfileApiResponse {
     updatedAt: Date;
     emergencyContacts: EmergencyContactsType[];
 }
+
+export interface GetQrApiResponse {
+    qrDetails: [
+        {
+            _id: string;
+            userId: string;
+            qrCodeUrl: string;
+        },
+    ];
+}

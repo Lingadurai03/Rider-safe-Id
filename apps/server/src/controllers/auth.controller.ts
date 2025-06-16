@@ -6,7 +6,7 @@ import {
 } from '@ridersafeid/types';
 
 import { LoginDto, RegisterDto } from '@/dto';
-import { RefreshTokenDto } from '@/dto/refreshToken.dto';
+import { RefreshTokenDto } from '@/dto';
 import { JwtAuthGuard } from '@/guards';
 import { AuthService } from '@/services';
 
