@@ -6,7 +6,10 @@ import {
     Request,
     UseGuards,
 } from '@nestjs/common';
-import { GetProfileApiResponse } from '@ridersafeid/types';
+import {
+    AddOrUpdateProfileApiResponse,
+    GetProfileApiResponse,
+} from '@ridersafeid/types';
 
 import { AddOrUpdateProfileDto } from '@/dto';
 import { JwtAuthGuard } from '@/guards';
@@ -18,10 +21,10 @@ export class ProfileController {
 
     @UseGuards(JwtAuthGuard)
     @Post()
-    addProfile(
+    addOrUpdateProfile(
         @Request() req: { user: { id: string } },
         @Body() body: AddOrUpdateProfileDto,
-    ) {
+    ): Promise<AddOrUpdateProfileApiResponse> {
         return this.profileService.upsertProfile(req.user.id, body);
     }
 

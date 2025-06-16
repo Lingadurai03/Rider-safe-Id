@@ -21,6 +21,24 @@ interface EmergencyContactsType {
     createdAt: Date;
     updatedAt: Date;
 }
+export interface AddOrUpdateProfileApiResponse {
+    id: string;
+    userId: string;
+    profileName: string;
+    bloodGroup: string;
+    address: string;
+    pincode: string;
+    dob: Date;
+    state: string;
+    city: string;
+    imageUrl: string | null;
+    showPrivateData: boolean;
+    createdAt: Date;
+    updatedAt: Date;
+    updateCount: number;
+    isPremium: boolean;
+}
+
 export interface GetProfileApiResponse {
     id: string;
     userId: string;

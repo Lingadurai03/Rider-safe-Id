@@ -1,4 +1,8 @@
-import { Injectable, InternalServerErrorException } from '@nestjs/common';
+import {
+    ForbiddenException,
+    Injectable,
+    InternalServerErrorException,
+} from '@nestjs/common';
 import { AddOrUpdateProfileApiPayload } from '@ridersafeid/types';
 
 import { PrismaService } from './prisma.service';
@@ -15,11 +19,20 @@ export class ProfileService {
         });
 
         if (existingProfile) {
+            if (
+                !existingProfile.isPremium &&
+                existingProfile.updateCount >= 3
+            ) {
+                throw new ForbiddenException(
+                    'Update limit reached. Please upgrade to premium.',
+                );
+            }
+
             const updatedProfile = await this.prisma.profile.update({
                 where: { userId },
                 data: {
                     ...profileData,
-                    dob: new Date(profileData.dob).toISOString(),
+                    updateCount: existingProfile.updateCount + 1,
                 },
             });
 
@@ -38,15 +51,13 @@ export class ProfileService {
 
             return updatedProfile;
         } else {
+            // First time creating profile
             return this.prisma.profile.create({
                 data: {
                     ...profileData,
-                    dob: new Date(profileData.dob).toISOString(),
                     userId,
                     emergencyContacts: emergencyContacts
-                        ? {
-                              create: emergencyContacts,
-                          }
+                        ? { create: emergencyContacts }
                         : undefined,
                 },
                 include: { emergencyContacts: true },
