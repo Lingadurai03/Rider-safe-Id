@@ -2,9 +2,12 @@
 
 import React, { useEffect } from 'react';
 import { useFieldArray, useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
+import { RTKError } from '@ridersafeid/types';
 import { Trash2 } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
-import { Button, Input, ProfileImageWithEdit } from '@/components';
+import { Button, Error, Input, ProfileImageWithEdit } from '@/components';
 import {
     useGetProfileQuery,
     useUpdateProfileMutation,
@@ -27,6 +30,8 @@ const DetailsForm = ({ mode }: { mode: string }) => {
 
     const [updateProfile, { isLoading: isUpdateProfileLoading }] =
         useUpdateProfileMutation();
+
+    const router = useRouter();
 
     const {
         register,
@@ -72,14 +77,26 @@ const DetailsForm = ({ mode }: { mode: string }) => {
         name: 'emergencyContacts',
     });
 
-    const onSubmit = (data: FormData) => {
-        updateProfile({
-            ...data,
-            emergencyContacts: data.emergencyContacts.map((eContact) => ({
-                phone: eContact.phone,
-                name: eContact.name,
-            })),
-        });
+    const onSubmit = async (data: FormData) => {
+        try {
+            await updateProfile({
+                ...data,
+                emergencyContacts: data.emergencyContacts.map((eContact) => ({
+                    phone: eContact.phone,
+                    name: eContact.name,
+                })),
+            }).unwrap();
+            toast.success('Profile Updated Sucessfully');
+            router.push('/');
+        } catch (err: unknown) {
+            const error = err as RTKError;
+            toast.error(
+                <Error
+                    title={error.data?.error}
+                    message={error.data?.message}
+                />,
+            );
+        }
     };
 
     return (
