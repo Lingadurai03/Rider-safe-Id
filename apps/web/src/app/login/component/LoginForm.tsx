@@ -62,7 +62,6 @@ const LoginForm = () => {
                 <Button
                     isLoading={isLoading}
                     loadingText='Submiting'
-                    glow
                     label='Submit'
                 />
             </div>

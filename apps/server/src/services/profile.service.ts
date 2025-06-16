@@ -17,10 +17,12 @@ export class ProfileService {
         if (existingProfile) {
             const updatedProfile = await this.prisma.profile.update({
                 where: { userId },
-                data: profileData,
+                data: {
+                    ...profileData,
+                    dob: new Date(profileData.dob).toISOString(),
+                },
             });
 
-            console.log('emergencyContacts', emergencyContacts);
             if (emergencyContacts) {
                 await this.prisma.emergencyContact.deleteMany({
                     where: { profileId: updatedProfile.id },
@@ -39,6 +41,7 @@ export class ProfileService {
             return this.prisma.profile.create({
                 data: {
                     ...profileData,
+                    dob: new Date(profileData.dob).toISOString(),
                     userId,
                     emergencyContacts: emergencyContacts
                         ? {

@@ -1,10 +1,14 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useFieldArray, useForm } from 'react-hook-form';
 import { Trash2 } from 'lucide-react';
 
 import { Button, Input, ProfileImageWithEdit } from '@/components';
+import {
+    useGetProfileQuery,
+    useUpdateProfileMutation,
+} from '@/store/profile/profile.api';
 
 interface FormData {
     profileName: string;
@@ -19,16 +23,49 @@ interface FormData {
 }
 
 const DetailsForm = ({ mode }: { mode: string }) => {
+    const { data: profileData } = useGetProfileQuery();
+
+    const [updateProfile, { isLoading: isUpdateProfileLoading }] =
+        useUpdateProfileMutation();
+
     const {
         register,
         control,
         handleSubmit,
+        reset, // Important for setting default values after fetch
         formState: { errors },
     } = useForm<FormData>({
         defaultValues: {
+            profileName: '',
+            bloodGroup: '',
+            address: '',
+            pincode: '',
+            dob: '',
+            state: '',
+            city: '',
+            showPrivateData: false,
             emergencyContacts: [{ name: '', phone: '' }],
         },
     });
+
+    useEffect(() => {
+        if (profileData) {
+            reset({
+                profileName: profileData.profileName,
+                bloodGroup: profileData.bloodGroup,
+                address: profileData.address,
+                pincode: profileData.pincode,
+                dob: profileData.dob.toString().slice(0, 10),
+                state: profileData.state,
+                city: profileData.city,
+                showPrivateData: profileData.showPrivateData,
+                emergencyContacts:
+                    profileData.emergencyContacts.length > 0
+                        ? profileData.emergencyContacts
+                        : [{ name: '', phone: '' }],
+            });
+        }
+    }, [profileData, reset]);
 
     const { fields, append, remove } = useFieldArray({
         control,
@@ -36,7 +73,13 @@ const DetailsForm = ({ mode }: { mode: string }) => {
     });
 
     const onSubmit = (data: FormData) => {
-        console.log('Form Data:', data);
+        updateProfile({
+            ...data,
+            emergencyContacts: data.emergencyContacts.map((eContact) => ({
+                phone: eContact.phone,
+                name: eContact.name,
+            })),
+        });
     };
 
     return (
@@ -161,9 +204,13 @@ const DetailsForm = ({ mode }: { mode: string }) => {
                     </div>
                 )}
 
-                <div className='col-span-1 lg:col-span-2 max-w-[150px] m-auto'>
+                <div className='col-span-1 lg:col-span-2 max-w-[200px] m-auto'>
                     <Button
                         type='submit'
+                        isLoading={isUpdateProfileLoading}
+                        loadingText={
+                            mode === 'edit' ? 'Updating...' : 'Adding...'
+                        }
                         label={
                             mode === 'edit' ? 'Update Details' : 'Add Details'
                         }
