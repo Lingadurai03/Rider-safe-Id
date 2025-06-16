@@ -7,7 +7,7 @@ import { JwtService } from '@nestjs/jwt';
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
 import {
     LoginApiPayload,
-    RefreshTokenPayload,
+    RefreshTokenApiPayload,
     RegisterApiPayload,
 } from '@ridersafeid/types';
 import * as bcrypt from 'bcrypt';
@@ -128,7 +128,7 @@ export class AuthService {
         }
     }
 
-    async refreshToken(body: RefreshTokenPayload) {
+    async refreshToken(body: RefreshTokenApiPayload) {
         const { refreshToken } = body;
         try {
             const payload = this.jwtService.verify(refreshToken, {

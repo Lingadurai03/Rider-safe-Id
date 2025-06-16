@@ -103,7 +103,7 @@ const DetailsForm = ({ mode }: { mode: string }) => {
                     error={errors.city}
                 />
 
-                <label className='flex items-center gap-2 col-span-1 lg:col-span-2'>
+                <label className='flex items-center gap-2 col-span-1 lg:col-span-2 text-sm text'>
                     <input type='checkbox' {...register('showPrivateData')} />
                     Show Private Data
                 </label>
@@ -153,7 +153,7 @@ const DetailsForm = ({ mode }: { mode: string }) => {
                                 if (fields.length < 3)
                                     append({ name: '', phone: '' });
                             }}
-                            className='bg-primary text text-xs py-2 px-4 rounded-md hover:bg-opacity-90 cursor-pointer'
+                            className='text-xs py-2 px-4 text-[var(--color-primary)] underline cursor-pointer'
                             disabled={fields.length >= 3}
                         >
                             Add Emergency Contact
