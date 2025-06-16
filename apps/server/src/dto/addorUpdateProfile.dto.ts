@@ -5,14 +5,20 @@ import {
     IsDateString,
     IsOptional,
     IsString,
+    Length,
+    Matches,
     ValidateNested,
 } from 'class-validator';
 
 export class EmergencyContactDto {
-    @IsString()
+    @IsString({ message: 'Contact name must be a string' })
+    @Length(2, 50, {
+        message: 'Contact name must be between 2 and 50 characters',
+    })
     name: string;
 
-    @IsString()
+    @IsString({ message: 'Phone number must be a string' })
+    @Matches(/^\d{10}$/, { message: 'Phone number must be exactly 10 digits' })
     phone: string;
 }
 
@@ -49,6 +55,8 @@ export class AddOrUpdateProfileDto {
     @IsOptional()
     @ValidateNested({ each: true })
     @Type(() => EmergencyContactDto)
-    @ArrayMaxSize(3)
+    @ArrayMaxSize(3, {
+        message: 'A maximum of 3 emergency contacts is allowed',
+    })
     emergencyContacts?: EmergencyContactDto[];
 }

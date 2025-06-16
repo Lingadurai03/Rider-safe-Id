@@ -29,7 +29,7 @@ export class ProfileController {
     @Get()
     getProfile(
         @Request() req: { user: { id: string } },
-    ): Promise<GetProfileApiResponse> {
+    ): Promise<GetProfileApiResponse | null> {
         return this.profileService.getProfile(req.user.id);
     }
 }

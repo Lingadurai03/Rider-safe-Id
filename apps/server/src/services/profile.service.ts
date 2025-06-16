@@ -1,8 +1,4 @@
-import {
-    Injectable,
-    InternalServerErrorException,
-    NotFoundException,
-} from '@nestjs/common';
+import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { AddOrUpdateProfileApiPayload } from '@ridersafeid/types';
 
 import { PrismaService } from './prisma.service';
@@ -24,6 +20,7 @@ export class ProfileService {
                 data: profileData,
             });
 
+            console.log('emergencyContacts', emergencyContacts);
             if (emergencyContacts) {
                 await this.prisma.emergencyContact.deleteMany({
                     where: { profileId: updatedProfile.id },
@@ -55,15 +52,12 @@ export class ProfileService {
     }
 
     async getProfile(id: string) {
+        console.log('userProfile', id);
         try {
             const userProfile = await this.prisma.profile.findUnique({
                 where: { userId: id },
                 include: { emergencyContacts: true },
             });
-
-            if (!userProfile) {
-                throw new NotFoundException('Profile not found');
-            }
 
             return userProfile;
         } catch (_error) {
