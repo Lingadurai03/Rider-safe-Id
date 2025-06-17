@@ -7,7 +7,7 @@ export interface RegisterApiPayload {
     email: string;
     password: string;
     phone?: string;
-    fullName?: string;
+    fullName: string;
 }
 
 export interface RefreshTokenApiPayload {

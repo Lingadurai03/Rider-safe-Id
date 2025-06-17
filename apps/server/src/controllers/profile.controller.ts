@@ -3,23 +3,24 @@ import {
     Controller,
     Get,
     Post,
+    Req,
     Request,
     UseGuards,
 } from '@nestjs/common';
 import {
     AddOrUpdateProfileApiResponse,
+    GetAccountDetailsApiResponse,
     GetProfileApiResponse,
 } from '@ridersafeid/types';
 
 import { AddOrUpdateProfileDto } from '@/dto';
 import { JwtAuthGuard } from '@/guards';
 import { ProfileService } from '@/services';
-
+@UseGuards(JwtAuthGuard)
 @Controller('profile')
 export class ProfileController {
     constructor(private readonly profileService: ProfileService) {}
 
-    @UseGuards(JwtAuthGuard)
     @Post()
     addOrUpdateProfile(
         @Request() req: { user: { id: string } },
@@ -28,11 +29,17 @@ export class ProfileController {
         return this.profileService.upsertProfile(req.user.id, body);
     }
 
-    @UseGuards(JwtAuthGuard)
     @Get()
     getProfile(
         @Request() req: { user: { id: string } },
     ): Promise<GetProfileApiResponse | null> {
         return this.profileService.getProfile(req.user.id);
+    }
+
+    @Get('account-details')
+    getAccountDetails(
+        @Req() req: { user: { id: string } },
+    ): Promise<GetAccountDetailsApiResponse | null> {
+        return this.profileService.getAccountdetails(req.user.id);
     }
 }

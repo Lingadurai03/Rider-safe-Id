@@ -4,13 +4,15 @@ import { cookies } from 'next/headers';
 
 import { ACCESS_TOKEN, REFRESH_TOKEN } from '@/constant';
 
-export const createServerAxios = async (): Promise<AxiosInstance> => {
+export const createServerAxios = async (options?: {
+    baseURL?: string;
+}): Promise<AxiosInstance> => {
     const cookieStore = await cookies();
     const accessToken = cookieStore.get(ACCESS_TOKEN)?.value;
     const refreshToken = cookieStore.get(REFRESH_TOKEN)?.value;
 
     const instance = axios.create({
-        baseURL: process.env.NEXT_PUBLIC_API_URL_SSR,
+        baseURL: options?.baseURL || process.env.NEXT_PUBLIC_API_URL_SSR,
         headers: {
             Authorization: `Bearer ${accessToken}`,
         },

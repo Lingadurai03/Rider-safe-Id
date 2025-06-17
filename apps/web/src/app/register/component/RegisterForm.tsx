@@ -31,10 +31,19 @@ const RegisterForm = () => {
     const navigate = useRouter();
 
     const onSubmit = async (data: RegisterApiPayload) => {
+        const { email, password, fullName, phone } = data;
+
+        const userData: RegisterApiPayload = {
+            email,
+            password,
+            fullName,
+            ...(phone ? { phone } : {}),
+        };
+
         try {
-            const userData = await registerFn(data).unwrap();
-            saveToken(ACCESS_TOKEN, userData.accessToken);
-            saveToken(REFRESH_TOKEN, userData.refreshToken);
+            const res = await registerFn(userData).unwrap();
+            saveToken(ACCESS_TOKEN, res.accessToken);
+            saveToken(REFRESH_TOKEN, res.refreshToken);
             navigate.push('/');
         } catch (err) {
             const error = err as RTKError;
@@ -67,9 +76,7 @@ const RegisterForm = () => {
             />
             <Input
                 label='Phone Number'
-                registration={register('phone', {
-                    required: 'Phone Number is required',
-                })}
+                registration={register('phone', {})}
                 error={errors.phone}
                 isDarkPage
             />
@@ -97,7 +104,6 @@ const RegisterForm = () => {
                 <Button
                     isLoading={isLoading}
                     loadingText='Submiting'
-                    glow
                     type='submit'
                     label='Submit'
                 />

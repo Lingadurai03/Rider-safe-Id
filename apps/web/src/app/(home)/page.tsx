@@ -1,6 +1,8 @@
 import React, { Suspense } from 'react';
 import Link from 'next/link';
 
+import { BoxSkeletons } from '@/skeletons';
+
 import { GlowingButton } from '@/components';
 
 import QrComponent from './components/QrComponent';
@@ -10,7 +12,9 @@ const Home = () => {
         <>
             <div className='relative z-10 w-full bg-white-sm  backdrop-blur-sm py-12 p-4 border-white-sm rounded-lg flex flex-col-reverse md:flex-row gap-4 shadow-sm inset-shadow-sm'>
                 <div className='w-full md:w-1/2 flex justify-center flex-col gap-5'>
-                    <Suspense fallback={<p>Loading</p>}>
+                    <Suspense
+                        fallback={<BoxSkeletons className='h-60 w-full' />}
+                    >
                         <QrComponent />
                     </Suspense>
                 </div>

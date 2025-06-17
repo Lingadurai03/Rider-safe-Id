@@ -65,3 +65,16 @@ export interface GetQrApiResponse {
         },
     ];
 }
+
+export interface GetAccountDetailsApiResponse {
+    id: string;
+    createdAt: Date;
+    updatedAt: Date;
+    email: string;
+    phone: string | null;
+    fullName: string | null;
+    refreshToken: string | null;
+    editCount: number;
+    role: string;
+    qrStatus: boolean;
+}

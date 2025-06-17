@@ -52,6 +52,11 @@ export class ProfileService {
             return updatedProfile;
         } else {
             // First time creating profile
+            await this.prisma.user.update({
+                where: { id: userId },
+                data: { qrStatus: true },
+            });
+
             return this.prisma.profile.create({
                 data: {
                     ...profileData,
@@ -70,6 +75,19 @@ export class ProfileService {
             const userProfile = await this.prisma.profile.findUnique({
                 where: { userId: id },
                 include: { emergencyContacts: true },
+            });
+
+            return userProfile;
+        } catch (_error) {
+            throw new InternalServerErrorException('Failed to fetch profile');
+        }
+    }
+
+    async getAccountdetails(id: string) {
+        try {
+            const userProfile = await this.prisma.user.findUnique({
+                where: { id },
+                omit: { password: true },
             });
 
             return userProfile;
