@@ -4,7 +4,7 @@ import { BoxSkeletons } from '@/skeletons';
 
 import { Navbar } from '@/components';
 
-import AccountDetals from './components/AccountDetals';
+import AccountDetails from './components/AccountDetails';
 
 export default function Layout({
     children,
@@ -20,7 +20,7 @@ export default function Layout({
                         <Suspense
                             fallback={<BoxSkeletons className='h-60 w-full' />}
                         >
-                            <AccountDetals />
+                            <AccountDetails />
                         </Suspense>
                     </div>
                     <div className='md:w-3/4 p-4'>{children}</div>

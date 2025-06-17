@@ -4,7 +4,7 @@ import { Phone, UserCircle, Verified } from 'lucide-react';
 
 import { createServerAxios } from '@/lib/axiosServer.lib';
 
-const AccountDetals = async () => {
+const AccountDetails = async () => {
     const axios = await createServerAxios();
     let accountDetail: GetAccountDetailsApiResponse | null = null;
 
@@ -17,7 +17,6 @@ const AccountDetals = async () => {
         console.error(e);
     }
 
-    console.log(accountDetail);
     return (
         <div className='relative z-10 w-full bg-white-xs border-white-sm backdrop-blur-sm p-4 text-white rounded-lg flex flex-col gap-5 justify-center shadow-sm inset-shadow-sm'>
             <div className='flex justify-center'>
@@ -41,14 +40,14 @@ const AccountDetals = async () => {
             <div className='flex justify-center flex-col gap-2 text-sm text-muted'>
                 <div className='flex justify-center gap-2 '>
                     <p className='font-normal'>QR Code Status</p>
-                    <p className='font-bold'>
+                    <p className='font-bold text-primary'>
                         {accountDetail?.qrStatus ? 'Active' : 'In-active'}
                     </p>
                 </div>
                 {accountDetail && accountDetail?.editCount >= 0 && (
                     <p className='text-center font-normal'>
                         Free Edit Left :{' '}
-                        <span className='ml-2 font-black text-lg'>
+                        <span className='ml-2 font-bold text-primary'>
                             {3 - accountDetail.editCount}
                         </span>
                     </p>
@@ -58,4 +57,4 @@ const AccountDetals = async () => {
     );
 };
 
-export default AccountDetals;
+export default AccountDetails;

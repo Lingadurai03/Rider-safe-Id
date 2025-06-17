@@ -6,11 +6,12 @@ import { BoxSkeletons } from '@/skeletons';
 import { GlowingButton } from '@/components';
 
 import QrComponent from './components/QrComponent';
+import QrProfiledata from './components/QrProfiledata';
 
 const Home = () => {
     return (
         <>
-            <div className='relative z-10 w-full bg-white-sm  backdrop-blur-sm py-12 p-4 border-white-sm rounded-lg flex flex-col-reverse md:flex-row gap-4 shadow-sm inset-shadow-sm'>
+            <section className='relative z-10 w-full bg-white-sm  backdrop-blur-sm py-12 p-4 border-white-sm rounded-lg flex flex-col-reverse md:flex-row gap-10 md:gap-4 shadow-sm inset-shadow-sm'>
                 <div className='w-full md:w-1/2 flex justify-center flex-col gap-5'>
                     <Suspense
                         fallback={<BoxSkeletons className='h-60 w-full' />}
@@ -26,12 +27,17 @@ const Home = () => {
                             <GlowingButton
                                 glow
                                 glowColor='var(--color-primary)'
-                                label='Generate Qr Code'
+                                label='Upgrade to Pro'
                             />
                         </Link>
                     </div>
                 </div>
-            </div>
+            </section>
+            <section className=' mt-4 w-full bg-white-sm  backdrop-blur-sm py-8 p-4 border-white-sm rounded-lg shadow-sm inset-shadow-sm'>
+                <Suspense fallback={<BoxSkeletons className='w-full h-40' />}>
+                    <QrProfiledata />
+                </Suspense>
+            </section>
         </>
     );
 };

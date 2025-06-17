@@ -1,6 +1,7 @@
 import React from 'react';
 import { GetQrApiResponse } from '@ridersafeid/types';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { createServerAxios } from '@/lib/axiosServer.lib';
 
@@ -37,16 +38,15 @@ const QrComponent = async () => {
                 </div>
 
                 <div className='w-full max-w-[150px] md:w-[48%] lg:w-auto'>
-                    <GlowingButton
-                        glow
-                        glowColor='var(--color-secondary)'
-                        label='Upgrade to pro'
-                    />
+                    <Link href={'details/add'}>
+                        <GlowingButton
+                            glow
+                            glowColor='var(--color-secondary)'
+                            label='Edit Details'
+                        />
+                    </Link>
                 </div>
             </div>
-            <p className='text-center text-xs mt-4 text'>
-                You have 3 Free edits left
-            </p>
         </>
     );
 };

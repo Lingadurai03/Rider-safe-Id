@@ -32,6 +32,7 @@ export class ProfileService {
                 where: { userId },
                 data: {
                     ...profileData,
+                    dob: new Date(profileData.dob).toISOString(),
                     updateCount: existingProfile.updateCount + 1,
                 },
             });
@@ -60,6 +61,7 @@ export class ProfileService {
             return this.prisma.profile.create({
                 data: {
                     ...profileData,
+                    dob: new Date(profileData.dob).toISOString(),
                     userId,
                     emergencyContacts: emergencyContacts
                         ? { create: emergencyContacts }
