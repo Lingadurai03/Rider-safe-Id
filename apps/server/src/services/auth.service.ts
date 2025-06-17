@@ -1,11 +1,14 @@
 import {
     BadRequestException,
     Injectable,
+    InternalServerErrorException,
+    NotFoundException,
     UnauthorizedException,
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
 import {
+    GetRoleApiResponse,
     LoginApiPayload,
     RefreshTokenApiPayload,
     RegisterApiPayload,
@@ -147,6 +150,23 @@ export class AuthService {
                     `User with ID ${userId} not found.`,
                 );
             }
+        }
+    }
+
+    async getRole(userId: string): Promise<GetRoleApiResponse> {
+        try {
+            const user = await this.prisma.user.findUnique({
+                where: { id: userId },
+                select: { role: true },
+            });
+
+            if (!user) {
+                throw new NotFoundException('User not found');
+            }
+
+            return { role: user.role };
+        } catch (_error) {
+            throw new InternalServerErrorException('Failed to fetch user role');
         }
     }
 

@@ -1,4 +1,11 @@
-import { Body, Controller, Post, Request, UseGuards } from '@nestjs/common';
+import {
+    Body,
+    Controller,
+    Get,
+    Post,
+    Request,
+    UseGuards,
+} from '@nestjs/common';
 import {
     LoginApiResponse,
     RefreshTokenApiResponse,
@@ -28,6 +35,11 @@ export class AuthController {
         @Body() body: RefreshTokenDto,
     ): Promise<RefreshTokenApiResponse> {
         return this.authService.refreshToken(body);
+    }
+    @UseGuards(JwtAuthGuard)
+    @Get('getRole')
+    async getRole(@Request() req: { user: { id: string } }) {
+        return this.authService.getRole(req.user.id);
     }
 
     @UseGuards(JwtAuthGuard)
