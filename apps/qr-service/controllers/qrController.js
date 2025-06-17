@@ -13,7 +13,8 @@ export const generateAndUploadQR = async (req, res) => {
     if (!userId) return res.status(400).json({ message: 'User ID missing' });
 
     try {
-        const qrData = `${process.env.FRONT_END_URL}/${userId}`;
+        const qrData = `${process.env.FRONT_END_URL}public/${userId}`;
+
         const qrBuffer = await QRCode.toBuffer(qrData);
 
         const uploadResult = await new Promise((resolve, reject) => {

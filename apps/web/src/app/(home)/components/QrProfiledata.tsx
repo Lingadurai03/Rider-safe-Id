@@ -16,8 +16,10 @@ const QrProfiledata = async () => {
         console.error(e);
     }
 
+    if (!qrProfileData) return null;
+
     return (
-        <>
+        <section className=' mt-4 w-full bg-white-sm  backdrop-blur-sm py-8 p-4 border-white-sm rounded-lg shadow-sm inset-shadow-sm'>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
                 <div className='relative h-40 w-40 flex justify-center items-center'>
                     <Image
@@ -52,13 +54,13 @@ const QrProfiledata = async () => {
             </div>
             <div className='flex justify-center items-center'>
                 <Link
-                    href={''}
+                    href={'details'}
                     className='underline text-primary font-semibold'
                 >
                     Preview
                 </Link>
             </div>
-        </>
+        </section>
     );
 };
 
