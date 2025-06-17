@@ -31,10 +31,19 @@ const RegisterForm = () => {
     const navigate = useRouter();
 
     const onSubmit = async (data: RegisterApiPayload) => {
+        const { email, password, fullName, phone } = data;
+
+        const userData: RegisterApiPayload = {
+            email,
+            password,
+            fullName,
+            ...(phone ? { phone } : {}),
+        };
+
         try {
-            const userData = await registerFn(data).unwrap();
-            saveToken(ACCESS_TOKEN, userData.accessToken);
-            saveToken(REFRESH_TOKEN, userData.refreshToken);
+            const res = await registerFn(userData).unwrap();
+            saveToken(ACCESS_TOKEN, res.accessToken);
+            saveToken(REFRESH_TOKEN, res.refreshToken);
             navigate.push('/');
         } catch (err) {
             const error = err as RTKError;
@@ -55,6 +64,7 @@ const RegisterForm = () => {
                 })}
                 type='email'
                 error={errors.email}
+                isDarkPage
             />
             <Input
                 label='FullName'
@@ -62,13 +72,13 @@ const RegisterForm = () => {
                     required: 'Full Name is required',
                 })}
                 error={errors.fullName}
+                isDarkPage
             />
             <Input
                 label='Phone Number'
-                registration={register('phone', {
-                    required: 'Phone Number is required',
-                })}
+                registration={register('phone', {})}
                 error={errors.phone}
+                isDarkPage
             />
             <Input
                 label='Password'
@@ -77,6 +87,7 @@ const RegisterForm = () => {
                     required: 'Password is required',
                 })}
                 error={errors.password}
+                isDarkPage
             />
             <Input
                 label='Confirm Password'
@@ -87,12 +98,12 @@ const RegisterForm = () => {
                         value === passwordInputText || 'Passwords do not match',
                 })}
                 error={errors.confirmPassword}
+                isDarkPage
             />
             <div className='flex justify-center items-center '>
                 <Button
                     isLoading={isLoading}
                     loadingText='Submiting'
-                    glow
                     type='submit'
                     label='Submit'
                 />

@@ -16,7 +16,7 @@ export default [
     files: ['src/**/*.ts'],
     languageOptions: {
       parserOptions: {
-        project: ['./tsconfig.eslint.json'], // for server side
+        project: ['./tsconfig.json'],
       },
     },
   },

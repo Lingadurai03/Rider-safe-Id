@@ -27,11 +27,10 @@ export class RegisterDto {
     )
     password: string;
 
-    @IsOptional()
     @IsString()
     @Transform(({ value }) => value?.trim())
     @Matches(/^[a-zA-Z\s]*$/, {
         message: 'Full name can only contain letters and spaces',
     })
-    fullName?: string;
+    fullName: string;
 }

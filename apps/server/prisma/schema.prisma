@@ -19,6 +19,7 @@ model User {
   role        String   @default("user") // 'user' | 'admin'
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  qrStatus    Boolean  @default(false)
 
   profile     Profile?  
 }
@@ -34,17 +35,14 @@ model Profile {
   state                  String
   city                   String
   imageUrl               String? // optional rider image
-
-  // Control flag for private data
   showPrivateData        Boolean  @default(false)
-
   createdAt              DateTime @default(now())
   updatedAt              DateTime @updatedAt
+  updateCount     Int      @default(0) 
+  isPremium       Boolean  @default(false)
 
   user User @relation(fields: [userId], references: [id])
-  
-  // Relations
-  emergencyContacts      EmergencyContact[] // One profile -> multiple emergency contacts (max 3)
+  emergencyContacts EmergencyContact[]
 }
 
 model EmergencyContact {

@@ -7,9 +7,27 @@ export interface RegisterApiPayload {
     email: string;
     password: string;
     phone?: string;
-    fullName?: string;
+    fullName: string;
 }
 
-export interface RefreshTokenPayload {
+export interface RefreshTokenApiPayload {
     refreshToken: string;
+}
+
+interface EmergencyContactType {
+    name: string;
+    phone: string;
+}
+
+export class AddOrUpdateProfileApiPayload {
+    profileName: string;
+    bloodGroup: string;
+    address: string;
+    pincode: string;
+    dob: string;
+    state: string;
+    city: string;
+    imageUrl?: string;
+    showPrivateData?: boolean;
+    emergencyContacts?: EmergencyContactType[];
 }

@@ -7,7 +7,7 @@ import { JwtService } from '@nestjs/jwt';
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
 import {
     LoginApiPayload,
-    RefreshTokenPayload,
+    RefreshTokenApiPayload,
     RegisterApiPayload,
 } from '@ridersafeid/types';
 import * as bcrypt from 'bcrypt';
@@ -45,18 +45,40 @@ export class AuthService {
                 },
             });
 
-            const tokens = await this.generateTokens(user);
-            await this.updateRefreshToken(user.id, tokens.refreshToken);
+            try {
+                const qrResponse = await fetch(
+                    `${process.env.QR_SERVICE_BASE_URL}qr/generate/${user.id}`,
+                    { method: 'post' },
+                );
 
-            return {
-                user: {
-                    id: user.id,
-                    fullName: user.fullName,
-                    email: user.email,
-                    role: user.role,
-                },
-                ...tokens,
-            };
+                if (!qrResponse.ok) {
+                    await this.prisma.user.delete({
+                        where: { id: user.id },
+                    });
+                    throw new Error(
+                        'QR Generation failed. User creation rolled back.',
+                    );
+                }
+
+                const tokens = await this.generateTokens(user);
+                await this.updateRefreshToken(user.id, tokens.refreshToken);
+
+                return {
+                    user: {
+                        id: user.id,
+                        fullName: user.fullName,
+                        email: user.email,
+                        role: user.role,
+                    },
+                    ...tokens,
+                };
+            } catch (error) {
+                // Rollback
+                await this.prisma.user.delete({
+                    where: { id: user.id },
+                });
+                throw error;
+            }
         } catch (error) {
             throw error;
         }
@@ -128,7 +150,7 @@ export class AuthService {
         }
     }
 
-    async refreshToken(body: RefreshTokenPayload) {
+    async refreshToken(body: RefreshTokenApiPayload) {
         const { refreshToken } = body;
         try {
             const payload = this.jwtService.verify(refreshToken, {

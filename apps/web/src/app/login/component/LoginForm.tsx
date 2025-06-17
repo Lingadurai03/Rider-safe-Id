@@ -46,11 +46,13 @@ const LoginForm = () => {
                 registration={register('email', {
                     required: 'Username is required',
                 })}
+                isDarkPage
                 error={errors.email}
             />
             <Input
                 label='Password'
                 type='password'
+                isDarkPage
                 registration={register('password', {
                     required: 'Password is required',
                 })}
@@ -60,7 +62,6 @@ const LoginForm = () => {
                 <Button
                     isLoading={isLoading}
                     loadingText='Submiting'
-                    glow
                     label='Submit'
                 />
             </div>
