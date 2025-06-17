@@ -1,16 +1,23 @@
 import { Suspense } from 'react';
+import { redirect } from 'next/navigation';
 
+import { getUserRole } from '@/lib';
 import { BoxSkeletons } from '@/skeletons';
 
 import { Navbar } from '@/components';
 
 import AccountDetails from './components/AccountDetails';
 
-export default function Layout({
+export default async function Layout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    const roleData = await getUserRole();
+    if (!roleData) {
+        redirect('/login');
+    }
+
     return (
         <>
             <Navbar />

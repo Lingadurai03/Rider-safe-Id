@@ -78,3 +78,7 @@ export interface GetAccountDetailsApiResponse {
     role: string;
     qrStatus: boolean;
 }
+
+export interface GetRoleApiResponse {
+    role: 'admin' | 'user';
+}
