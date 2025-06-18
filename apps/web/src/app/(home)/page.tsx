@@ -33,11 +33,10 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-            <section className=' mt-4 w-full bg-white-sm  backdrop-blur-sm py-8 p-4 border-white-sm rounded-lg shadow-sm inset-shadow-sm'>
-                <Suspense fallback={<BoxSkeletons className='w-full h-40' />}>
-                    <QrProfiledata />
-                </Suspense>
-            </section>
+
+            <Suspense fallback={<BoxSkeletons className='w-full h-40' />}>
+                <QrProfiledata />
+            </Suspense>
         </>
     );
 };
