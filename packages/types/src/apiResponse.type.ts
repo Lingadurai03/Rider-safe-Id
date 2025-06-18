@@ -82,3 +82,41 @@ export interface GetAccountDetailsApiResponse {
 export interface GetRoleApiResponse {
     role: 'admin' | 'user';
 }
+
+export interface IpLocation {
+    status: string;
+    country: string;
+    countryCode: string;
+    region: string;
+    regionName: string;
+    city: string;
+    zip: string;
+    lat: number;
+    lon: number;
+    timezone: string;
+    isp: string;
+    org: string;
+    as: string;
+    query: string;
+}
+
+export type IpLocationApiResponse = IpLocation[];
+
+export interface IPAddressApiResponse {
+    ip: string;
+}
+
+export interface CreateScanLogApiResponse {
+    message: string;
+    log: {
+        ownerUserId: string;
+        accuracy: string;
+        city: string;
+        state: string;
+        country: string;
+        lat: string;
+        long: string;
+        _id: string;
+        scannedAt: string;
+    };
+}

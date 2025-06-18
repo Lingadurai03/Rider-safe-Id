@@ -31,3 +31,12 @@ export class AddOrUpdateProfileApiPayload {
     showPrivateData?: boolean;
     emergencyContacts?: EmergencyContactType[];
 }
+
+export class CreateLogApiPayload {
+    city: string;
+    state: string;
+    country: string;
+    lat: number;
+    long: number;
+    accuracy: string;
+}
