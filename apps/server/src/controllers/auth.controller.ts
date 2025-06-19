@@ -43,6 +43,23 @@ export class AuthController {
     }
 
     @UseGuards(JwtAuthGuard)
+    @Get('self')
+    async validate(@Request() req: { user: { id: string } }) {
+        return this.authService.getUserInfo(req.user.id);
+    }
+
+    @UseGuards(JwtAuthGuard)
+    @Get('updateNotificationLastSeenAt')
+    async updateNotificationLastSeenAt(
+        @Request() req: { user: { id: string } },
+    ) {
+        const res = await this.authService.updateUserLastSeenNotificationAt(
+            req.user.id,
+        );
+        return { lastSeenNotificationAt: res.lastSeenNotificationAt };
+    }
+
+    @UseGuards(JwtAuthGuard)
     @Post('logout')
     async logout(@Request() req: { user: { id: string } }) {
         return this.authService.logout(req.user.id);

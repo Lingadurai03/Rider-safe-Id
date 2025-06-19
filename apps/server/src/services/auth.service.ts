@@ -201,6 +201,25 @@ export class AuthService {
         }
     }
 
+    async updateUserLastSeenNotificationAt(userId: string) {
+        return await this.prisma.user.update({
+            where: { id: userId },
+            data: { lastSeenNotificationAt: new Date() },
+        });
+    }
+
+    async getUserInfo(userId: string) {
+        return await this.prisma.user.findUnique({
+            where: { id: userId },
+            select: {
+                id: true,
+                email: true,
+                lastSeenNotificationAt: true,
+                role: true,
+            },
+        });
+    }
+
     async logout(userId: string) {
         await this.updateRefreshToken(userId, null);
         return { message: 'Logged out' };
