@@ -8,7 +8,7 @@ export default function Login() {
         <main className='relative w-full h-screen bg-black'>
             {/* Fullscreen Background Image */}
             <Image
-                src='/bluebiker.webp'
+                src={'/bluebiker.webp'}
                 alt='/bluebiker.webp'
                 fill
                 className='object-cover opacity-50 '
