@@ -10,9 +10,9 @@ import ScanLogger from './component/ScanLogger';
 const Details = async ({ params }: { params: { userId: string } }) => {
     const param = await params;
     const userId = param.userId;
-    const ip = await getIpAddress();
+    const ipRes = await getIpAddress();
 
-    const location = await getLatandLong(ip.ip);
+    const location = await getLatandLong(ipRes.ip);
 
     const constructedLocationData: CreateLogApiPayload = {
         city: location[0].city,

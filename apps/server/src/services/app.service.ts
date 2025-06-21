@@ -1,4 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
+import { ScanLogsApiResponse } from '@ridersafeid/types';
 
 @Injectable()
 export class AppService {
@@ -6,7 +7,7 @@ export class AppService {
         return 'Hello World!';
     }
 
-   async getLogs(id: string) {
+   async getLogs(id: string):Promise<ScanLogsApiResponse> {
     try {
         const res = await fetch(
             `${process.env.QR_SERVICE_BASE_URL}scan/logs/${id}`,

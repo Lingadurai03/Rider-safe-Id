@@ -3,6 +3,7 @@
 import { Bell } from 'lucide-react';
 
 import LanguageSelect from '../LanguageSelect';
+import Link from 'next/link';
 
 export default function Navbar() {
     const notificationCount = 3; // dynamically fetch this later if needed
@@ -21,14 +22,15 @@ export default function Navbar() {
                     <LanguageSelect />
 
                     {/* Notification Icon with Count */}
-                    <div className='relative'>
+                    <Link href={'notifications'} className='relative'>
+                        
                         <Bell className='text- w-7 h-7 text cursor-pointer hover:rotate-20 transition-all duration-300 hover:text-[color:var(--color-primary)]' />
                         {notificationCount > 0 && (
                             <span className='absolute -top-1 -right-1 bg-primary text text-xs font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-lg'>
                                 {notificationCount}
                             </span>
                         )}
-                    </div>
+                    </Link>
                 </div>
             </div>
         </nav>

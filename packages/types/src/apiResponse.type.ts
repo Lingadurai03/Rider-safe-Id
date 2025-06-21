@@ -120,3 +120,20 @@ export interface CreateScanLogApiResponse {
         scannedAt: string;
     };
 }
+export interface ScanLog {
+    _id: string;
+    ownerUserId: string;
+    accuracy: 'poor' | 'accurate';
+    city: string;
+    state: string;
+    country: string;
+    lat: string;
+    long: string;
+    scannedAt: string;
+    __v: number;
+}
+
+
+export interface ScanLogsApiResponse{
+      logs: ScanLog[];
+}
