@@ -10,6 +10,6 @@ const router = express.Router();
 
 router.post('/log-scan/:userId', createScanLog);
 router.patch('/update-log/:scanLogId', updateScanLog);
-router.get('/log-scan/:userId', getScanLogs);
+router.get('/logs/:userId', getScanLogs);
 
 export default router;

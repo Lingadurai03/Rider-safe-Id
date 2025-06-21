@@ -18,4 +18,10 @@ export class AppController {
     getQr(@Request() req: { user: { id: string } }): Promise<GetQrApiResponse> {
         return this.appService.getQrData(req.user.id);
     }
+
+    @UseGuards(JwtAuthGuard)
+    @Get('getLogs')
+    async getUserId(@Request() req:{user:{id:string}}){
+        return this.appService.getLogs(req.user.id)
+    }
 }

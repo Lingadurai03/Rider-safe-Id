@@ -5,6 +5,32 @@ export class AppService {
     getHello(): string {
         return 'Hello World!';
     }
+
+   async getLogs(id: string) {
+    try {
+        const res = await fetch(
+            `${process.env.QR_SERVICE_BASE_URL}scan/logs/${id}`,
+            {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-api-key': process.env.INTERNAL_API_KEY as string, 
+                },
+            },
+        );
+
+        if (!res.ok) {
+            throw new Error('Failed to fetch scan logs');
+        }
+
+        const data = await res.json();
+        return data;
+
+        } catch (err) {
+            console.error('Error fetching scan logs:', err);
+            throw new NotFoundException();
+        }
+    }
     async getQrData(id: string) {
         try {
             const res = await fetch(

@@ -60,6 +60,11 @@ export const updateScanLog = async (req, res, next) => {
 };
 
 export const getScanLogs = async (req, res, next) => {
+    const apiKey = req.headers['x-api-key'];
+    
+    if (apiKey !== process.env.INTERNAL_API_KEY) {
+        return res.status(403).json({ message: 'Forbidden — Invalid API Key' });
+    }
     const { userId } = req.params;
     try {
         const logs = await getScanLogsService(userId);

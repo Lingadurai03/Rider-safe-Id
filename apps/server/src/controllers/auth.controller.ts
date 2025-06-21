@@ -12,8 +12,7 @@ import {
     RegisterApiResponse,
 } from '@ridersafeid/types';
 
-import { LoginDto, RegisterDto } from '@/dto';
-import { RefreshTokenDto } from '@/dto';
+import { LoginDto, RegisterDto, RefreshTokenDto } from '@/dto';
 import { JwtAuthGuard } from '@/guards';
 import { AuthService } from '@/services';
 
