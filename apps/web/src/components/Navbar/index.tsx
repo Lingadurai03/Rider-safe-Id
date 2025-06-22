@@ -12,9 +12,9 @@ export default function Navbar() {
         <nav className='fixed top-0 left-0 w-full z-50 backdrop-blur-xs  border-b-white-sm bg-white-xs shadow-sm'>
             <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between'>
                 {/* Left Side: App Name */}
-                <div className='text-xl font-bold text-primary drop-shadow-glow'>
-                    RiderSafeID
-                </div>
+                <Link href={'/'} className='text-xl font-bold text-primary drop-shadow-glow'>
+                   RiderSafeID
+                </Link>
 
                 {/* Right Side: Language Select & Notification */}
                 <div className='flex items-center gap-4'>

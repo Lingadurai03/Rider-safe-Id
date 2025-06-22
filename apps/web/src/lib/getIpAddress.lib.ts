@@ -1,3 +1,5 @@
+'use server'
+
 import { IPAddressApiResponse } from '@ridersafeid/types';
 import axios from 'axios';
 const url = process.env.NEXT_PUBLIC_GET_IP_URL || '';

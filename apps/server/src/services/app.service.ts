@@ -1,5 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { ScanLogsApiResponse } from '@ridersafeid/types';
+import { Request } from 'express';
 
 @Injectable()
 export class AppService {
@@ -7,7 +8,8 @@ export class AppService {
         return 'Hello World!';
     }
 
-   async getLogs(id: string):Promise<ScanLogsApiResponse> {
+   async getLogs(id: string, req:Request):Promise<ScanLogsApiResponse> {
+    console.log( `${process.env.QR_SERVICE_BASE_URL}scan/logs/${id}`)
     try {
         const res = await fetch(
             `${process.env.QR_SERVICE_BASE_URL}scan/logs/${id}`,
@@ -15,13 +17,14 @@ export class AppService {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    'x-api-key': process.env.INTERNAL_API_KEY as string, 
+                    'x-api-key': process.env.INTERNAL_API_KEY as string,
+                    'Authorization': req.headers['authorization'] || '', 
                 },
             },
         );
-
+console.log(res)
         if (!res.ok) {
-            throw new Error('Failed to fetch scan logs');
+            throw new Error('Failed to fetch s');
         }
 
         const data = await res.json();

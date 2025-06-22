@@ -44,6 +44,9 @@ importers:
 
   apps/qr-service:
     dependencies:
+      axios:
+        specifier: ^1.10.0
+        version: 1.10.0
       cloudinary:
         specifier: ^2.6.1
         version: 2.6.1

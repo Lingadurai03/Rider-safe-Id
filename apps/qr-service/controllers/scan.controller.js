@@ -2,6 +2,7 @@ import Joi from 'joi';
 
 import {
     createScanLogService,
+    getNotificationCountService,
     getScanLogsService,
     updateScanLogService,
 } from '../services/scanLogs.services.js';
@@ -59,17 +60,43 @@ export const updateScanLog = async (req, res, next) => {
     }
 };
 
+
+export const getNotificationCount = async (req, res, next) => {
+    try {
+        const token = req.headers.authorization?.split(' ')[1];
+
+        if (!token) {
+            return res.status(401).json({ message: 'No token provided' });
+        }
+        const count = await getNotificationCountService(token);
+        res.status(200).json({ count });
+    } catch (err) {
+        console.error('Error in getNotificationCount:', err);
+        next(err);
+    }
+};
+
+
+  
+
 export const getScanLogs = async (req, res, next) => {
-    const apiKey = req.headers['x-api-key'];
+      const apiKey = req.headers['x-api-key'];
     
     if (apiKey !== process.env.INTERNAL_API_KEY) {
         return res.status(403).json({ message: 'Forbidden — Invalid API Key' });
     }
     const { userId } = req.params;
     try {
-        const logs = await getScanLogsService(userId);
+        const token = req.headers.authorization?.split(' ')[1];
+
+        if (!token) {
+            return res.status(401).json({ message: 'No token provided' });
+        }
+
+        const logs = await getScanLogsService(userId,token);
         res.status(200).json({ logs });
     } catch (err) {
+        console.error('Error in getScanLogs:', err);
         next(err);
     }
 };
