@@ -27,65 +27,70 @@ export class AuthService {
     ) {}
 
     // Register
-    async register(userData: RegisterApiPayload) {
+   async register(userData: RegisterApiPayload) {
+    try {
+        const existingUser = await this.prisma.user.findFirst({
+            where: {
+                OR: [{ email: userData.email }],
+            },
+        });
+
+        if (existingUser) {
+            throw new BadRequestException('Email already exists');
+        }
+
+        const hashedPassword = await bcrypt.hash(userData.password, 10);
+
+        const user = await this.prisma.user.create({
+            data: {
+                ...userData,
+                password: hashedPassword,
+            },
+        });
+
         try {
-            const existingUser = await this.prisma.user.findFirst({
-                where: {
-                    OR: [{ email: userData.email }],
-                },
-            });
-
-            if (existingUser) {
-                throw new BadRequestException('Email already exists');
-            }
-
-            const hashedPassword = await bcrypt.hash(userData.password, 10);
-
-            const user = await this.prisma.user.create({
-                data: {
-                    ...userData,
-                    password: hashedPassword,
-                },
-            });
-
-            try {
                 const qrResponse = await fetch(
-                    `${process.env.QR_SERVICE_BASE_URL}qr/generate/${user.id}`,
-                    { method: 'post' },
-                );
-
-                if (!qrResponse.ok) {
-                    await this.prisma.user.delete({
-                        where: { id: user.id },
-                    });
-                    throw new Error(
-                        'QR Generation failed. User creation rolled back.',
-                    );
-                }
-
-                const tokens = await this.generateTokens(user);
-                await this.updateRefreshToken(user.id, tokens.refreshToken);
-
-                return {
-                    user: {
-                        id: user.id,
-                        fullName: user.fullName,
-                        email: user.email,
-                        role: user.role,
+                `${process.env.QR_SERVICE_BASE_URL}qr/generate/${user.id}`,
+                {
+                    method: 'POST', 
+                    headers: {
+                        'Content-Type': 'application/json', 
+                        'x-api-key': process.env.INTERNAL_API_KEY as string,
                     },
-                    ...tokens,
-                };
-            } catch (error) {
-                // Rollback
+                }
+            );
+
+            if (!qrResponse.ok) {
+                // Rollback user creation if QR generation failed
                 await this.prisma.user.delete({
                     where: { id: user.id },
                 });
-                throw error;
+                throw new Error('QR Generation failed. User creation rolled back.');
             }
+
+            const tokens = await this.generateTokens(user);
+            await this.updateRefreshToken(user.id, tokens.refreshToken);
+
+            return {
+                user: {
+                    id: user.id,
+                    fullName: user.fullName,
+                    email: user.email,
+                    role: user.role,
+                },
+                ...tokens,
+            };
         } catch (error) {
+            console.error('Error during QR generation or token creation:', error);
             throw error;
         }
+
+        } catch (error) {
+            console.error('Error during registration:', error);
+            throw error;
+        }   
     }
+
 
     // Login
     async login(loginData: LoginApiPayload) {
@@ -199,6 +204,25 @@ export class AuthService {
         } catch (_err) {
             throw new UnauthorizedException('Invalid refresh token');
         }
+    }
+
+    async updateUserLastSeenNotificationAt(userId: string) {
+        return await this.prisma.user.update({
+            where: { id: userId },
+            data: { lastSeenNotificationAt: new Date() },
+        });
+    }
+
+    async getUserInfo(userId: string) {
+        return await this.prisma.user.findUnique({
+            where: { id: userId },
+            select: {
+                id: true,
+                email: true,
+                lastSeenNotificationAt: true,
+                role: true,
+            },
+        });
     }
 
     async logout(userId: string) {

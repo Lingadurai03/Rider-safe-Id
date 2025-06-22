@@ -1,11 +1,12 @@
-'use server';
+import 'server-only'
+
 import axios, { AxiosError, AxiosInstance } from 'axios';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 
 import { ACCESS_TOKEN, REFRESH_TOKEN } from '@/constant';
 
-export const createServerAxios = async (options?: {
+export const createServerAxios = async(options?: {
     baseURL?: string;
 }): Promise<AxiosInstance> => {
     const cookieStore = await cookies();

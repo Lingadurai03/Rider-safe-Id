@@ -1,8 +1,9 @@
-import { Controller, Get, Request, UseGuards } from '@nestjs/common';
+import { Controller, Get, Req, UseGuards } from '@nestjs/common';
 import { GetQrApiResponse } from '@ridersafeid/types';
 
 import { JwtAuthGuard } from '@/guards';
 import { AppService } from '@/services';
+import { Request } from 'express';
 
 @Controller()
 export class AppController {
@@ -15,7 +16,14 @@ export class AppController {
 
     @UseGuards(JwtAuthGuard)
     @Get('getQr')
-    getQr(@Request() req: { user: { id: string } }): Promise<GetQrApiResponse> {
+    getQr(@Req() req: { user: { id: string } }): Promise<GetQrApiResponse> {
         return this.appService.getQrData(req.user.id);
+    }
+
+    @UseGuards(JwtAuthGuard)
+    @Get('getLogs')
+    async getUserId(@Req() req:Request){
+          const user = req.user as { id: string }; 
+        return this.appService.getLogs(user.id, req)
     }
 }

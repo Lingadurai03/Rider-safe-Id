@@ -26,6 +26,7 @@ model User {
   qrStatus    Boolean  @default(false)
 
   profile     Profile?  
+  lastSeenNotificationAt DateTime? 
 }
 
 model Profile {
