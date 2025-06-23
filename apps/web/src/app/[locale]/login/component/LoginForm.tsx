@@ -44,7 +44,7 @@ const LoginForm = () => {
             <Input
                 label='Email'
                 registration={register('email', {
-                    required: 'Username is required',
+                    required: 'Email is required',
                 })}
                 isDarkPage
                 error={errors.email}

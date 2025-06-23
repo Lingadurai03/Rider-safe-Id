@@ -1,9 +1,9 @@
 import { ToastContainer } from 'react-toastify';
 import { cookies } from 'next/headers';
 
-import { StoreProvider } from '@/components';
+import { LocaleLayout, StoreProvider } from '@/components';
 
-import './globals.css';
+import '.././globals.css';
 
 export default async function RootLayout({
     children,
