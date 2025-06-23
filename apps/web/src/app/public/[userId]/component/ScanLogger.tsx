@@ -23,8 +23,7 @@ const ScanLogger = ({ userId, locationData }: ScanLoggerProps) => {
                         try {
                             const { expiry } = JSON.parse(storedData);
                             if (Date.now() > expiry) {
-                                localStorage.removeItem(key);
-                                console.log(`🧹 Removed expired log: ${key}`);
+                                localStorage.removeItem(key);;
                             }
                         } catch {
                             localStorage.removeItem(key);

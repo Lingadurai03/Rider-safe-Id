@@ -9,7 +9,6 @@ export class AppService {
     }
 
    async getLogs(id: string, req:Request):Promise<ScanLogsApiResponse> {
-    console.log( `${process.env.QR_SERVICE_BASE_URL}scan/logs/${id}`)
     try {
         const res = await fetch(
             `${process.env.QR_SERVICE_BASE_URL}scan/logs/${id}`,
@@ -22,7 +21,7 @@ export class AppService {
                 },
             },
         );
-console.log(res)
+
         if (!res.ok) {
             throw new Error('Failed to fetch s');
         }

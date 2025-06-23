@@ -40,7 +40,6 @@ export const getNotificationCountService = async (token) => {
         );
 
         const { id, lastSeenNotificationAt } = response.data;
-        console.log(id);
 
         const count = await ScanLog.countDocuments({
             ownerUserId: id,
@@ -54,7 +53,6 @@ export const getNotificationCountService = async (token) => {
 };
 
 export const getScanLogsService = async (userId,token) => {
-    console.log('tokean',token)
     try {
         await axios.get(
             `${process.env.USER_SERVICE_BASE_URL}auth/updateNotificationLastSeenAt`,
@@ -67,8 +65,7 @@ export const getScanLogsService = async (userId,token) => {
 
         const logs = await ScanLog.find({ ownerUserId: userId });
         return logs;
-    } catch (e) {
-        console.log('error',e)
+    } catch (_e) {
         throw new Error('Failed to fetech scan logs');
     }
 };
