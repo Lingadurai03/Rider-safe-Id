@@ -29,7 +29,8 @@
         "**/*.tsx",
         ".next/types/**/*.ts",
         "../../packages/types/src",
-        "**/middleware.ts"
+        "**/middleware.ts",
+        "next-intl.config.js"
     ],
     "exclude": ["node_modules"]
 }

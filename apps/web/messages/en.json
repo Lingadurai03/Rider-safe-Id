@@ -1,0 +1,13 @@
+{
+    "login":{
+        "heading": "login",
+        "form":{
+            "email":"Email",
+            "password":"Password",
+            "submit":"Submit",
+            "submiting":"Submiting..."
+        },
+        "newHere":"New Here?",
+        "createAnAccount":"Create an Account!"
+    }
+}
