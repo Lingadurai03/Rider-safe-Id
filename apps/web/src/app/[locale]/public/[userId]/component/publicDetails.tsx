@@ -1,9 +1,11 @@
 import React from 'react';
 import { GetProfileApiResponse } from '@ridersafeid/types';
 import Image from 'next/image';
+import { getTranslations } from 'next-intl/server';
 
 const PublicDetails = async ({ userId }: { userId: string }) => {
     let qrProfileData: GetProfileApiResponse | null = null;
+    const t = await getTranslations('details');
 
     try {
         const res = await fetch(
@@ -16,7 +18,7 @@ const PublicDetails = async ({ userId }: { userId: string }) => {
     }
 
     if (!qrProfileData)
-        return <p className='text-center'>No profile data found.</p>;
+        return <p className='text-center'>{t('noProfileDataFound')}</p>;
     return (
         <div className='max-w-4xl mx-auto bg-white-sm backdrop-blur-sm rounded-xl shadow-lg p-6 space-y-8 border border-gray-200'>
             {/* Profile Image */}
@@ -41,21 +43,21 @@ const PublicDetails = async ({ userId }: { userId: string }) => {
                     {qrProfileData.profileName}
                 </h2>
                 <p className='text-gray-600'>
-                    Blood Group:{' '}
+                    {t('bloodGroup')}:{' '}
                     <span className='font-semibold text-black'>
                         {qrProfileData.bloodGroup}
                     </span>
                 </p>
                 <p className='text-gray-600'>
-                    DOB: {new Date(qrProfileData.dob).toLocaleDateString()}
+                    {t('dob')}:{' '}
+                    {new Date(qrProfileData.dob).toLocaleDateString()}
                 </p>
-                <p className='text-green-600 font-medium'>Status: Active</p>
             </div>
 
             {/* Address Info */}
             <div className='text-center space-y-2 bg-gray-50 p-4 rounded-lg shadow-sm'>
                 <h3 className='font-semibold text-xl text-primary underline underline-offset-4'>
-                    Address
+                    {t('address')}
                 </h3>
                 <p className='text-gray-700'>{qrProfileData.address}</p>
                 <p className='text-gray-700'>
@@ -67,7 +69,7 @@ const PublicDetails = async ({ userId }: { userId: string }) => {
             {/* Emergency Contacts */}
             <div className='space-y-3 bg-gray-50 p-4 rounded-lg shadow-sm'>
                 <h3 className='font-semibold text-xl text-primary underline underline-offset-4 text-center'>
-                    Emergency Contacts
+                    {t('emergencyContact')}
                 </h3>
                 {qrProfileData.emergencyContacts.length > 0 ? (
                     <ul className='space-y-2 text-center'>
@@ -85,7 +87,7 @@ const PublicDetails = async ({ userId }: { userId: string }) => {
                     </ul>
                 ) : (
                     <p className='text-center text-gray-500'>
-                        No emergency contacts found.
+                        {t('noEmergencyContactFount')}
                     </p>
                 )}
             </div>

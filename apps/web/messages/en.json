@@ -42,7 +42,8 @@
         "status": "Status",
         "address": "Addresss",
         "emergencyContact": "Emergency Contacts",
-        "noEmergencyContactFount": "No Emergency Contact Found"
+        "noEmergencyContactFount": "No Emergency Contact Found.",
+        "noProfileDataFound": "No profile data found."
     },
     "validation": {
         "isRequired": "{name} is Required",
