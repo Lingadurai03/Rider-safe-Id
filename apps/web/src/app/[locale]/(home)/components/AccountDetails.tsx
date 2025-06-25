@@ -46,14 +46,6 @@ const AccountDetails = async () => {
                         {accountDetail?.qrStatus ? 'Active' : 'In-active'}
                     </p>
                 </div>
-                {accountDetail && accountDetail?.editCount >= 0 && (
-                    <p className='text-center font-normal'>
-                        {t('freeEditLeft')} :{' '}
-                        <span className='ml-2 font-bold text-primary'>
-                            {3 - accountDetail.editCount}
-                        </span>
-                    </p>
-                )}
             </div>
         </div>
     );

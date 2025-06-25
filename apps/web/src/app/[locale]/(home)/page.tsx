@@ -26,15 +26,6 @@ const Home = async () => {
                         {t('welcomeRider')}
                     </h2>
                     <p>{t('letsSecureYourRide')}</p>
-                    <div className='w-full max-w-[150px] md:w-[48%] lg:w-auto'>
-                        <Link href={'details/add'}>
-                            <GlowingButton
-                                glow
-                                glowColor='var(--color-primary)'
-                                label={t('upgradeToPro')}
-                            />
-                        </Link>
-                    </div>
                 </div>
             </section>
 

@@ -7,6 +7,8 @@ import { createServerAxios } from '@/lib/axiosServer.lib';
 
 import { GlowingButton } from '@/components';
 import { getTranslations } from 'next-intl/server';
+import { downloadQrCode } from '@/utils';
+import QrComponentButtons from './QrComponentButtons';
 
 const QrComponent = async () => {
     const axios = await createServerAxios();
@@ -34,21 +36,7 @@ const QrComponent = async () => {
                     )}
                 </div>
             </div>
-            <div className='flex flex-row gap-5 justify-center items-center flex-wrap'>
-                <div className='w-full max-w-[150px] md:w-[48%] lg:w-auto'>
-                    <GlowingButton glow label={t('downloadQr')} />
-                </div>
-
-                <div className='w-full max-w-[150px] md:w-[48%] lg:w-auto'>
-                    <Link href={'details/add'}>
-                        <GlowingButton
-                            glow
-                            glowColor='var(--color-secondary)'
-                            label={t('editDetails')}
-                        />
-                    </Link>
-                </div>
-            </div>
+            <QrComponentButtons url={qrData?.qrDetails[0]?.qrCodeUrl} />
         </>
     );
 };

@@ -11,7 +11,7 @@
     "start": "nest start",
     "lint": "eslint .",
     "dev": "pnpm start:dev",
-   "start:dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --require tsconfig-paths/register src/main.ts",
+    "start:dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --require tsconfig-paths/register src/main.ts",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/apps/server/src/main.js",
     "test": "jest",
