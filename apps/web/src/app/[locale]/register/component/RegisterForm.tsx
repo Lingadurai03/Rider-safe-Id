@@ -11,6 +11,8 @@ import { saveToken } from '@/utils';
 
 import { Button, Error, Input } from '@/components';
 import { useRegisterMutation } from '@/store/auth/authApi';
+import { useTranslations } from 'next-intl';
+import { useGenerateErrorMessage } from '@/hooks';
 
 interface RegisterData extends RegisterApiPayload {
     confirmPassword: string;
@@ -29,6 +31,9 @@ const RegisterForm = () => {
     const [registerFn, { isLoading }] = useRegisterMutation();
 
     const navigate = useRouter();
+
+    const t = useTranslations();
+    const generateErrorMessage = useGenerateErrorMessage();
 
     const onSubmit = async (data: RegisterApiPayload) => {
         const { email, password, fullName, phone } = data;
@@ -58,44 +63,45 @@ const RegisterForm = () => {
     return (
         <form className='space-y-4' onSubmit={handleSubmit(onSubmit)}>
             <Input
-                label='Email'
+                label={t('fields.email')}
                 registration={register('email', {
-                    required: 'Email is required',
+                    required: generateErrorMessage('email'),
                 })}
                 type='email'
                 error={errors.email}
                 isDarkPage
             />
             <Input
-                label='FullName'
+                label={t('fields.fullName')}
                 registration={register('fullName', {
-                    required: 'Full Name is required',
+                    required: generateErrorMessage('fullName'),
                 })}
                 error={errors.fullName}
                 isDarkPage
             />
             <Input
-                label='Phone Number'
+                label={t('fields.phoneNumber')}
                 registration={register('phone', {})}
                 error={errors.phone}
                 isDarkPage
             />
             <Input
-                label='Password'
+                label={t('fields.password')}
                 type='password'
                 registration={register('password', {
-                    required: 'Password is required',
+                    required: generateErrorMessage('password'),
                 })}
                 error={errors.password}
                 isDarkPage
             />
             <Input
-                label='Confirm Password'
+                label={t('fields.confirmPassword')}
                 type='password'
                 registration={register('confirmPassword', {
-                    required: 'Confirm Password is required',
+                    required: generateErrorMessage('confirmPassword'),
                     validate: (value) =>
-                        value === passwordInputText || 'Passwords do not match',
+                        value === passwordInputText ||
+                        t('validation.passwordDoNotMatch'),
                 })}
                 error={errors.confirmPassword}
                 isDarkPage
@@ -103,9 +109,9 @@ const RegisterForm = () => {
             <div className='flex justify-center items-center '>
                 <Button
                     isLoading={isLoading}
-                    loadingText='Submiting'
+                    loadingText={t('register.submitting')}
                     type='submit'
-                    label='Submit'
+                    label={t('register.submit')}
                 />
             </div>
         </form>

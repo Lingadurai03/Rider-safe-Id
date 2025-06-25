@@ -4,10 +4,18 @@
         "newHere": "New Here?",
         "createAnAccount": "Create an Account!",
         "submit": "Submit",
-        "submiting": "Submiting..."
+        "submitting": "Submitting..."
+    },
+    "register": {
+        "heading": "Register",
+        "alreadyRegister": "Already Register?",
+        "login": "Login",
+        "submit": "Submit",
+        "submitting": "Submitting..."
     },
     "validation": {
-        "isRequired": "{name} is Required"
+        "isRequired": "{name} is Required",
+        "passwordDoNotMatch": "Password do not Match"
     },
     "fields": {
         "email": "Email",

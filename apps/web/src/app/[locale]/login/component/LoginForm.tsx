@@ -66,7 +66,7 @@ const LoginForm = () => {
             <div className='flex justify-center items-center '>
                 <Button
                     isLoading={isLoading}
-                    loadingText={t('login.submiting')}
+                    loadingText={t('login.submitting')}
                     label={t('login.submit')}
                 />
             </div>
