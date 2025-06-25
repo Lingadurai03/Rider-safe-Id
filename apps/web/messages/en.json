@@ -13,6 +13,20 @@
         "submit": "Submit",
         "submitting": "Submitting..."
     },
+    "home": {
+        "qrCodeStatus": "QR code status",
+        "freeEditLeft": "Free Edit Left",
+        "downloadQr": "Download QR",
+        "editDetails": "Edit Details",
+        "name": "Name",
+        "bloodGroup": "Blood Group",
+        "city": "City",
+        "preview": "Preview",
+        "welcomeRider": "Welcome Rider",
+        "letsSecureYourRide": "Lets secure your Ride",
+        "upgradeToPro": "Upgrade to Pro"
+    },
+
     "details": {
         "failedToLoadProfileData": "Failed to load profile data.",
         "bloodGroup": "Blood Group",

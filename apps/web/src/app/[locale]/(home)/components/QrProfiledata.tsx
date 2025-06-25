@@ -4,9 +4,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { createServerAxios } from '@/lib/axiosServer.lib';
+import { getTranslations } from 'next-intl/server';
 
 const QrProfiledata = async () => {
     const axios = await createServerAxios();
+    const t = await getTranslations('home');
+
     let qrProfileData: GetProfileApiResponse | null = null;
 
     try {
@@ -36,19 +39,21 @@ const QrProfiledata = async () => {
 
                 {/* 2nd grid: Name */}
                 <div className='flex flex-col justify-center items-center text-center'>
-                    <p className='font-semibold text-lg text'>Name</p>
+                    <p className='font-semibold text-lg text'>{t('name')}</p>
                     <p className='text-muted'>{qrProfileData?.profileName}</p>
                 </div>
 
                 {/* 3rd grid: Blood Group */}
                 <div className='flex flex-col justify-center items-center text-center'>
-                    <p className='font-semibold text-lg text'>Blood Group</p>
+                    <p className='font-semibold text-lg text'>
+                        {t('bloodGroup')}
+                    </p>
                     <p className='text-muted'>{qrProfileData?.bloodGroup}</p>
                 </div>
 
                 {/* 4th grid: City */}
                 <div className='flex flex-col justify-center items-center text-center'>
-                    <p className='font-semibold text-lg text'>City</p>
+                    <p className='font-semibold text-lg text'>{t('city')}</p>
                     <p className='text-muted'>{qrProfileData?.city}</p>
                 </div>
             </div>
@@ -57,7 +62,7 @@ const QrProfiledata = async () => {
                     href={'details'}
                     className='underline text-primary font-semibold'
                 >
-                    Preview
+                    {t('preview')}
                 </Link>
             </div>
         </section>

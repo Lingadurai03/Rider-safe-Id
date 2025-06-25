@@ -3,9 +3,11 @@ import { GetAccountDetailsApiResponse } from '@ridersafeid/types';
 import { Phone, UserCircle, Verified } from 'lucide-react';
 
 import { createServerAxios } from '@/lib/axiosServer.lib';
+import { getTranslations } from 'next-intl/server';
 
 const AccountDetails = async () => {
     const axios = await createServerAxios();
+    const t = await getTranslations('home');
     let accountDetail: GetAccountDetailsApiResponse | null = null;
 
     try {
@@ -39,14 +41,14 @@ const AccountDetails = async () => {
 
             <div className='flex justify-center flex-col gap-2 text-sm text-muted'>
                 <div className='flex justify-center gap-2 '>
-                    <p className='font-normal'>QR Code Status</p>
+                    <p className='font-normal'>{t('qrCodeStatus')}</p>
                     <p className='font-bold text-primary'>
                         {accountDetail?.qrStatus ? 'Active' : 'In-active'}
                     </p>
                 </div>
                 {accountDetail && accountDetail?.editCount >= 0 && (
                     <p className='text-center font-normal'>
-                        Free Edit Left :{' '}
+                        {t('freeEditLeft')} :{' '}
                         <span className='ml-2 font-bold text-primary'>
                             {3 - accountDetail.editCount}
                         </span>

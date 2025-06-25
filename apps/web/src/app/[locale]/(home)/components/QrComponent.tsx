@@ -6,9 +6,11 @@ import Link from 'next/link';
 import { createServerAxios } from '@/lib/axiosServer.lib';
 
 import { GlowingButton } from '@/components';
+import { getTranslations } from 'next-intl/server';
 
 const QrComponent = async () => {
     const axios = await createServerAxios();
+    const t = await getTranslations('home');
 
     let qrData: GetQrApiResponse | null = null;
 
@@ -34,7 +36,7 @@ const QrComponent = async () => {
             </div>
             <div className='flex flex-row gap-5 justify-center items-center flex-wrap'>
                 <div className='w-full max-w-[150px] md:w-[48%] lg:w-auto'>
-                    <GlowingButton glow label='Download Qr' />
+                    <GlowingButton glow label={t('downloadQr')} />
                 </div>
 
                 <div className='w-full max-w-[150px] md:w-[48%] lg:w-auto'>
@@ -42,7 +44,7 @@ const QrComponent = async () => {
                         <GlowingButton
                             glow
                             glowColor='var(--color-secondary)'
-                            label='Edit Details'
+                            label={t('editDetails')}
                         />
                     </Link>
                 </div>
