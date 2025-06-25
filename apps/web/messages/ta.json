@@ -1,0 +1,66 @@
+{
+    "login": {
+        "heading": "உள்நுழைவு",
+        "newHere": "இங்கு புதியவர்?",
+        "createAnAccount": "ஒரு கணக்கை உருவாக்கு!",
+        "submit": "சமர்பிக்கவும்",
+        "submitting": "சமர்ப்பிப்பு தொடர்கிறது..."
+    },
+    "register": {
+        "heading": "பதிவு",
+        "alreadyRegister": "ஏற்கனவே பதிவு செய்துள்ளீர்களா?",
+        "login": "உள் நுழையவும்",
+        "submit": "சமர்பிக்கவும்",
+        "submitting": "சமர்ப்பிப்பு தொடர்கிறது..."
+    },
+    "home": {
+        "qrCodeStatus": "QR குறியீட்டு நிலை",
+        "freeEditLeft": "மதியுள்ள இலவசத் திருத்தங்கள்",
+        "downloadQr": "QR பதிவிறக்கம் செய்க",
+        "editDetails": "விவரங்களை திருத்து",
+        "name": "பெயர்",
+        "bloodGroup": "இரத்த வகை",
+        "city": "நகர்",
+        "preview": "முன்னோட்டம்",
+        "welcomeRider": "சவாரியருக்கு வரவேற்பு",
+        "letsSecureYourRide": "உங்கள் சவாரியை பாதுகாப்பாக்கலாம்",
+        "upgradeToPro": "ப்ரோவிற்கு மேம்படுத்தவும்"
+    },
+    "notification": {
+        "noLogsFound": "பதிவுகள் இல்லை",
+        "city": "நகர்",
+        "state": "மாநிலம்",
+        "country": "நாடு",
+        "accuracy": "நிபுணத்தனம்",
+        "viewOnGoogleMap": "Google வரைபடத்தில் பார்க்கவும்"
+    },
+    "details": {
+        "failedToLoadProfileData": "சுயவிவரத் தரவு ஏற்றப்படவில்லை.",
+        "bloodGroup": "இரத்த வகை",
+        "dob": "பிறந்த தேதி",
+        "status": "நிலை",
+        "address": "முகவரி",
+        "emergencyContact": "அவசரம் தொடர்பு",
+        "noEmergencyContactFount": "அவசரத் தொடர்பு கிடைக்கவில்லை.",
+        "noProfileDataFound": "சுயவிவரத் தரவு இல்லை."
+    },
+    "validation": {
+        "isRequired": "{name} அவசியம் உள்ளது",
+        "passwordDoNotMatch": "கடவுச்சொற்கள் பொருந்தவில்லை"
+    },
+    "fields": {
+        "email": "மின்னஞ்சல்",
+        "password": "கடவுச்சொல்",
+        "fullName": "மீற்தபெயர்",
+        "phoneNumber": "தொலைபேசி எண்",
+        "confirmPassword": "கடவுச்சொல்லை உறுதிப்படுத்தவும்"
+    },
+    "languages": {
+        "English": "English",
+        "Tamil": "தமிழ்",
+        "Kannada": "ಕನ್ನಡ",
+        "Hindi": "हिन्दी",
+        "Malayalam": "മലയാളം",
+        "Telugu": "తెలుగు"
+    }
+}

@@ -55,5 +55,13 @@
         "fullName": "Full Name",
         "phoneNumber": "Phone Number",
         "confirmPassword": "Confirm Password"
+    },
+    "languages": {
+        "English": "English",
+        "Tamil": "தமிழ்",
+        "Kannada": "ಕನ್ನಡ",
+        "Hindi": "हिन्दी",
+        "Malayalam": "മലയാളം",
+        "Telugu": "తెలుగు"
     }
 }

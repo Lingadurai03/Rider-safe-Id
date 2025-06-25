@@ -2,20 +2,32 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
-
-const languages = ['EN', 'FR', 'DE'];
+import { useLocale, useTranslations } from 'next-intl';
+import { LANGUAGES, LOCALMAP } from '@/constant';
+import { usePathname, useRouter } from '@/i18n';
+import { getLangFromLocale } from '@/utils';
 
 export default function LanguageSelect() {
     const [isOpen, setIsOpen] = useState(false);
-    const [selected, setSelected] = useState('EN');
     const dropdownRef = useRef<HTMLDivElement>(null);
 
+    const t = useTranslations('languages');
+    const router = useRouter();
+    const pathname = usePathname();
+    const locale = useLocale();
+    const [selected, setSelected] = useState(getLangFromLocale(locale));
+
+    // Close on outside click
     const handleSelect = (lang: string) => {
         setSelected(lang);
         setIsOpen(false);
+
+        const newLocale = LOCALMAP[lang];
+        if (newLocale) {
+            router.replace(pathname, { locale: newLocale });
+        }
     };
 
-    // Close on outside click
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             if (
@@ -41,21 +53,23 @@ export default function LanguageSelect() {
                 onClick={() => setIsOpen((prev) => !prev)}
                 className='w-full bg-white-md text-[color:var(--color-text)] backdrop-blur-sm px-3 py-2 rounded-md flex justify-between items-center shadow-inner hover:bg-white/20 transition-all duration-300'
             >
-                {selected}
+                {t(selected)}
                 <ChevronDown
-                    className={`w-4 h-4 transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`}
+                    className={`w-4 h-4 transition-transform duration-300 ${
+                        isOpen ? 'rotate-180' : 'rotate-0'
+                    }`}
                 />
             </div>
 
             {/* Dropdown Options */}
             <ul
-                className={`absolute top-full mt-1 left-0 w-full bg-white-md color backdrop-blur-sm rounded-md shadow-lg overflow-hidden transition-all duration-300 z-50 ${
+                className={`absolute top-full mt-1 left-0 w-full bg-bg color backdrop-blur-sm rounded-md shadow-lg overflow-hidden transition-all duration-300 z-50 ${
                     isOpen
                         ? 'opacity-100 scale-100'
                         : 'opacity-0 scale-95 pointer-events-none'
                 }`}
             >
-                {languages.map((lang) => (
+                {LANGUAGES.map((lang) => (
                     <li
                         key={lang}
                         onClick={() => handleSelect(lang)}
@@ -65,7 +79,7 @@ export default function LanguageSelect() {
                                 : ''
                         }`}
                     >
-                        {lang}
+                        {t(lang)}
                     </li>
                 ))}
             </ul>
