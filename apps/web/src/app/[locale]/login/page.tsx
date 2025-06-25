@@ -3,9 +3,10 @@ import Link from 'next/link';
 
 import LoginForm from './component/LoginForm';
 import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 
-export default function Login() {
-    const t = useTranslations();
+export default async function Login() {
+    const t = await getTranslations('login');
     return (
         <main className='relative w-full h-screen bg-black'>
             {/* Fullscreen Background Image */}
@@ -21,16 +22,16 @@ export default function Login() {
             <section className='absolute top-0 right-0 w-full md:w-1/2 h-full flex items-center justify-center px-3 md:px-8'>
                 <div className='bg-card/60 border px-3 border-white-sm backdrop-blur-xs bg-white-sm rounded-md py-12 md:px-8 shadow-2xl max-w-md w-full'>
                     <h2 className='text-3xl font-bold mb-6 text-center text-white'>
-                        {t('login.heading')}
+                        {t('heading')}
                     </h2>
                     <LoginForm />
                     <p className='mt-5 text-white-medium text-sm text-center'>
-                        {t('login.newHere')}{' '}
+                        {t('newHere')}{' '}
                         <Link
                             className='text-[color:var(--color-secondary)] font-bold hover:underline'
                             href={'register'}
                         >
-                            {t('login.createAnAccount')}
+                            {t('createAnAccount')}
                         </Link>
                     </p>
                 </div>

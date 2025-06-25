@@ -3,10 +3,13 @@ import { GetProfileApiResponse } from '@ridersafeid/types';
 import Image from 'next/image';
 
 import { createServerAxios } from '@/lib/axiosServer.lib';
+import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 
 const Details = async () => {
     const axios = await createServerAxios();
     let qrProfileData: GetProfileApiResponse | null = null;
+    const t = await getTranslations('details');
 
     try {
         const res = await axios.get<GetProfileApiResponse>('profile');
@@ -18,7 +21,7 @@ const Details = async () => {
     if (!qrProfileData) {
         return (
             <div className='text-center text-red-500'>
-                Failed to load profile data.
+                {t('failedToLoadProfileData')}
             </div>
         );
     }
@@ -47,18 +50,22 @@ const Details = async () => {
                     {qrProfileData.profileName}
                 </h2>
                 <p>
-                    Blood Group:{' '}
+                    {t('bloodGroup')}:{' '}
                     <span className='font-semibold'>
                         {qrProfileData.bloodGroup}
                     </span>
                 </p>
-                <p>DOB: {new Date(qrProfileData.dob).toLocaleDateString()}</p>
-                <p>Status: </p>
+                <p>
+                    {t('dob')}:{' '}
+                    {new Date(qrProfileData.dob).toLocaleDateString()}
+                </p>
             </div>
 
             {/* Address Info */}
             <div className='text-center space-y-1'>
-                <h3 className='font-semibold text-xl underline'>Address</h3>
+                <h3 className='font-semibold text-xl underline'>
+                    {t('address')}
+                </h3>
                 <p>{qrProfileData.address}</p>
                 <p>
                     {qrProfileData.city}, {qrProfileData.state} -{' '}
@@ -69,7 +76,7 @@ const Details = async () => {
             {/* Emergency Contacts */}
             <div className='space-y-2'>
                 <h3 className='font-semibold text-xl underline text-center'>
-                    Emergency Contacts
+                    {t('emergencyContact')}
                 </h3>
                 {qrProfileData.emergencyContacts.length > 0 ? (
                     <ul className='space-y-1 text-center'>
@@ -84,7 +91,7 @@ const Details = async () => {
                     </ul>
                 ) : (
                     <p className='text-center text-gray-500'>
-                        No emergency contacts found.
+                        {t('noEmergencyContactFount')}
                     </p>
                 )}
             </div>

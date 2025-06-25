@@ -13,6 +13,15 @@
         "submit": "Submit",
         "submitting": "Submitting..."
     },
+    "details": {
+        "failedToLoadProfileData": "Failed to load profile data.",
+        "bloodGroup": "Blood Group",
+        "dob": "Date of birth",
+        "status": "Status",
+        "address": "Addresss",
+        "emergencyContact": "Emergency Contacts",
+        "noEmergencyContactFount": "No Emergency Contact Found"
+    },
     "validation": {
         "isRequired": "{name} is Required",
         "passwordDoNotMatch": "Password do not Match"

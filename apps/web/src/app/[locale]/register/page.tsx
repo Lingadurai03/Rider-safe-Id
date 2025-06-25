@@ -3,9 +3,10 @@ import Link from 'next/link';
 
 import RegisterForm from './component/RegisterForm';
 import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 
-export default function Register() {
-    const t = useTranslations('register');
+export default async function Register() {
+    const t = await getTranslations('register');
     return (
         <main className='relative min-w-full min-h-screen bg-black'>
             {/* Fullscreen Background Image */}
