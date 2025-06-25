@@ -26,6 +26,14 @@
         "letsSecureYourRide": "Lets secure your Ride",
         "upgradeToPro": "Upgrade to Pro"
     },
+    "notification": {
+        "noLogsFound": "No Logs Found",
+        "city": "City",
+        "state": "State",
+        "country": "Country",
+        "accuracy": "Accuracy",
+        "viewOnGoogleMap": "View On Google Map"
+    },
 
     "details": {
         "failedToLoadProfileData": "Failed to load profile data.",
