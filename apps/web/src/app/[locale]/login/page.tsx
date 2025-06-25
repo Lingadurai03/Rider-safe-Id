@@ -25,12 +25,12 @@ export default function Login() {
                     </h2>
                     <LoginForm />
                     <p className='mt-5 text-white-medium text-sm text-center'>
-                        New here?{' '}
+                        {t('login.newHere')}{' '}
                         <Link
                             className='text-[color:var(--color-secondary)] font-bold hover:underline'
                             href={'register'}
                         >
-                            Create an account!
+                            {t('login.createAnAccount')}
                         </Link>
                     </p>
                 </div>

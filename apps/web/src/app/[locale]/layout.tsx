@@ -7,9 +7,12 @@ import '.././globals.css';
 
 export default async function RootLayout({
     children,
+    params,
 }: Readonly<{
     children: React.ReactNode;
+    params: { locale: string };
 }>) {
+    const { locale } = await params;
     const cookieStore = await cookies();
     const theme = cookieStore.get('theme')?.value ?? null;
     const isDark = theme === 'dark';
@@ -17,8 +20,10 @@ export default async function RootLayout({
     return (
         <html className={isDark ? 'dark' : ''}>
             <body className='text-muted'>
-                <ToastContainer />
-                <StoreProvider>{children}</StoreProvider>
+                <LocaleLayout locale={locale}>
+                    <ToastContainer />
+                    <StoreProvider>{children}</StoreProvider>
+                </LocaleLayout>
             </body>
         </html>
     );

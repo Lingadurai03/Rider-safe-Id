@@ -5,19 +5,11 @@ import { ACCESS_TOKEN } from '@/constant';
 import createMiddleware from 'next-intl/middleware';
 import { routing } from './i18n';
 
-const PUBLIC_PATHS = [
-    '/login',
-    '/register',
-    '/public',
-    '/_next',
-    '/favicon.ico',
-];
-
 const intlMiddleware = createMiddleware(routing);
 
 export function middleware(request: NextRequest) {
     const intlResponse = intlMiddleware(request);
-    if (intlResponse) return intlResponse; // if locale handling is needed, this runs first
+    if (intlResponse) return intlResponse;
 
     const token = request.cookies.get(ACCESS_TOKEN)?.value;
     const pathname = request.nextUrl.pathname;

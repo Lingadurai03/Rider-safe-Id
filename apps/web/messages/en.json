@@ -1,13 +1,19 @@
 {
-    "login":{
+    "login": {
         "heading": "login",
-        "form":{
-            "email":"Email",
-            "password":"Password",
-            "submit":"Submit",
-            "submiting":"Submiting..."
-        },
-        "newHere":"New Here?",
-        "createAnAccount":"Create an Account!"
+        "newHere": "New Here?",
+        "createAnAccount": "Create an Account!",
+        "submit": "Submit",
+        "submiting": "Submiting..."
+    },
+    "validation": {
+        "isRequired": "{name} is Required"
+    },
+    "fields": {
+        "email": "Email",
+        "password": "Password",
+        "fullName": "Full Name",
+        "phoneNumber": "Phone Number",
+        "confirmPassword": "Confirm Password"
     }
 }

@@ -1,9 +1,9 @@
-import { getScanLogs } from '@/lib'
-import React from 'react'
-import NotificationItem from './NotificationItem'
+import { getScanLogs } from '@/lib';
+import React from 'react';
+import NotificationItem from './NotificationItem';
 
-const NotificationList = async() => {
-       const res = await getScanLogs();
+const NotificationList = async () => {
+    const res = await getScanLogs();
 
     if (!res || !res.logs || res.logs.length === 0) {
         return (
@@ -20,7 +20,6 @@ const NotificationList = async() => {
             ))}
         </div>
     );
+};
 
-}
-
-export default NotificationList
+export default NotificationList;
