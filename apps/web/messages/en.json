@@ -1,0 +1,67 @@
+{
+    "login": {
+        "heading": "login",
+        "newHere": "New Here?",
+        "createAnAccount": "Create an Account!",
+        "submit": "Submit",
+        "submitting": "Submitting..."
+    },
+    "register": {
+        "heading": "Register",
+        "alreadyRegister": "Already Register?",
+        "login": "Login",
+        "submit": "Submit",
+        "submitting": "Submitting..."
+    },
+    "home": {
+        "qrCodeStatus": "QR code status",
+        "freeEditLeft": "Free Edit Left",
+        "downloadQr": "Download QR",
+        "editDetails": "Edit Details",
+        "name": "Name",
+        "bloodGroup": "Blood Group",
+        "city": "City",
+        "preview": "Preview",
+        "welcomeRider": "Welcome Rider",
+        "letsSecureYourRide": "Lets secure your Ride",
+        "upgradeToPro": "Upgrade to Pro"
+    },
+    "notification": {
+        "noLogsFound": "No Logs Found",
+        "city": "City",
+        "state": "State",
+        "country": "Country",
+        "accuracy": "Accuracy",
+        "viewOnGoogleMap": "View On Google Map"
+    },
+
+    "details": {
+        "failedToLoadProfileData": "Failed to load profile data.",
+        "bloodGroup": "Blood Group",
+        "dob": "Date of birth",
+        "status": "Status",
+        "address": "Addresss",
+        "emergencyContact": "Emergency Contacts",
+        "noEmergencyContactFount": "No Emergency Contact Found.",
+        "noProfileDataFound": "No profile data found."
+    },
+    "validation": {
+        "isRequired": "{name} is Required",
+        "passwordDoNotMatch": "Password do not Match"
+    },
+    "fields": {
+        "email": "Email",
+        "password": "Password",
+        "fullName": "Full Name",
+        "phoneNumber": "Phone Number",
+        "confirmPassword": "Confirm Password"
+    },
+    "languages": {
+        "English": "English",
+        "Tamil": "தமிழ்",
+        "Kannada": "ಕನ್ನಡ",
+        "Hindi": "हिन्दी",
+        "Malayalam": "മലയാളം",
+        "Telugu": "తెలుగు"
+    }
+}

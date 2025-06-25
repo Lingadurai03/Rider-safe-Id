@@ -1,0 +1,66 @@
+{
+    "login": {
+        "heading": "लॉगिन",
+        "newHere": "क्या आप नए हैं?",
+        "createAnAccount": "एक नया खाता बनाएँ!",
+        "submit": "सबमिट करें",
+        "submitting": "सबमिट हो रहा है..."
+    },
+    "register": {
+        "heading": "रजिस्टर",
+        "alreadyRegister": "पहले से पंजीकृत हैं?",
+        "login": "लॉगिन करें",
+        "submit": "सबमिट करें",
+        "submitting": "सबमिट हो रहा है..."
+    },
+    "home": {
+        "qrCodeStatus": "क्यूआर कोड स्थिति",
+        "freeEditLeft": "मुफ्त संपादनों की संख्या बची",
+        "downloadQr": "क्यूआर डाउनलोड करें",
+        "editDetails": "विवरण संपादित करें",
+        "name": "नाम",
+        "bloodGroup": "ब्लड ग्रुप",
+        "city": "शहर",
+        "preview": "पूर्वावलोकन",
+        "welcomeRider": "राइडर आपका स्वागत है",
+        "letsSecureYourRide": "आइए आपकी सवारी सुरक्षित करें",
+        "upgradeToPro": "प्रो में अपग्रेड करें"
+    },
+    "notification": {
+        "noLogsFound": "कोई लॉग नहीं मिला",
+        "city": "शहर",
+        "state": "राज्य",
+        "country": "देश",
+        "accuracy": "सटीकता",
+        "viewOnGoogleMap": "गूगल मैप पर देखें"
+    },
+    "details": {
+        "failedToLoadProfileData": "प्रोफ़ाइल डेटा लोड करने में विफल।",
+        "bloodGroup": "ब्लड ग्रुप",
+        "dob": "जन्म तिथि",
+        "status": "स्थिति",
+        "address": "पता",
+        "emergencyContact": "आपातकालीन संपर्क",
+        "noEmergencyContactFount": "कोई आपातकालीन संपर्क नहीं मिला।",
+        "noProfileDataFound": "प्रोफ़ाइल डेटा नहीं मिला।"
+    },
+    "validation": {
+        "isRequired": "{name} आवश्यक है",
+        "passwordDoNotMatch": "पासवर्ड मेल नहीं खाते"
+    },
+    "fields": {
+        "email": "ईमेल",
+        "password": "पासवर्ड",
+        "fullName": "पूरा नाम",
+        "phoneNumber": "फ़ोन नंबर",
+        "confirmPassword": "पासवर्ड की पुष्टि करें"
+    },
+    "languages": {
+        "English": "English",
+        "Tamil": "தமிழ்",
+        "Kannada": "ಕನ್ನಡ",
+        "Hindi": "हिन्दी",
+        "Malayalam": "മലയാളം",
+        "Telugu": "తెలుగు"
+    }
+}

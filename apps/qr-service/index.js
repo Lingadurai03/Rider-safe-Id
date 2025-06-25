@@ -10,7 +10,7 @@ const startServer = async () => {
     try {
         await connectMongo();
         app.listen(PORT, () => {
-            console.log(`🚀 QR Service running at: http://localhost:${PORT}`);
+            console.info(`🚀 QR Service running at: http://localhost:${PORT}`);
         });
     } catch (err) {
         console.error('❌ Failed to start server:', err);

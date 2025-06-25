@@ -1,0 +1,66 @@
+{
+    "login": {
+        "heading": "లాగిన్",
+        "newHere": "ఇక్కడ కొత్తవారా?",
+        "createAnAccount": "ఖాతాను సృష్టించండి!",
+        "submit": "సబ్మిట్ చేయండి",
+        "submitting": "సబ్మిట్ జరుగుతోంది..."
+    },
+    "register": {
+        "heading": "రిజిస్టర్",
+        "alreadyRegister": "ఇప్పటికే రిజిస్టర్ అయ్యారా?",
+        "login": "లాగిన్ చేయండి",
+        "submit": "సబ్మిట్ చేయండి",
+        "submitting": "సబ్మిట్ జరుగుతోంది..."
+    },
+    "home": {
+        "qrCodeStatus": "QR కోడ్ స్థితి",
+        "freeEditLeft": "మిగిలిన ఉచిత ఎడిట్లు",
+        "downloadQr": "QR డౌన్‌లోడ్ చేయండి",
+        "editDetails": "వివరాలను సవరించండి",
+        "name": "పేరు",
+        "bloodGroup": "రక్త గ్రూప్",
+        "city": "నగరం",
+        "preview": "ప్రివ్యూ",
+        "welcomeRider": "స్వాగతం రైడర్",
+        "letsSecureYourRide": "మీ ప్రయాణాన్ని సురక్షితంగా చేయుదాం",
+        "upgradeToPro": "ప్రోకు అప్‌గ్రేడ్ చేయండి"
+    },
+    "notification": {
+        "noLogsFound": "లాగ్స్ కనబడలేదు",
+        "city": "నగరం",
+        "state": "రాష్ట్రం",
+        "country": "దేశం",
+        "accuracy": "ఖచ్చితత్వం",
+        "viewOnGoogleMap": "గూగుల్ మ్యాప్‌లో చూడండి"
+    },
+    "details": {
+        "failedToLoadProfileData": "ప్రొఫైల్ డేటా లోడ్ కాలేదు.",
+        "bloodGroup": "రక్త గ్రూప్",
+        "dob": "పుట్టిన తేదీ",
+        "status": "స్థితి",
+        "address": "చిరునామా",
+        "emergencyContact": "అత్యవసర సంప్రదింపులు",
+        "noEmergencyContactFount": "అత్యవసర సంప్రదింపు కనబడలేదు.",
+        "noProfileDataFound": "ప్రొఫైల్ డేటా కనబడలేదు."
+    },
+    "validation": {
+        "isRequired": "{name} అవసరం",
+        "passwordDoNotMatch": "పాస్వర్డ్లు తేడాగా ఉన్నాయి"
+    },
+    "fields": {
+        "email": "ఈమెయిల్",
+        "password": "పాస్వర్డ్",
+        "fullName": "పూర్తి పేరు",
+        "phoneNumber": "ఫోన్ నంబర్",
+        "confirmPassword": "పాస్వర్డ్ నిర్ధారించండి"
+    },
+    "languages": {
+        "English": "English",
+        "Tamil": "தமிழ்",
+        "Kannada": "ಕನ್ನಡ",
+        "Hindi": "हिन्दी",
+        "Malayalam": "മലയാളം",
+        "Telugu": "తెలుగు"
+    }
+}

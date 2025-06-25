@@ -1,10 +1,12 @@
-import type { NextConfig } from 'next';
+import { NextConfig } from 'next';
+import createNextIntlPlugin from 'next-intl/plugin';
+
+const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts'); // 👈 specify correct path here
 
 const nextConfig: NextConfig = {
-    /* config options here */
     images: {
         domains: ['placehold.co', 'res.cloudinary.com'],
     },
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);
