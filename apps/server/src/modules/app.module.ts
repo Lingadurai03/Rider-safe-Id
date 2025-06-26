@@ -7,8 +7,8 @@ import { AppService } from '@/services';
 import { ProfileModule } from './profile.module';
 
 @Module({
-    imports: [AuthModule, ProfileModule, PublicModule],
-    controllers: [AppController],
-    providers: [AppService],
+  imports: [AuthModule, ProfileModule, PublicModule],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
