@@ -64,10 +64,9 @@ const DetailsForm = ({ mode }: { mode: string }) => {
                 state: profileData.state,
                 city: profileData.city,
                 showPrivateData: profileData.showPrivateData,
-                emergencyContacts:
-                    profileData.emergencyContacts.length > 0
-                        ? profileData.emergencyContacts
-                        : [{ name: '', phone: '' }],
+                emergencyContacts: profileData.emergencyContacts?.length
+                    ? profileData.emergencyContacts
+                    : [{ name: '', phone: '' }],
             });
         }
     }, [profileData, reset]);
