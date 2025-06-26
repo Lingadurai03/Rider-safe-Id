@@ -136,3 +136,7 @@ export interface ScanLog {
 export interface ScanLogsApiResponse {
     logs: ScanLog[];
 }
+
+export interface NotificationCountApiReponse {
+    count: number;
+}
