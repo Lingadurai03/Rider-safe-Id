@@ -34,13 +34,28 @@ export class AuthService {
   async register(userData: RegisterApiPayload) {
     try {
       const existingUser = await this.prisma.user.findFirst({
-        where: {
-          OR: [{ email: userData.email }],
-        },
+        where: { email: userData.email },
       });
 
       if (existingUser) {
         throw new BadRequestException('Email already exists');
+      }
+
+      const verifiedOtp = await this.prisma.emailVerification.findFirst({
+        where: {
+          email: userData.email,
+          isUsed: true,
+          isVerified: true,
+        },
+        orderBy: {
+          createdAt: 'desc',
+        },
+      });
+
+      if (!verifiedOtp) {
+        throw new BadRequestException(
+          'Email not verified. Please verify with OTP first.',
+        );
       }
 
       const hashedPassword = await bcrypt.hash(userData.password, 10);
@@ -52,42 +67,35 @@ export class AuthService {
         },
       });
 
-      try {
-        const qrResponse = await fetch(
-          `${process.env.QR_SERVICE_BASE_URL}qr/generate/${user.id}`,
-          {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'x-api-key': process.env.INTERNAL_API_KEY as string,
-            },
+      // Generate QR code
+      const qrResponse = await fetch(
+        `${process.env.QR_SERVICE_BASE_URL}qr/generate/${user.id}`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-api-key': process.env.INTERNAL_API_KEY as string,
           },
-        );
+        },
+      );
 
-        if (!qrResponse.ok) {
-          // Rollback user creation if QR generation failed
-          await this.prisma.user.delete({
-            where: { id: user.id },
-          });
-          throw new Error('QR Generation failed. User creation rolled back.');
-        }
-
-        const tokens = await this.generateTokens(user);
-        await this.updateRefreshToken(user.id, tokens.refreshToken);
-
-        return {
-          user: {
-            id: user.id,
-            fullName: user.fullName,
-            email: user.email,
-            role: user.role,
-          },
-          ...tokens,
-        };
-      } catch (error) {
-        console.error('Error during QR generation or token creation:', error);
-        throw error;
+      if (!qrResponse.ok) {
+        await this.prisma.user.delete({ where: { id: user.id } });
+        throw new Error('QR generation failed. User creation rolled back.');
       }
+
+      const tokens = await this.generateTokens(user);
+      await this.updateRefreshToken(user.id, tokens.refreshToken);
+
+      return {
+        user: {
+          id: user.id,
+          fullName: user.fullName,
+          email: user.email,
+          role: user.role,
+        },
+        ...tokens,
+      };
     } catch (error) {
       console.error('Error during registration:', error);
       throw error;
@@ -276,10 +284,13 @@ export class AuthService {
       throw new BadRequestException('Invalid or expired OTP');
     }
 
-    // Mark as used
+    // Mark as used AND verified
     await this.prisma.emailVerification.update({
       where: { id: record.id },
-      data: { isUsed: true },
+      data: {
+        isUsed: true,
+        isVerified: true,
+      },
     });
 
     return { success: true };
