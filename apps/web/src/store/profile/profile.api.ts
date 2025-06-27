@@ -24,7 +24,17 @@ export const profileApi = createApi({
                 body: data,
             }),
         }),
+        logout: builder.mutation<void, void>({
+            query: () => ({
+                url: '/auth/logout',
+                method: 'POST',
+            }),
+        }),
     }),
 });
 
-export const { useGetProfileQuery, useUpdateProfileMutation } = profileApi;
+export const {
+    useGetProfileQuery,
+    useUpdateProfileMutation,
+    useLogoutMutation,
+} = profileApi;

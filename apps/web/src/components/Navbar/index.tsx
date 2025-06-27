@@ -1,16 +1,24 @@
 'use client';
 
-import { Bell } from 'lucide-react';
+import { Bell, LogOut } from 'lucide-react';
 
 import LanguageSelect from '../LanguageSelect';
 import Link from 'next/link';
 import { NotificationCountApiReponse } from '@ridersafeid/types';
 import { useEffect, useState } from 'react';
 import { getNotificationCount } from '@/lib';
+import { useLogoutMutation } from '@/store/profile/profile.api';
+import { toast } from 'react-toastify';
+import { clearTokens } from '@/utils';
+import { useRouter } from 'next/navigation';
 
 export default function Navbar() {
     const [notificationCount, setNotificationCount] =
         useState<NotificationCountApiReponse | null>(null);
+
+    const router = useRouter();
+
+    const [logout] = useLogoutMutation();
 
     const fetchCount = async () => {
         try {
@@ -27,6 +35,16 @@ export default function Navbar() {
 
         return () => clearInterval(interval); // cleanup
     }, []);
+
+    const logoutHandler = async () => {
+        try {
+            await logout().unwrap();
+            clearTokens();
+            router.push('login');
+        } catch (e) {
+            toast.error('Logout Failed');
+        }
+    };
 
     return (
         <nav className='fixed top-0 left-0 w-full z-50 backdrop-blur-xs  border-b-white-sm bg-white-xs shadow-sm'>
@@ -52,6 +70,10 @@ export default function Navbar() {
                             {notificationCount?.count || 0}
                         </span>
                     </Link>
+                    <LogOut
+                        onClick={logoutHandler}
+                        className='w-7 h-7 cursor-pointer text hover:text-[color:var(--color-primary)]'
+                    />
                 </div>
             </div>
         </nav>
