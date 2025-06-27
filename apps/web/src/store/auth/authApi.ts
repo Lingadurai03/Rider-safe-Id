@@ -4,6 +4,8 @@ import {
     LoginApiResponse,
     RegisterApiPayload,
     RegisterApiResponse,
+    RequestOtpPayload,
+    ValidateOtpPayload,
 } from '@ridersafeid/types';
 
 import { AUTH_API } from '@/constant';
@@ -26,7 +28,26 @@ export const authApi = createApi({
                 body: data,
             }),
         }),
+        requestOtp: builder.mutation<void, RequestOtpPayload>({
+            query: (data) => ({
+                url: '/auth/request-otp',
+                method: 'POST',
+                body: data,
+            }),
+        }),
+        validateOtp: builder.mutation<void, ValidateOtpPayload>({
+            query: (data) => ({
+                url: '/auth/verify-otp',
+                method: 'POST',
+                body: data,
+            }),
+        }),
     }),
 });
 
-export const { useRegisterMutation, useLoginMutation } = authApi;
+export const {
+    useRegisterMutation,
+    useLoginMutation,
+    useRequestOtpMutation,
+    useValidateOtpMutation,
+} = authApi;
