@@ -11,16 +11,21 @@
         "alreadyRegister": "ஏற்கனவே பதிவு செய்துள்ளீர்களா?",
         "login": "உள் நுழையவும்",
         "submit": "சமர்பிக்கவும்",
-        "submitting": "சமர்ப்பிப்பு தொடர்கிறது..."
+        "submitting": "சமர்ப்பிப்பு தொடர்கிறது...",
+        "sendOtp": "OTP அனுப்பு",
+        "sending": "அனுப்புகிறது...",
+        "back": "← பின்செல்",
+        "verifyOtp": "OTP சரிபார்க்கவும்",
+        "verifying": "சரிபார்க்கிறது..."
     },
     "home": {
         "qrCodeStatus": "QR குறியீட்டு நிலை",
-        "freeEditLeft": "மதியுள்ள இலவசத் திருத்தங்கள்",
-        "downloadQr": "QR பதிவிறக்கம் செய்க",
-        "editDetails": "விவரங்களை திருத்து",
+        "freeEditLeft": "மீதமுள்ள இலவசத் திருத்தங்கள்",
+        "downloadQr": "QR பதிவிறக்கவும்",
+        "editDetails": "விவரங்களை திருத்தவும்",
         "name": "பெயர்",
         "bloodGroup": "இரத்த வகை",
-        "city": "நகர்",
+        "city": "நகரம்",
         "preview": "முன்னோட்டம்",
         "welcomeRider": "சவாரியருக்கு வரவேற்பு",
         "letsSecureYourRide": "உங்கள் சவாரியை பாதுகாப்பாக்கலாம்",
@@ -28,37 +33,38 @@
     },
     "notification": {
         "noLogsFound": "பதிவுகள் இல்லை",
-        "city": "நகர்",
+        "city": "நகரம்",
         "state": "மாநிலம்",
         "country": "நாடு",
-        "accuracy": "நிபுணத்தனம்",
+        "accuracy": "துல்லியம்",
         "viewOnGoogleMap": "Google வரைபடத்தில் பார்க்கவும்"
     },
     "details": {
-        "failedToLoadProfileData": "சுயவிவரத் தரவு ஏற்றப்படவில்லை.",
+        "failedToLoadProfileData": "சுயவிவரத் தரவை ஏற்ற முடியவில்லை.",
         "bloodGroup": "இரத்த வகை",
         "dob": "பிறந்த தேதி",
         "status": "நிலை",
         "address": "முகவரி",
-        "emergencyContact": "அவசரம் தொடர்பு",
+        "emergencyContact": "அவசரத் தொடர்பு",
         "noEmergencyContactFount": "அவசரத் தொடர்பு கிடைக்கவில்லை.",
         "noProfileDataFound": "சுயவிவரத் தரவு இல்லை."
     },
     "validation": {
-        "isRequired": "{name} அவசியம் உள்ளது",
+        "isRequired": "{name} அவசியம் தேவை",
         "passwordDoNotMatch": "கடவுச்சொற்கள் பொருந்தவில்லை"
     },
     "fields": {
         "email": "மின்னஞ்சல்",
         "password": "கடவுச்சொல்",
-        "fullName": "மீற்தபெயர்",
+        "fullName": "முழுப்பெயர்",
         "phoneNumber": "தொலைபேசி எண்",
-        "confirmPassword": "கடவுச்சொல்லை உறுதிப்படுத்தவும்"
+        "confirmPassword": "கடவுச்சொல்லை உறுதிப்படுத்தவும்",
+        "enterOtp": "OTP ஐ உள்ளிடவும்"
     },
     "languages": {
         "English": "English",
         "Tamil": "தமிழ்",
-        "Kannada": "ಕನ್ನಡ",
+        "Kannada": "கನ್ನಡ",
         "Hindi": "हिन्दी",
         "Malayalam": "മലയാളം",
         "Telugu": "తెలుగు"

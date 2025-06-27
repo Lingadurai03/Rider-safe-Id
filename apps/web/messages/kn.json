@@ -1,48 +1,53 @@
 {
     "login": {
         "heading": "ಲಾಗಿನ್",
-        "newHere": "ಇಲ್ಲಿ ಹೊಸದಾಗಿ ಬಂದವರಾ?",
+        "newHere": "ಹೊಸ ಬಳಕೆದಾರರಾ?",
         "createAnAccount": "ಖಾತೆ ತೆರೆಯಿರಿ!",
-        "submit": "ಸಲ್ಲಿಸು",
-        "submitting": "ಸಲ್ಲಿಸಲಾಗುತ್ತಿದೆ..."
+        "submit": "ಸಲ್ಲಿಸಿ",
+        "submitting": "ಸಲ್ಲಿಸುತ್ತಿದೆ..."
     },
     "register": {
         "heading": "ನೋಂದಣಿ",
-        "alreadyRegister": "ಈಗಿನದಾಗಿಯೇ ನೋಂದಾಯಿತರಾದಿರಾ?",
+        "alreadyRegister": "ಈಗಾಗಲೇ ನೋಂದಾಯಿಸಿದ್ದೀರಾ?",
         "login": "ಲಾಗಿನ್ ಮಾಡಿ",
-        "submit": "ಸಲ್ಲಿಸು",
-        "submitting": "ಸಲ್ಲಿಸಲಾಗುತ್ತಿದೆ..."
+        "submit": "ಸಲ್ಲಿಸಿ",
+        "submitting": "ಸಲ್ಲಿಸುತ್ತಿದೆ...",
+        "sendOtp": "OTP ಕಳುಹಿಸಿ",
+        "sending": "ಕಳುಹಿಸುತ್ತಿದೆ...",
+        "back": "← ಹಿಂದಿರುಗಿ",
+        "verifyOtp": "OTP ಪರಿಶೀಲಿಸಿ",
+        "verifying": "ಪರಿಶೀಲಿಸುತ್ತಿದೆ..."
     },
     "home": {
         "qrCodeStatus": "QR ಕೋಡ್ ಸ್ಥಿತಿ",
-        "freeEditLeft": "ಉಚಿತ ಸಂಪಾದನೆ ಉಳಿದಿದೆ",
+        "freeEditLeft": "ಉಚಿತ ಎಡಿಟ್ ಬಾಕಿ",
         "downloadQr": "QR ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ",
-        "editDetails": "ವಿವರಗಳನ್ನು ತಿದ್ದು",
+        "editDetails": "ವಿವರಗಳನ್ನು ತಿದ್ದುಪಡಿ ಮಾಡಿ",
         "name": "ಹೆಸರು",
         "bloodGroup": "ರಕ್ತ ಗುಂಪು",
         "city": "ನಗರ",
-        "preview": "ಮುನ್ನೋಟ",
-        "welcomeRider": "ಸ್ವಾಗತ ಸವಾರ",
-        "letsSecureYourRide": "ನಿಮ್ಮ ಸವಾರಿಯನ್ನು ಸುರಕ್ಷಿತಗೊಳಿಸೋಣ",
-        "upgradeToPro": "ಪ್ರೋಗೆ ನವೀಕರಿಸಿ"
+        "preview": "ಪೂರ್ವದೃಷ್ಟಿ",
+        "welcomeRider": "ಸ್ವಾಗತ ರೈಡರ್!",
+        "letsSecureYourRide": "ನಿಮ್ಮ ರೈಡ್ ಅನ್ನು ಸುರಕ್ಷಿತಗೊಳಿಸೋಣ",
+        "upgradeToPro": "ಪ್ರೋ ಗೆ ನವೀಕರಿಸಿ"
     },
     "notification": {
-        "noLogsFound": "ಯಾವುದೇ ಲಾಗ್‌ಗಳು ಕಂಡುಬಂದಿಲ್ಲ",
+        "noLogsFound": "ಲಾಗ್‌ಗಳು ದೊರಕಲಿಲ್ಲ",
         "city": "ನಗರ",
         "state": "ರಾಜ್ಯ",
         "country": "ದೇಶ",
-        "accuracy": "ಖಚಿತತೆ",
-        "viewOnGoogleMap": "Google ನಕ್ಷೆಯಲ್ಲಿ ನೋಡಿ"
+        "accuracy": "ನಿಖರತೆ",
+        "viewOnGoogleMap": "Google ನಕ್ಷೆಯಲ್ಲಿ ವೀಕ್ಷಿಸಿ"
     },
     "details": {
-        "failedToLoadProfileData": "ಪ್ರೊಫೈಲ್ ಡೇಟಾವನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.",
+        "failedToLoadProfileData": "ಪ್ರೊಫೈಲ್ ಡೇಟಾ ಲೋಡ್ ಆಗಲಿಲ್ಲ.",
         "bloodGroup": "ರಕ್ತ ಗುಂಪು",
-        "dob": "ಹುಟ್ಟಿದ ದಿನಾಂಕ",
+        "dob": "ಜನ್ಮ ದಿನಾಂಕ",
         "status": "ಸ್ಥಿತಿ",
         "address": "ವಿಳಾಸ",
         "emergencyContact": "ತುರ್ತು ಸಂಪರ್ಕಗಳು",
-        "noEmergencyContactFount": "ಯಾವುದೇ ತುರ್ತು ಸಂಪರ್ಕ ಕಂಡುಬಂದಿಲ್ಲ.",
-        "noProfileDataFound": "ಯಾವುದೇ ಪ್ರೊಫೈಲ್ ಡೇಟಾ ಲಭ್ಯವಿಲ್ಲ."
+        "noEmergencyContactFount": "ತುರ್ತು ಸಂಪರ್ಕಗಳು ಕಂಡುಬಂದಿಲ್ಲ.",
+        "noProfileDataFound": "ಪ್ರೊಫೈಲ್ ಡೇಟಾ ದೊರಕಲಿಲ್ಲ."
     },
     "validation": {
         "isRequired": "{name} ಅಗತ್ಯವಿದೆ",
@@ -53,7 +58,8 @@
         "password": "ಪಾಸ್ವರ್ಡ್",
         "fullName": "ಪೂರ್ಣ ಹೆಸರು",
         "phoneNumber": "ದೂರವಾಣಿ ಸಂಖ್ಯೆ",
-        "confirmPassword": "ಪಾಸ್ವರ್ಡ್ ದೃಢಪಡಿಸಿ"
+        "confirmPassword": "ಪಾಸ್ವರ್ಡ್ ದೃಢೀಕರಿಸಿ",
+        "enterOtp": "OTP ನಮೂದಿಸಿ"
     },
     "languages": {
         "English": "English",

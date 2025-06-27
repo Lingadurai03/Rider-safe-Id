@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import { Input, Button } from '@/components';
 import { useRequestOtpMutation } from '@/store/auth/authApi';
 import { RequestOtpPayload } from '@ridersafeid/types';
+import { useTranslations } from 'next-intl';
 
 type StepEmailProps = {
     goNext: () => void;
@@ -18,6 +19,8 @@ export default function StepEmail({ setEmail, goNext }: StepEmailProps) {
         handleSubmit,
         formState: { errors, isSubmitting },
     } = useForm<RequestOtpPayload>();
+
+    const t = useTranslations();
 
     const [requestOtp, { isLoading }] = useRequestOtpMutation();
 
@@ -38,7 +41,7 @@ export default function StepEmail({ setEmail, goNext }: StepEmailProps) {
             className='space-y-4 animate-fade-in'
         >
             <Input
-                label='Email'
+                label={t('fields.email')}
                 type='email'
                 registration={register('email', {
                     required: 'Email is required',
@@ -50,7 +53,12 @@ export default function StepEmail({ setEmail, goNext }: StepEmailProps) {
                 error={errors.email}
                 isDarkPage
             />
-            <Button type='submit' label='Send OTP' isLoading={isSubmitting} />
+            <Button
+                type='submit'
+                label={t('register.sendOtp')}
+                loadingText={t('register.sending')}
+                isLoading={isSubmitting}
+            />
         </form>
     );
 }

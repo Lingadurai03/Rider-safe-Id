@@ -90,7 +90,7 @@ export default function StepRegister({ email, goBack }: any) {
                 isDarkPage
             />
             <div className='flex justify-between items-center'>
-                <Button label='← Back' onClick={goBack} />
+                <Button label={t('register.back')} onClick={goBack} />
                 <Button
                     type='submit'
                     isLoading={isLoading}

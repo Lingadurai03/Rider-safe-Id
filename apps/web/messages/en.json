@@ -11,7 +11,12 @@
         "alreadyRegister": "Already Register?",
         "login": "Login",
         "submit": "Submit",
-        "submitting": "Submitting..."
+        "submitting": "Submitting...",
+        "sendOtp": "Send Otp",
+        "sending": "Sending ...",
+        "back": "← Back",
+        "verifyOtp": "Verify Otp",
+        "verifying": "Verifying..."
     },
     "home": {
         "qrCodeStatus": "QR code status",
@@ -54,7 +59,8 @@
         "password": "Password",
         "fullName": "Full Name",
         "phoneNumber": "Phone Number",
-        "confirmPassword": "Confirm Password"
+        "confirmPassword": "Confirm Password",
+        "enterOtp": "Enter Otp"
     },
     "languages": {
         "English": "English",
