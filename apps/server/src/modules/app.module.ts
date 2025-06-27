@@ -5,9 +5,10 @@ import { AuthModule, PublicModule } from '@/modules';
 import { AppService } from '@/services';
 
 import { ProfileModule } from './profile.module';
+import { UploadModule } from './upload.module';
 
 @Module({
-  imports: [AuthModule, ProfileModule, PublicModule],
+  imports: [AuthModule, ProfileModule, PublicModule, UploadModule],
   controllers: [AppController],
   providers: [AppService],
 })
