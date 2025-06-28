@@ -2,11 +2,11 @@
 
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
-
-import { Input, Button } from '@/components';
-import { useRequestOtpMutation } from '@/store/auth/authApi';
 import { RequestOtpPayload } from '@ridersafeid/types';
 import { useTranslations } from 'next-intl';
+
+import { Button, Input } from '@/components';
+import { useRequestOtpMutation } from '@/store/auth/authApi';
 
 type StepEmailProps = {
     goNext: () => void;
@@ -22,7 +22,7 @@ export default function StepEmail({ setEmail, goNext }: StepEmailProps) {
 
     const t = useTranslations();
 
-    const [requestOtp, { isLoading }] = useRequestOtpMutation();
+    const [requestOtp] = useRequestOtpMutation();
 
     const onSubmit = async (data: RequestOtpPayload) => {
         try {

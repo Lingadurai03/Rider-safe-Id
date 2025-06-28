@@ -8,9 +8,8 @@ import User from '../models/User.js';
 dotenv.config();
 
 export const generateAndUploadQR = async (req, res) => {
-
     const apiKey = req.headers['x-api-key'];
-    
+
     if (apiKey !== process.env.INTERNAL_API_KEY) {
         return res.status(403).json({ message: 'Forbidden — Invalid API Key' });
     }

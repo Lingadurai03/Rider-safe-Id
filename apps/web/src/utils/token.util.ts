@@ -4,11 +4,7 @@ import { ACCESS_TOKEN, REFRESH_TOKEN } from '@/constant';
 
 const COOKIE_EXPIRES_DAYS = 7;
 
-export function saveToken(
-    key: string,
-    token: string,
-    days = COOKIE_EXPIRES_DAYS,
-) {
+export function saveToken(key: string, token: string, days = COOKIE_EXPIRES_DAYS) {
     if (typeof window !== 'undefined') {
         Cookies.set(key, token, {
             expires: days,

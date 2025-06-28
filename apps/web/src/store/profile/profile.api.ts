@@ -1,13 +1,9 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
-import {
-    AddOrUpdateProfileApiPayload,
-    GetProfileApiResponse,
-} from '@ridersafeid/types';
+import { AddOrUpdateProfileApiPayload, GetProfileApiResponse } from '@ridersafeid/types';
+import { ProfileImageUploadResponseType } from '@ridersafeid/types';
 
 import { PROFILE_API } from '@/constant';
 import { authorizedBaseQuery } from '@/lib';
-
-import { ProfileImageUploadResponseType } from '@ridersafeid/types';
 
 export const profileApi = createApi({
     reducerPath: PROFILE_API,
@@ -32,10 +28,7 @@ export const profileApi = createApi({
                 method: 'POST',
             }),
         }),
-        uploadProfileImage: builder.mutation<
-            ProfileImageUploadResponseType,
-            FormData
-        >({
+        uploadProfileImage: builder.mutation<ProfileImageUploadResponseType, FormData>({
             query: (formData) => {
                 return {
                     url: 'upload/profile-image',

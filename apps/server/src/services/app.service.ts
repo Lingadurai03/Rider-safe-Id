@@ -8,27 +8,26 @@ export class AppService {
         return 'Hello World!';
     }
 
-   async getLogs(id: string, req:Request):Promise<ScanLogsApiResponse> {
-    try {
-        const res = await fetch(
-            `${process.env.QR_SERVICE_BASE_URL}scan/logs/${id}`,
-            {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'x-api-key': process.env.INTERNAL_API_KEY as string,
-                    'Authorization': req.headers['authorization'] || '', 
+    async getLogs(id: string, req: Request): Promise<ScanLogsApiResponse> {
+        try {
+            const res = await fetch(
+                `${process.env.QR_SERVICE_BASE_URL}scan/logs/${id}`,
+                {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'x-api-key': process.env.INTERNAL_API_KEY as string,
+                        Authorization: req.headers['authorization'] || '',
+                    },
                 },
-            },
-        );
+            );
 
-        if (!res.ok) {
-            throw new Error('Failed to fetch s');
-        }
+            if (!res.ok) {
+                throw new Error('Failed to fetch s');
+            }
 
-        const data = await res.json();
-        return data;
-
+            const data = await res.json();
+            return data;
         } catch (err) {
             console.error('Error fetching scan logs:', err);
             throw new NotFoundException();

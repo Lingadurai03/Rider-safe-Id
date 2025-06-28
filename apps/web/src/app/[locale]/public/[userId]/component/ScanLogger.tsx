@@ -23,7 +23,7 @@ const ScanLogger = ({ userId, locationData }: ScanLoggerProps) => {
                         try {
                             const { expiry } = JSON.parse(storedData);
                             if (Date.now() > expiry) {
-                                localStorage.removeItem(key);;
+                                localStorage.removeItem(key);
                             }
                         } catch {
                             localStorage.removeItem(key);
@@ -47,18 +47,12 @@ const ScanLogger = ({ userId, locationData }: ScanLoggerProps) => {
             }
 
             if (shouldLog) {
-                const createScanLogData = await createScanLog(
-                    locationData,
-                    userId,
-                );
+                const createScanLogData = await createScanLog(locationData, userId);
                 setScanLogId(createScanLogData?.log._id || null);
                 const expiryTime = new Date();
                 expiryTime.setHours(23, 59, 59, 999);
 
-                localStorage.setItem(
-                    scanLogKey,
-                    JSON.stringify({ expiry: expiryTime.getTime() }),
-                );
+                localStorage.setItem(scanLogKey, JSON.stringify({ expiry: expiryTime.getTime() }));
             }
         };
 
@@ -81,10 +75,7 @@ const ScanLogger = ({ userId, locationData }: ScanLoggerProps) => {
                         });
                     },
                     (error) => {
-                        console.warn(
-                            '⚠️ Location permission denied or error:',
-                            error,
-                        );
+                        console.warn('⚠️ Location permission denied or error:', error);
                     },
                 );
             } else {

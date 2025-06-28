@@ -1,8 +1,7 @@
 import React from 'react';
 import { Loader2 } from 'lucide-react';
 
-interface GlowingButtonProps
-    extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface GlowingButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     label: string;
     isLoading?: boolean;
     loadingText?: string;
@@ -54,7 +53,7 @@ const GlowingButton: React.FC<GlowingButtonProps> = ({
             style={outlineGlow}
         >
             {props.children}
-            {isLoading && <Loader2 className='h-4 w-4 animate-spin' />}
+            {isLoading && <Loader2 className="h-4 w-4 animate-spin" />}
             {isLoading ? loadingText || 'Loading...' : label}
         </button>
     );

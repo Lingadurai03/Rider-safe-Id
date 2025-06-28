@@ -24,14 +24,11 @@ const Details = async ({ params }: { params: { userId: string } }) => {
     };
 
     return (
-        <main className='mx-auto mt-5 max-w-[900px]'>
-            <Suspense fallback={<BoxSkeletons className='w-full h-[600px]' />}>
+        <main className="mx-auto mt-5 max-w-[900px]">
+            <Suspense fallback={<BoxSkeletons className="w-full h-[600px]" />}>
                 <PublicDetails userId={userId} />
             </Suspense>
-            <ScanLogger
-                locationData={constructedLocationData}
-                userId={userId}
-            />
+            <ScanLogger locationData={constructedLocationData} userId={userId} />
         </main>
     );
 };

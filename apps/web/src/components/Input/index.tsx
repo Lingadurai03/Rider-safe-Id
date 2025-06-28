@@ -24,11 +24,9 @@ export default function Input({
 
     return (
         <div>
-            <label className='mb-1 block text-sm font-medium text-white-muted'>
-                {label}
-            </label>
+            <label className="mb-1 block text-sm font-medium text-white-muted">{label}</label>
 
-            <div className='relative mt-1'>
+            <div className="relative mt-1">
                 <input
                     type={isPassword && showPassword ? 'text' : type}
                     {...registration}
@@ -38,20 +36,16 @@ export default function Input({
 
                 {isPassword && (
                     <button
-                        type='button'
+                        type="button"
                         onClick={() => setShowPassword((prev) => !prev)}
-                        className='absolute right-3 top-[50%] transform -translate-y-1/2 text-white-muted focus:outline-none cursor-pointer'
+                        className="absolute right-3 top-[50%] transform -translate-y-1/2 text-white-muted focus:outline-none cursor-pointer"
                     >
-                        {showPassword ? (
-                            <EyeOff size={20} />
-                        ) : (
-                            <Eye size={20} />
-                        )}
+                        {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                     </button>
                 )}
             </div>
             {error && (
-                <p className='mt-1 text-sm text-red-500'>
+                <p className="mt-1 text-sm text-red-500">
                     {error.message || `${label} is required`}
                 </p>
             )}

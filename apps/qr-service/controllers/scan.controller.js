@@ -28,8 +28,7 @@ export const createScanLog = async (req, res, next) => {
 
         const { error } = scanLogSchema.validate(req.body);
 
-        if (error || !req.body)
-            return res.status(400).json({ message: error.details[0].message });
+        if (error || !req.body) return res.status(400).json({ message: error.details[0].message });
 
         const log = await createScanLogService(userId, req.body);
         res.status(201).json({ message: 'Scan logged', log });

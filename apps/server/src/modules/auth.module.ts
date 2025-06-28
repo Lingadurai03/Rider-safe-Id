@@ -10,16 +10,16 @@ import { JwtStrategy } from '@/strategy';
 import { PrismaModule } from './prisma.module';
 
 @Module({
-  imports: [
-    PrismaModule,
-    JwtModule.register({
-      secret: process.env.ACCESS_TOKEN_SECRET!,
-      signOptions: { expiresIn: '1h' },
-    }),
-    PassportModule.register({ defaultStrategy: 'jwt' }),
-  ],
-  controllers: [AuthController],
-  providers: [AuthService, JwtStrategy, MailerService],
-  exports: [JwtModule, PassportModule],
+    imports: [
+        PrismaModule,
+        JwtModule.register({
+            secret: process.env.ACCESS_TOKEN_SECRET!,
+            signOptions: { expiresIn: '1h' },
+        }),
+        PassportModule.register({ defaultStrategy: 'jwt' }),
+    ],
+    controllers: [AuthController],
+    providers: [AuthService, JwtStrategy, MailerService],
+    exports: [JwtModule, PassportModule],
 })
 export class AuthModule {}

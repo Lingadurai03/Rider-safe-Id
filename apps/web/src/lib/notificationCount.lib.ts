@@ -1,9 +1,10 @@
 'use client';
 
-import { ACCESS_TOKEN } from '@/constant';
-import { getToken } from '@/utils';
 import { NotificationCountApiReponse } from '@ridersafeid/types';
 import axios from 'axios';
+
+import { ACCESS_TOKEN } from '@/constant';
+import { getToken } from '@/utils';
 
 const url = process.env.NEXT_PUBLIC_QR_SERVICE_BASE_URL;
 

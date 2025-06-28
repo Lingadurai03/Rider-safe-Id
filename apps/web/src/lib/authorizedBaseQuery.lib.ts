@@ -1,8 +1,4 @@
-import type {
-    BaseQueryFn,
-    FetchArgs,
-    FetchBaseQueryError,
-} from '@reduxjs/toolkit/query';
+import type { BaseQueryFn, FetchArgs, FetchBaseQueryError } from '@reduxjs/toolkit/query';
 import { fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 import { ACCESS_TOKEN, REFRESH_TOKEN } from '@/constant';
@@ -11,8 +7,7 @@ import { getToken, saveToken } from '@/utils';
 const rawBaseQuery = fetchBaseQuery({
     baseUrl: process.env.NEXT_PUBLIC_API_URL,
     prepareHeaders: (headers) => {
-        const token =
-            typeof window !== 'undefined' ? getToken(ACCESS_TOKEN) : null;
+        const token = typeof window !== 'undefined' ? getToken(ACCESS_TOKEN) : null;
         if (token) headers.set('Authorization', `Bearer ${token}`);
         return headers;
     },

@@ -8,8 +8,8 @@ import { ProfileModule } from './profile.module';
 import { UploadModule } from './upload.module';
 
 @Module({
-  imports: [AuthModule, ProfileModule, PublicModule, UploadModule],
-  controllers: [AppController],
-  providers: [AppService],
+    imports: [AuthModule, ProfileModule, PublicModule, UploadModule],
+    controllers: [AppController],
+    providers: [AppService],
 })
 export class AppModule {}

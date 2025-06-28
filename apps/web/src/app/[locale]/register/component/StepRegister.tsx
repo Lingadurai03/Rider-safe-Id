@@ -1,15 +1,17 @@
 'use client';
 
 import { useForm } from 'react-hook-form';
-import { Input, Button, Error } from '@/components';
-import { useRegisterMutation } from '@/store/auth/authApi';
-import { saveToken } from '@/utils';
-import { ACCESS_TOKEN, REFRESH_TOKEN } from '@/constant';
-import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
-import { useGenerateErrorMessage } from '@/hooks';
 import { RegisterApiPayload } from '@ridersafeid/types';
+import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
+
+import { ACCESS_TOKEN, REFRESH_TOKEN } from '@/constant';
+import { useGenerateErrorMessage } from '@/hooks';
+import { saveToken } from '@/utils';
+
+import { Button, Error, Input } from '@/components';
+import { useRegisterMutation } from '@/store/auth/authApi';
 
 interface RegisterData extends RegisterApiPayload {
     confirmPassword: string;
@@ -44,16 +46,13 @@ export default function StepRegister({ email, goBack }: any) {
             router.push('/');
         } catch (err: any) {
             toast.error(
-                <Error
-                    title='Error'
-                    message={err?.data?.message || 'Registration failed'}
-                />,
+                <Error title="Error" message={err?.data?.message || 'Registration failed'} />,
             );
         }
     };
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className='space-y-4'>
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <Input
                 label={t('fields.fullName')}
                 registration={register('fullName', {
@@ -70,7 +69,7 @@ export default function StepRegister({ email, goBack }: any) {
             />
             <Input
                 label={t('fields.password')}
-                type='password'
+                type="password"
                 registration={register('password', {
                     required: generateErrorMessage('password'),
                 })}
@@ -79,20 +78,19 @@ export default function StepRegister({ email, goBack }: any) {
             />
             <Input
                 label={t('fields.confirmPassword')}
-                type='password'
+                type="password"
                 registration={register('confirmPassword', {
                     required: generateErrorMessage('confirmPassword'),
                     validate: (value) =>
-                        value === passwordInputText ||
-                        t('validation.passwordDoNotMatch'),
+                        value === passwordInputText || t('validation.passwordDoNotMatch'),
                 })}
                 error={errors.confirmPassword}
                 isDarkPage
             />
-            <div className='flex justify-between items-center'>
+            <div className="flex justify-between items-center">
                 <Button label={t('register.back')} onClick={goBack} />
                 <Button
-                    type='submit'
+                    type="submit"
                     isLoading={isLoading}
                     loadingText={t('register.submitting')}
                     label={t('register.submit')}

@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Edit } from 'lucide-react';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 import { useToggle } from '@/hooks';
 import { getCroppedImg } from '@/utils';
@@ -10,14 +11,11 @@ import { getCroppedImg } from '@/utils';
 import { Modal } from '@/components';
 import ImagePickerWithCrop from '@/components/ImagePickerWithCrop';
 import { useUploadProfileImageMutation } from '@/store/profile/profile.api';
-import { useTranslations } from 'next-intl';
 
 interface Props {
     url: string | null;
     alt: string | null;
-    setImageUrl: React.Dispatch<
-        React.SetStateAction<string | null | undefined>
-    >;
+    setImageUrl: React.Dispatch<React.SetStateAction<string | null | undefined>>;
 }
 
 const ProfileImageWithEdit = ({ url, alt, setImageUrl }: Props) => {
@@ -34,10 +32,8 @@ const ProfileImageWithEdit = ({ url, alt, setImageUrl }: Props) => {
 
     const t = useTranslations();
 
-    const [
-        uploadProfileImage,
-        { data: imageData, isLoading: isProfileImageUploading },
-    ] = useUploadProfileImageMutation();
+    const [uploadProfileImage, { isLoading: isProfileImageUploading }] =
+        useUploadProfileImageMutation();
 
     const editButtonClickHandler = () => {
         if (fileInputRef.current) {
@@ -84,24 +80,24 @@ const ProfileImageWithEdit = ({ url, alt, setImageUrl }: Props) => {
     };
 
     return (
-        <div className='group relative mx-auto my-4 h-60 w-60'>
+        <div className="group relative mx-auto my-4 h-60 w-60">
             <Image
                 src={url ? url : 'https://placehold.co/600x400/png'}
                 alt={alt || 'Profile Image'}
                 fill
-                sizes='(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 256px'
-                className='rounded-full object-cover'
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 256px"
+                className="rounded-full object-cover"
                 priority
             />
             <div
-                className='md:invisible absolute inset-0 z-10 flex cursor-pointer items-center justify-center rounded-full bg-zinc-900/60 text-fuchsia-400 transition md group-hover:visible'
+                className="md:invisible absolute inset-0 z-10 flex cursor-pointer items-center justify-center rounded-full bg-zinc-900/60 text-fuchsia-400 transition md group-hover:visible"
                 onClick={editButtonClickHandler}
             >
-                <Edit className='h-6 w-6' />
+                <Edit className="h-6 w-6" />
                 <input
-                    type='file'
-                    accept='image/*'
-                    className='hidden'
+                    type="file"
+                    accept="image/*"
+                    className="hidden"
                     ref={fileInputRef}
                     onChange={handleFileChange}
                 />
@@ -116,10 +112,7 @@ const ProfileImageWithEdit = ({ url, alt, setImageUrl }: Props) => {
                 isConfirmButtonLoading={isProfileImageUploading}
                 confiirmButtonLoadingText={t('modal.uploading')}
             >
-                <ImagePickerWithCrop
-                    image={image!}
-                    setCroppedAreaPixels={setCroppedAreaPixels}
-                />
+                <ImagePickerWithCrop image={image!} setCroppedAreaPixels={setCroppedAreaPixels} />
             </Modal>
         </div>
     );

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
+
 import { LANGUAGES, LOCALMAP } from '@/constant';
 import { usePathname, useRouter } from '@/i18n';
 import { getLangFromLocale } from '@/utils';
@@ -30,10 +31,7 @@ export default function LanguageSelect() {
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
-            if (
-                dropdownRef.current &&
-                !dropdownRef.current.contains(event.target as Node)
-            ) {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
                 setIsOpen(false);
             }
         };
@@ -46,12 +44,12 @@ export default function LanguageSelect() {
     return (
         <div
             ref={dropdownRef}
-            className='relative w-24 text-[color:var(--color-text)] text-sm cursor-pointer'
+            className="relative w-24 text-[color:var(--color-text)] text-sm cursor-pointer"
         >
             {/* Trigger Button */}
             <div
                 onClick={() => setIsOpen((prev) => !prev)}
-                className='w-full bg-white-md text-[color:var(--color-text)] backdrop-blur-sm px-3 py-2 rounded-md flex justify-between items-center shadow-inner hover:bg-white/20 transition-all duration-300'
+                className="w-full bg-white-md text-[color:var(--color-text)] backdrop-blur-sm px-3 py-2 rounded-md flex justify-between items-center shadow-inner hover:bg-white/20 transition-all duration-300"
             >
                 {t(selected)}
                 <ChevronDown
@@ -64,9 +62,7 @@ export default function LanguageSelect() {
             {/* Dropdown Options */}
             <ul
                 className={`absolute top-full mt-1 left-0 w-full bg-bg color backdrop-blur-sm rounded-md shadow-lg overflow-hidden transition-all duration-300 z-50 ${
-                    isOpen
-                        ? 'opacity-100 scale-100'
-                        : 'opacity-0 scale-95 pointer-events-none'
+                    isOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'
                 }`}
             >
                 {LANGUAGES.map((lang) => (
@@ -74,9 +70,7 @@ export default function LanguageSelect() {
                         key={lang}
                         onClick={() => handleSelect(lang)}
                         className={`px-3 py-2 hover:bg-[color:var(--color-primary)] cursor-pointer transition-colors duration-200 ${
-                            lang === selected
-                                ? 'bg-[color:var(--color-primary)]'
-                                : ''
+                            lang === selected ? 'bg-[color:var(--color-primary)]' : ''
                         }`}
                     >
                         {t(lang)}

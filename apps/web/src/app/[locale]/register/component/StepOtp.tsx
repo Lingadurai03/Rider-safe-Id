@@ -1,14 +1,13 @@
 'use client';
 
-import { Input, Button } from '@/components';
-import { useGenerateErrorMessage } from '@/hooks';
-import {
-    useRegisterMutation,
-    useValidateOtpMutation,
-} from '@/store/auth/authApi';
-import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
+import { useTranslations } from 'next-intl';
+
+import { useGenerateErrorMessage } from '@/hooks';
+
+import { Button, Input } from '@/components';
+import { useValidateOtpMutation } from '@/store/auth/authApi';
 
 type Props = {
     email: string;
@@ -43,7 +42,7 @@ export default function StepOtp({ email, goNext, goBack }: Props) {
     };
 
     return (
-        <form className='space-y-4' onSubmit={handleSubmit(onSubmit)}>
+        <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
             <Input
                 label={t('fields.enterOtp')}
                 registration={register('otp', {
@@ -52,15 +51,11 @@ export default function StepOtp({ email, goNext, goBack }: Props) {
                 error={errors.otp}
                 isDarkPage
             />
-            <div className='flex justify-between'>
-                <Button
-                    label={t('register.back')}
-                    type='button'
-                    onClick={goBack}
-                />
+            <div className="flex justify-between">
+                <Button label={t('register.back')} type="button" onClick={goBack} />
                 <Button
                     label={t('register.verifyOtp')}
-                    type='submit'
+                    type="submit"
                     isLoading={isLoading}
                     loadingText={t('register.verifying')}
                 />

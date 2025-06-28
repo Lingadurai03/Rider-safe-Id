@@ -19,11 +19,11 @@ export default async function RootLayout({
 
     return (
         <html className={isDark ? 'dark' : ''}>
-            <body className='text-muted'>
+            <body className="text-muted">
                 <LocaleLayout locale={locale}>
                     <ToastContainer />
                     <StoreProvider>{children}</StoreProvider>
-                    <div id='modal-root' />
+                    <div id="modal-root" />
                 </LocaleLayout>
             </body>
         </html>
