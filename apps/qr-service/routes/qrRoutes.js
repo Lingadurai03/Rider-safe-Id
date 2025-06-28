@@ -1,6 +1,9 @@
 import express from 'express';
 
-import { generateAndUploadQR, getQRImageUrl } from '../controllers/qrController.js';
+import {
+    generateAndUploadQR,
+    getQRImageUrl,
+} from '../controllers/qrController.js';
 
 const router = express.Router();
 
