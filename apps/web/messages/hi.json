@@ -61,6 +61,12 @@
         "confirmPassword": "पासवर्ड की पुष्टि करें",
         "enterOtp": "OTP दर्ज करें"
     },
+    "modal": {
+        "cancel": "रद्द करें",
+        "upload": "अपलोड करें",
+        "title": "प्रोफ़ाइल छवि अपलोड करें",
+        "uploading": "अपलोड हो रहा है..."
+    },
     "languages": {
         "English": "English",
         "Tamil": "தமிழ்",

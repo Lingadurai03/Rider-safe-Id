@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useFieldArray, useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { RTKError } from '@ridersafeid/types';
@@ -26,7 +26,12 @@ interface FormData {
 }
 
 const DetailsForm = ({ mode }: { mode: string }) => {
-    const { data: profileData } = useGetProfileQuery();
+    const { data: profileData } = useGetProfileQuery(undefined, {
+        refetchOnMountOrArgChange: true,
+        refetchOnReconnect: true,
+        pollingInterval: 0,
+    });
+    const [imageUrl, setImageUrl] = useState(profileData?.imageUrl);
 
     const [updateProfile, { isLoading: isUpdateProfileLoading }] =
         useUpdateProfileMutation();
@@ -68,6 +73,7 @@ const DetailsForm = ({ mode }: { mode: string }) => {
                     ? profileData.emergencyContacts
                     : [{ name: '', phone: '' }],
             });
+            setImageUrl(profileData.imageUrl);
         }
     }, [profileData, reset]);
 
@@ -80,6 +86,7 @@ const DetailsForm = ({ mode }: { mode: string }) => {
         try {
             await updateProfile({
                 ...data,
+                ...(imageUrl ? { imageUrl } : {}),
                 emergencyContacts: data.emergencyContacts.map((eContact) => ({
                     phone: eContact.phone,
                     name: eContact.name,
@@ -100,7 +107,11 @@ const DetailsForm = ({ mode }: { mode: string }) => {
 
     return (
         <div>
-            <ProfileImageWithEdit url={'hello'} alt={'helo'} />
+            <ProfileImageWithEdit
+                url={imageUrl || ''}
+                alt={'ProfileImage'}
+                setImageUrl={setImageUrl}
+            />
             <form
                 onSubmit={handleSubmit(onSubmit)}
                 className='grid grid-cols-1 gap-4 lg:grid-cols-2'

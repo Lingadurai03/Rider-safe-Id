@@ -19,11 +19,11 @@ export class ProfileService {
     });
 
     if (existingProfile) {
-      if (!existingProfile.isPremium && existingProfile.updateCount >= 3) {
-        throw new ForbiddenException(
-          'Update limit reached. Please upgrade to premium.',
-        );
-      }
+      // if (!existingProfile.isPremium && existingProfile.updateCount >= 3) {
+      //   throw new ForbiddenException(
+      //     'Update limit reached. Please upgrade to premium.',
+      //   );
+      // }
 
       const updatedProfile = await this.prisma.profile.update({
         where: { userId },

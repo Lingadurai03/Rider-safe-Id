@@ -61,6 +61,12 @@
         "confirmPassword": "கடவுச்சொல்லை உறுதிப்படுத்தவும்",
         "enterOtp": "OTP ஐ உள்ளிடவும்"
     },
+    "modal": {
+        "cancel": "ரத்து செய்க",
+        "upload": "பதிவேற்றம்",
+        "title": "சுயவிவர படத்தை பதிவேற்றவும்",
+        "uploading": "பதிவேற்றம் நடைபெறுகிறது..."
+    },
     "languages": {
         "English": "English",
         "Tamil": "தமிழ்",

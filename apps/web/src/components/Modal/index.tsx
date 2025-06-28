@@ -1,8 +1,7 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
-
 import Button from '@/components/Button';
 
 interface ModalProps {
@@ -28,22 +27,26 @@ const Modal: React.FC<ModalProps> = ({
     isConfirmButtonLoading,
     confiirmButtonLoadingText,
 }) => {
+    const [isMounted, setIsMounted] = useState(false);
     const modalRef = useRef<HTMLDivElement>(null);
 
-    // Lock scroll when modal is open
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
+    // Scroll lock
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = 'hidden';
         } else {
             document.body.style.overflow = '';
         }
-
         return () => {
             document.body.style.overflow = '';
         };
     }, [isOpen]);
 
-    // Click outside to close
+    // Close on outside click
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             if (
@@ -53,34 +56,28 @@ const Modal: React.FC<ModalProps> = ({
                 onClose();
             }
         };
-
         if (isOpen) {
             document.addEventListener('mousedown', handleClickOutside);
         }
-
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, [isOpen, onClose]);
 
-    // Escape key to close
+    // Escape key close
     useEffect(() => {
         const handleEscape = (event: KeyboardEvent) => {
-            if (event.key === 'Escape') {
-                onClose();
-            }
+            if (event.key === 'Escape') onClose();
         };
-
         if (isOpen) {
             document.addEventListener('keydown', handleEscape);
         }
-
         return () => {
             document.removeEventListener('keydown', handleEscape);
         };
     }, [isOpen, onClose]);
 
-    if (!isOpen) return null;
+    if (!isOpen || !isMounted) return null;
 
     const modalRoot = document.getElementById('modal-root');
     if (!modalRoot) return null;

@@ -7,6 +7,8 @@ import {
 import { PROFILE_API } from '@/constant';
 import { authorizedBaseQuery } from '@/lib';
 
+import { ProfileImageUploadResponseType } from '@ridersafeid/types';
+
 export const profileApi = createApi({
     reducerPath: PROFILE_API,
     baseQuery: authorizedBaseQuery,
@@ -30,6 +32,18 @@ export const profileApi = createApi({
                 method: 'POST',
             }),
         }),
+        uploadProfileImage: builder.mutation<
+            ProfileImageUploadResponseType,
+            FormData
+        >({
+            query: (formData) => {
+                return {
+                    url: 'upload/profile-image',
+                    method: 'POST',
+                    body: formData,
+                };
+            },
+        }),
     }),
 });
 
@@ -37,4 +51,5 @@ export const {
     useGetProfileQuery,
     useUpdateProfileMutation,
     useLogoutMutation,
+    useUploadProfileImageMutation,
 } = profileApi;

@@ -23,6 +23,7 @@ export default async function RootLayout({
                 <LocaleLayout locale={locale}>
                     <ToastContainer />
                     <StoreProvider>{children}</StoreProvider>
+                    <div id='modal-root' />
                 </LocaleLayout>
             </body>
         </html>

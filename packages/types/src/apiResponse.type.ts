@@ -140,3 +140,7 @@ export interface ScanLogsApiResponse {
 export interface NotificationCountApiReponse {
     count: number;
 }
+
+export interface ProfileImageUploadResponseType {
+    url: string;
+}

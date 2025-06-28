@@ -9,13 +9,18 @@ import { getCroppedImg } from '@/utils';
 
 import { Modal } from '@/components';
 import ImagePickerWithCrop from '@/components/ImagePickerWithCrop';
+import { useUploadProfileImageMutation } from '@/store/profile/profile.api';
+import { useTranslations } from 'next-intl';
 
 interface Props {
     url: string | null;
     alt: string | null;
+    setImageUrl: React.Dispatch<
+        React.SetStateAction<string | null | undefined>
+    >;
 }
 
-const ProfileImageWithEdit = ({ url, alt }: Props) => {
+const ProfileImageWithEdit = ({ url, alt, setImageUrl }: Props) => {
     const fileInputRef = useRef<HTMLInputElement>(null);
     const [modalState, _, setModalState] = useToggle(false);
     const [image, setImage] = useState<null | string>(null);
@@ -26,14 +31,13 @@ const ProfileImageWithEdit = ({ url, alt }: Props) => {
         x: number;
         y: number;
     } | null>(null);
-    // const [
-    //     updateProfileImage,
-    //     {
-    //         data,
-    //         isLoading: isProfileImageUploading,
-    //         isSuccess: isProfileImageUploadedSuccessfully,
-    //     },
-    // ] = useUpdateProfileImageMutation();
+
+    const t = useTranslations();
+
+    const [
+        uploadProfileImage,
+        { data: imageData, isLoading: isProfileImageUploading },
+    ] = useUploadProfileImageMutation();
 
     const editButtonClickHandler = () => {
         if (fileInputRef.current) {
@@ -70,17 +74,19 @@ const ProfileImageWithEdit = ({ url, alt }: Props) => {
         const formData = new FormData();
         formData.append('file', croppedBlob, 'profile.jpg');
         try {
-            // await updateProfileImage(formData).unwrap();
+            const data = await uploadProfileImage(formData).unwrap();
+            setImageUrl(data.url);
             // optionally close modal and refresh image
             setModalState(false);
         } catch (err) {
             console.error('Failed to upload image:', err);
         }
     };
+
     return (
         <div className='group relative mx-auto my-4 h-60 w-60'>
             <Image
-                src={'https://placehold.co/600x400/png'}
+                src={url ? url : 'https://placehold.co/600x400/png'}
                 alt={alt || 'Profile Image'}
                 fill
                 sizes='(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 256px'
@@ -103,12 +109,12 @@ const ProfileImageWithEdit = ({ url, alt }: Props) => {
             <Modal
                 isOpen={modalState}
                 onClose={modalOnClose}
-                cancelText='Cancel'
-                confirmText='Upload'
+                cancelText={t('modal.cancel')}
+                confirmText={t('modal.upload')}
                 onConfirm={modalOnConfirm}
-                title='Upload Profile Image'
-                // isConfirmButtonLoading={isProfileImageUploading}
-                confiirmButtonLoadingText='Uploading...'
+                title={t('modal.title')}
+                isConfirmButtonLoading={isProfileImageUploading}
+                confiirmButtonLoadingText={t('modal.uploading')}
             >
                 <ImagePickerWithCrop
                     image={image!}

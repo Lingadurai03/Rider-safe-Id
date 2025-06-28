@@ -61,6 +61,12 @@
         "confirmPassword": "ಪಾಸ್ವರ್ಡ್ ದೃಢೀಕರಿಸಿ",
         "enterOtp": "OTP ನಮೂದಿಸಿ"
     },
+    "modal": {
+        "cancel": "ರದ್ದುಗೊಳಿಸಿ",
+        "upload": "ಅಪ್ಲೋಡ್ ಮಾಡಿ",
+        "title": "ಪ್ರೊಫೈಲ್ ಚಿತ್ರವನ್ನು ಅಪ್ಲೋಡ್ ಮಾಡಿ",
+        "uploading": "ಅಪ್ಲೋಡ್ ಆಗುತ್ತಿದೆ..."
+    },
     "languages": {
         "English": "English",
         "Tamil": "தமிழ்",

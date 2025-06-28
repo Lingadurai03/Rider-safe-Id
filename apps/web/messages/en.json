@@ -62,6 +62,12 @@
         "confirmPassword": "Confirm Password",
         "enterOtp": "Enter Otp"
     },
+    "modal": {
+        "cancel": "Cancel",
+        "upload": "Upload",
+        "title": "Upload Profile Image",
+        "uploading": "Uploading..."
+    },
     "languages": {
         "English": "English",
         "Tamil": "தமிழ்",
