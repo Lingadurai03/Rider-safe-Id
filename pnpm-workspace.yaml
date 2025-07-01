@@ -8,6 +8,7 @@ ignoredBuiltDependencies:
   - '@swc/core'
   - '@tailwindcss/oxide'
   - bcrypt
+  - core-js
   - prisma
   - sharp
   - unrs-resolver
