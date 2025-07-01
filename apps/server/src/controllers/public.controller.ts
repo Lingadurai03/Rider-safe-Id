@@ -11,6 +11,6 @@ export class PublicController {
 
     @Get(':userId')
     getUserProfile(@Param('userId') userId: string) {
-        return this.profileService.getProfile(userId);
+        return this.publicService.getProfile(userId);
     }
 }

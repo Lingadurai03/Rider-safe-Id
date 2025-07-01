@@ -30,14 +30,11 @@ export const updateScanLogService = async (scanLogId, updateData) => {
 
 export const getNotificationCountService = async (token) => {
     try {
-        const response = await axios.get(
-            `${process.env.USER_SERVICE_BASE_URL}auth/self`,
-            {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
+        const response = await axios.get(`${process.env.USER_SERVICE_BASE_URL}auth/self`, {
+            headers: {
+                Authorization: `Bearer ${token}`,
             },
-        );
+        });
 
         const { id, lastSeenNotificationAt } = response.data;
 
@@ -52,16 +49,13 @@ export const getNotificationCountService = async (token) => {
     }
 };
 
-export const getScanLogsService = async (userId,token) => {
+export const getScanLogsService = async (userId, token) => {
     try {
-        await axios.get(
-            `${process.env.USER_SERVICE_BASE_URL}auth/updateNotificationLastSeenAt`,
-            {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
+        await axios.get(`${process.env.USER_SERVICE_BASE_URL}auth/updateNotificationLastSeenAt`, {
+            headers: {
+                Authorization: `Bearer ${token}`,
             },
-        );
+        });
 
         const logs = await ScanLog.find({ ownerUserId: userId });
         return logs;

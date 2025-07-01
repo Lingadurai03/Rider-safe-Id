@@ -6,11 +6,4 @@ export const LOCALMAP: Record<string, string> = {
     Malayalam: 'ml',
     Telugu: 'te',
 };
-export const LANGUAGES = [
-    'Tamil',
-    'Malayalam',
-    'English',
-    'Kannada',
-    'Hindi',
-    'Telugu',
-];
+export const LANGUAGES = ['Tamil', 'Malayalam', 'English', 'Kannada', 'Hindi', 'Telugu'];

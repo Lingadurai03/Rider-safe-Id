@@ -28,8 +28,7 @@ export const createScanLog = async (req, res, next) => {
 
         const { error } = scanLogSchema.validate(req.body);
 
-        if (error || !req.body)
-            return res.status(400).json({ message: error.details[0].message });
+        if (error || !req.body) return res.status(400).json({ message: error.details[0].message });
 
         const log = await createScanLogService(userId, req.body);
         res.status(201).json({ message: 'Scan logged', log });
@@ -60,7 +59,6 @@ export const updateScanLog = async (req, res, next) => {
     }
 };
 
-
 export const getNotificationCount = async (req, res, next) => {
     try {
         const token = req.headers.authorization?.split(' ')[1];
@@ -76,12 +74,9 @@ export const getNotificationCount = async (req, res, next) => {
     }
 };
 
-
-  
-
 export const getScanLogs = async (req, res, next) => {
-      const apiKey = req.headers['x-api-key'];
-    
+    const apiKey = req.headers['x-api-key'];
+
     if (apiKey !== process.env.INTERNAL_API_KEY) {
         return res.status(403).json({ message: 'Forbidden — Invalid API Key' });
     }
@@ -93,7 +88,7 @@ export const getScanLogs = async (req, res, next) => {
             return res.status(401).json({ message: 'No token provided' });
         }
 
-        const logs = await getScanLogsService(userId,token);
+        const logs = await getScanLogsService(userId, token);
         res.status(200).json({ logs });
     } catch (err) {
         console.error('Error in getScanLogs:', err);

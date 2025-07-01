@@ -7,13 +7,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     loadingText?: string;
 }
 
-const Button: React.FC<ButtonProps> = ({
-    label,
-    isLoading,
-    loadingText,
-    disabled,
-    ...props
-}) => {
+const Button: React.FC<ButtonProps> = ({ label, isLoading, loadingText, disabled, ...props }) => {
     return (
         <button
             {...props}
@@ -26,7 +20,7 @@ const Button: React.FC<ButtonProps> = ({
             `}
         >
             {props.children}
-            {isLoading && <Loader2 className='h-4 w-4 animate-spin' />}
+            {isLoading && <Loader2 className="h-4 w-4 animate-spin" />}
             {isLoading ? loadingText || 'Submitting...' : label}
         </button>
     );

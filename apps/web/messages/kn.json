@@ -1,66 +1,95 @@
 {
-    "login": {
-        "heading": "ಲಾಗಿನ್",
-        "newHere": "ಇಲ್ಲಿ ಹೊಸದಾಗಿ ಬಂದವರಾ?",
-        "createAnAccount": "ಖಾತೆ ತೆರೆಯಿರಿ!",
-        "submit": "ಸಲ್ಲಿಸು",
-        "submitting": "ಸಲ್ಲಿಸಲಾಗುತ್ತಿದೆ..."
-    },
-    "register": {
-        "heading": "ನೋಂದಣಿ",
-        "alreadyRegister": "ಈಗಿನದಾಗಿಯೇ ನೋಂದಾಯಿತರಾದಿರಾ?",
-        "login": "ಲಾಗಿನ್ ಮಾಡಿ",
-        "submit": "ಸಲ್ಲಿಸು",
-        "submitting": "ಸಲ್ಲಿಸಲಾಗುತ್ತಿದೆ..."
-    },
-    "home": {
-        "qrCodeStatus": "QR ಕೋಡ್ ಸ್ಥಿತಿ",
-        "freeEditLeft": "ಉಚಿತ ಸಂಪಾದನೆ ಉಳಿದಿದೆ",
-        "downloadQr": "QR ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ",
-        "editDetails": "ವಿವರಗಳನ್ನು ತಿದ್ದು",
-        "name": "ಹೆಸರು",
-        "bloodGroup": "ರಕ್ತ ಗುಂಪು",
-        "city": "ನಗರ",
-        "preview": "ಮುನ್ನೋಟ",
-        "welcomeRider": "ಸ್ವಾಗತ ಸವಾರ",
-        "letsSecureYourRide": "ನಿಮ್ಮ ಸವಾರಿಯನ್ನು ಸುರಕ್ಷಿತಗೊಳಿಸೋಣ",
-        "upgradeToPro": "ಪ್ರೋಗೆ ನವೀಕರಿಸಿ"
-    },
-    "notification": {
-        "noLogsFound": "ಯಾವುದೇ ಲಾಗ್‌ಗಳು ಕಂಡುಬಂದಿಲ್ಲ",
-        "city": "ನಗರ",
-        "state": "ರಾಜ್ಯ",
-        "country": "ದೇಶ",
-        "accuracy": "ಖಚಿತತೆ",
-        "viewOnGoogleMap": "Google ನಕ್ಷೆಯಲ್ಲಿ ನೋಡಿ"
-    },
-    "details": {
-        "failedToLoadProfileData": "ಪ್ರೊಫೈಲ್ ಡೇಟಾವನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.",
-        "bloodGroup": "ರಕ್ತ ಗುಂಪು",
-        "dob": "ಹುಟ್ಟಿದ ದಿನಾಂಕ",
-        "status": "ಸ್ಥಿತಿ",
-        "address": "ವಿಳಾಸ",
-        "emergencyContact": "ತುರ್ತು ಸಂಪರ್ಕಗಳು",
-        "noEmergencyContactFount": "ಯಾವುದೇ ತುರ್ತು ಸಂಪರ್ಕ ಕಂಡುಬಂದಿಲ್ಲ.",
-        "noProfileDataFound": "ಯಾವುದೇ ಪ್ರೊಫೈಲ್ ಡೇಟಾ ಲಭ್ಯವಿಲ್ಲ."
-    },
-    "validation": {
-        "isRequired": "{name} ಅಗತ್ಯವಿದೆ",
-        "passwordDoNotMatch": "ಪಾಸ್ವರ್ಡ್‌ಗಳು ಹೊಂದಿಕೆಯಾಗಿಲ್ಲ"
-    },
-    "fields": {
-        "email": "ಇಮೇಲ್",
-        "password": "ಪಾಸ್ವರ್ಡ್",
-        "fullName": "ಪೂರ್ಣ ಹೆಸರು",
-        "phoneNumber": "ದೂರವಾಣಿ ಸಂಖ್ಯೆ",
-        "confirmPassword": "ಪಾಸ್ವರ್ಡ್ ದೃಢಪಡಿಸಿ"
-    },
+  "login": {
+    "heading": "ಲಾಗಿನ್",
+    "newHere": "ಹೊಸಬರಾ?",
+    "createAnAccount": "ಖಾತೆ ರಚಿಸಿ!",
+    "submit": "ಸಲ್ಲಿಸು",
+    "submitting": "ಸಲ್ಲಿಸಲಾಗುತ್ತಿದೆ..."
+  },
+  "register": {
+    "heading": "ನೋಂದಣಿ",
+    "alreadyRegister": "ಈಗಾಗಲೇ ನೋಂದಾಯಿಸಿದ್ದೀರಾ?",
+    "login": "ಲಾಗಿನ್",
+    "submit": "ಸಲ್ಲಿಸು",
+    "submitting": "ಸಲ್ಲಿಸಲಾಗುತ್ತಿದೆ...",
+    "sendOtp": "OTP ಕಳುಹಿಸಿ",
+    "sending": "ಕಳುಹಿಸಲಾಗುತ್ತಿದೆ...",
+    "back": "← ಹಿಂಬಿಡು",
+    "verifyOtp": "OTP ಪರಿಶೀಲಿಸಿ",
+    "verifying": "ಪರಿಶೀಲಿಸಲಾಗುತ್ತಿದೆ..."
+  },
+  "home": {
+    "qrCodeStatus": "QR ಕೋಡ್ ಸ್ಥಿತಿ",
+    "freeEditLeft": "ಉಚಿತ ತಿದ್ದುಪಡಿ ಉಳಿದಿದೆ",
+    "downloadQr": "QR ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ",
+    "editDetails": "ವಿವರಗಳನ್ನು ತಿದ್ದು",
+    "name": "ಹೆಸರು",
+    "bloodGroup": "ರಕ್ತ ಗುಂಪು",
+    "city": "ನಗರ",
+    "preview": "ಮುನ್ಸೂಚನೆ",
+    "welcomeRider": "ಸ್ವಾಗತ ರೈಡರ್",
+    "letsSecureYourRide": "ನಿಮ್ಮ ರೈಡ್ ಸುರಕ್ಷಿತಗೊಳಿಸೋಣ",
+    "upgradeToPro": "ಪ್ರೋ ಗೆ ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡಿ"
+  },
+  "notification": {
+    "noLogsFound": "ಯಾವುದೇ ಲಾಗ್‌ಗಳು ದೊರಕಿಲ್ಲ",
+    "city": "ನಗರ",
+    "state": "ರಾಜ್ಯ",
+    "country": "ದೇಶ",
+    "accuracy": "ಖಚಿತತೆ",
+    "viewOnGoogleMap": "Google ನಕ್ಷೆಯಲ್ಲಿ ವೀಕ್ಷಿಸಿ"
+  },
+  "details": {
+    "failedToLoadProfileData": "ಪ್ರೊಫೈಲ್ ಡೇಟಾವನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಯಿತು.",
+    "bloodGroup": "ರಕ್ತ ಗುಂಪು",
+    "dob": "ಹುಟ್ತಿದ ದಿನಾಂಕ",
+    "status": "ಸ್ಥಿತಿ",
+    "address": "ವಿಳಾಸ",
+    "emergencyContacts": "ತುರ್ತು ಸಂಪರ್ಕಗಳು",
+    "noEmergencyContactFount": "ಯಾವುದೇ ತುರ್ತು ಸಂಪರ್ಕಗಳು ಕಂಡುಬಂದಿಲ್ಲ.",
+    "noProfileDataFound": "ಯಾವುದೇ ಪ್ರೊಫೈಲ್ ಡೇಟಾ ದೊರಕಿಲ್ಲ.",
+    "AddemergencyContact": "ತುರ್ತು ಸಂಪರ್ಕವನ್ನು ಸೇರಿಸಿ",
+    "emergencyContact": "ತುರ್ತು ಸಂಪರ್ಕ",
+    "sumbit": "ಸಲ್ಲಿಸು",
+    "adding": "ಸೇರಿಸಲಾಗುತ್ತಿದೆ...",
+    "updateDetails": "ವಿವರಗಳನ್ನು ನವೀಕರಿಸಿ",
+    "addDetails": "ವಿವರಗಳನ್ನು ಸೇರಿಸಿ",
+    "updating": "ನವೀಕರಿಸಲಾಗುತ್ತಿದೆ...",
+    "profileUpdated": "ಪ್ರೊಫೈಲ್ ಯಶಸ್ವಿಯಾಗಿ ನವೀಕರಿಸಲಾಗಿದೆ!"
+  },
+  "validation": {
+    "isRequired": "{name} ಅಗತ್ಯವಿದೆ",
+    "passwordDoNotMatch": "ಪಾಸ್‌ವರ್ಡ್‌ಗಳು ಹೊಂದಿಕೆಯಾಗುತ್ತಿಲ್ಲ"
+  },
+  "fields": {
+    "email": "ಇಮೇಲ್",
+    "password": "ಪಾಸ್ವರ್ಡ್",
+    "fullName": "ಪೂರ್ಣ ಹೆಸರು",
+    "phoneNumber": "ದೂರವಾಣಿ ಸಂಖ್ಯೆ",
+    "confirmPassword": "ಪಾಸ್ವರ್ಡ್ ದೃಢೀಕರಿಸಿ",
+    "enterOtp": "OTP ನಮಿಸಿ",
+    "profileName": "ಪ್ರೊಫೈಲ್ ಹೆಸರು",
+    "bloodGroup": "ರಕ್ತ ಗುಂಪು",
+    "address": "ವಿಳಾಸ",
+    "pincode": "ಪಿನ್‌ಕೋಡ್",
+    "dateOfBirth": "ಹುಟ್ತಿದ ದಿನಾಂಕ",
+    "state": "ರಾಜ್ಯ",
+    "city": "ನಗರ",
+    "showPrivateData": "ಖಾಸಗಿ ಡೇಟಾವನ್ನು ತೋರಿಸಿ"
+  },
+  "modal": {
+    "cancel": "ರದ್ದುಮಾಡಿ",
+    "upload": "ಅಪ್ಲೋಡ್ ಮಾಡಿ",
+    "title": "ಪ್ರೊಫೈಲ್ ಇಮೇಜ್ ಅಪ್ಲೋಡ್ ಮಾಡಿ",
+    "uploading": "ಅಪ್ಲೋಡ್ ಆಗುತ್ತಿದೆ..."
+  },
     "languages": {
-        "English": "English",
-        "Tamil": "தமிழ்",
-        "Kannada": "ಕನ್ನಡ",
-        "Hindi": "हिन्दी",
-        "Malayalam": "മലയാളം",
-        "Telugu": "తెలుగు"
+    "English": "English",
+    "Tamil": "தமிழ்",
+    "Kannada": "ಕನ್ನಡ",
+    "Hindi": "हिन्दी",
+    "Malayalam": "മലയാളം",
+    "Telugu": "తెలుగు"
     }
+
 }

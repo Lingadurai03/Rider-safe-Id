@@ -9,3 +9,4 @@ export { default as Modal } from './Modal';
 export { default as ImagePickerWithCrop } from './ImagePickerWithCrop';
 export { default as ProfileImageWithEdit } from './ProfileImageWithEdit';
 export { default as LocaleLayout } from './LocaleLayout';
+export { default as StepWrapper } from './StepWrapper';

@@ -12,11 +12,14 @@ import {
     LoginApiPayload,
     RefreshTokenApiPayload,
     RegisterApiPayload,
+    RequestOtpPayload,
+    ValidateOtpPayload,
 } from '@ridersafeid/types';
 import * as bcrypt from 'bcrypt';
 
 import { Role } from '@/constant';
 import { PrismaService } from '@/services';
+import { MailerService } from '@/services/mailer.service';
 import { JwtPayload } from '@/types';
 
 @Injectable()
@@ -24,48 +27,63 @@ export class AuthService {
     constructor(
         private readonly prisma: PrismaService,
         private readonly jwtService: JwtService,
+        private readonly mailerService: MailerService,
     ) {}
 
     // Register
-   async register(userData: RegisterApiPayload) {
-    try {
-        const existingUser = await this.prisma.user.findFirst({
-            where: {
-                OR: [{ email: userData.email }],
-            },
-        });
-
-        if (existingUser) {
-            throw new BadRequestException('Email already exists');
-        }
-
-        const hashedPassword = await bcrypt.hash(userData.password, 10);
-
-        const user = await this.prisma.user.create({
-            data: {
-                ...userData,
-                password: hashedPassword,
-            },
-        });
-
+    async register(userData: RegisterApiPayload) {
         try {
-                const qrResponse = await fetch(
+            const existingUser = await this.prisma.user.findFirst({
+                where: { email: userData.email },
+            });
+
+            if (existingUser) {
+                throw new BadRequestException('Email already exists');
+            }
+
+            const verifiedOtp = await this.prisma.emailVerification.findFirst({
+                where: {
+                    email: userData.email,
+                    isUsed: true,
+                    isVerified: true,
+                },
+                orderBy: {
+                    createdAt: 'desc',
+                },
+            });
+
+            if (!verifiedOtp) {
+                throw new BadRequestException(
+                    'Email not verified. Please verify with OTP first.',
+                );
+            }
+
+            const hashedPassword = await bcrypt.hash(userData.password, 10);
+
+            const user = await this.prisma.user.create({
+                data: {
+                    ...userData,
+                    password: hashedPassword,
+                },
+            });
+
+            // Generate QR code
+            const qrResponse = await fetch(
                 `${process.env.QR_SERVICE_BASE_URL}qr/generate/${user.id}`,
                 {
-                    method: 'POST', 
+                    method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json', 
+                        'Content-Type': 'application/json',
                         'x-api-key': process.env.INTERNAL_API_KEY as string,
                     },
-                }
+                },
             );
 
             if (!qrResponse.ok) {
-                // Rollback user creation if QR generation failed
-                await this.prisma.user.delete({
-                    where: { id: user.id },
-                });
-                throw new Error('QR Generation failed. User creation rolled back.');
+                await this.prisma.user.delete({ where: { id: user.id } });
+                throw new Error(
+                    'QR generation failed. User creation rolled back.',
+                );
             }
 
             const tokens = await this.generateTokens(user);
@@ -81,16 +99,10 @@ export class AuthService {
                 ...tokens,
             };
         } catch (error) {
-            console.error('Error during QR generation or token creation:', error);
-            throw error;
-        }
-
-        } catch (error) {
             console.error('Error during registration:', error);
             throw error;
-        }   
+        }
     }
-
 
     // Login
     async login(loginData: LoginApiPayload) {
@@ -223,6 +235,75 @@ export class AuthService {
                 role: true,
             },
         });
+    }
+    async requestOtp(body: RequestOtpPayload) {
+        // Count recent OTPs for this email in last 2 hours
+        const twoHoursAgo = new Date(Date.now() - 2 * 60 * 60 * 1000);
+        const { email } = body;
+        const recentAttempts = await this.prisma.emailVerification.count({
+            where: {
+                email,
+                createdAt: {
+                    gte: twoHoursAgo,
+                },
+            },
+        });
+
+        if (recentAttempts >= 3) {
+            throw new BadRequestException(
+                'Too many attempts. Try again after 2 hours.',
+            );
+        }
+
+        const otp = this.generateOtp(); // you can use a random 6 digit generator
+
+        await this.prisma.emailVerification.create({
+            data: {
+                email,
+                otp,
+            },
+        });
+
+        await this.mailerService.sendMail(
+            email,
+            'Your OTP for RiderSafeID',
+            `<p>Your OTP is <strong>${otp}</strong>. It is valid for 10 minutes.</p>`,
+        );
+        return { message: 'OTP sent to email' };
+    }
+
+    generateOtp(): string {
+        return Math.floor(100000 + Math.random() * 900000).toString(); // 6-digit
+    }
+
+    async verifyOtp(body: ValidateOtpPayload) {
+        const { email, otp } = body;
+
+        const record = await this.prisma.emailVerification.findFirst({
+            where: {
+                email,
+                otp,
+                isUsed: false,
+            },
+            orderBy: {
+                createdAt: 'desc',
+            },
+        });
+
+        if (!record) {
+            throw new BadRequestException('Invalid or expired OTP');
+        }
+
+        // Mark as used AND verified
+        await this.prisma.emailVerification.update({
+            where: { id: record.id },
+            data: {
+                isUsed: true,
+                isVerified: true,
+            },
+        });
+
+        return { success: true };
     }
 
     async logout(userId: string) {

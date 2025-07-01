@@ -23,8 +23,8 @@ const ImagePickerWithCrop = ({
     );
 
     return (
-        <div className='space-y-4'>
-            <div className='relative w-[300px] h-[300px] bg-black'>
+        <div className="space-y-4">
+            <div className="relative w-[300px] h-[300px] bg-black">
                 <Cropper
                     image={image}
                     crop={crop}

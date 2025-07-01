@@ -2,16 +2,16 @@
 // See: https://next-intl.dev/docs/workflows/typescript#messages-arguments
 
 declare const messages: {
-    "login":{
-        "heading": "login",
-        "form":{
-            "email":"Email",
-            "password":"Password",
-            "submit":"Submit",
-            "submiting":"Submiting..."
-        },
-        "newHere":"New Here?",
-        "createAnAccount":"Create an Account!"
-    }
+    login: {
+        heading: 'login';
+        form: {
+            email: 'Email';
+            password: 'Password';
+            submit: 'Submit';
+            submiting: 'Submiting...';
+        };
+        newHere: 'New Here?';
+        createAnAccount: 'Create an Account!';
+    };
 };
 export default messages;

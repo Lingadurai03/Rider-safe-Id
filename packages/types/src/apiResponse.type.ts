@@ -53,7 +53,7 @@ export interface GetProfileApiResponse {
     showPrivateData: boolean;
     createdAt: Date;
     updatedAt: Date;
-    emergencyContacts: EmergencyContactsType[];
+    emergencyContacts?: EmergencyContactsType[];
 }
 
 export interface GetQrApiResponse {
@@ -133,7 +133,14 @@ export interface ScanLog {
     __v: number;
 }
 
+export interface ScanLogsApiResponse {
+    logs: ScanLog[];
+}
 
-export interface ScanLogsApiResponse{
-      logs: ScanLog[];
+export interface NotificationCountApiReponse {
+    count: number;
+}
+
+export interface ProfileImageUploadResponseType {
+    url: string;
 }

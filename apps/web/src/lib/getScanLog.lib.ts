@@ -1,14 +1,15 @@
-'use server'
+'use server';
 
-import { ScanLogsApiResponse } from "@ridersafeid/types";
-import { createServerAxios } from "./axiosServer.lib";
+import { ScanLogsApiResponse } from '@ridersafeid/types';
 
-export async function getScanLogs():Promise<ScanLogsApiResponse|void>{
+import { createServerAxios } from './axiosServer.lib';
+
+export async function getScanLogs(): Promise<ScanLogsApiResponse | void> {
     const axios = await createServerAxios();
-    try{  
-        const res = await axios.get('getLogs')
-        return res.data
-    }catch(e){
+    try {
+        const res = await axios.get('getLogs');
+        return res.data;
+    } catch (e) {
         console.error(e);
     }
 }

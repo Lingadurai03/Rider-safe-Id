@@ -1,66 +1,94 @@
 {
-    "login": {
-        "heading": "ലോഗിൻ",
-        "newHere": "ഇവിടെ പുതിയ ആളാണോ?",
-        "createAnAccount": "ഒരു അക്കൗണ്ട് സൃഷ്ടിക്കുക!",
-        "submit": "സമർപ്പിക്കുക",
-        "submitting": "സമർപ്പിക്കുന്നു..."
-    },
-    "register": {
-        "heading": "രജിസ്റ്റർ",
-        "alreadyRegister": "ഇതിനകം രജിസ്റ്റർ ചെയ്തിട്ടുണ്ടോ?",
-        "login": "ലോഗിൻ ചെയ്യുക",
-        "submit": "സമർപ്പിക്കുക",
-        "submitting": "സമർപ്പിക്കുന്നു..."
-    },
-    "home": {
-        "qrCodeStatus": "QR കോഡ് നില",
-        "freeEditLeft": "ഉദ്യോഗശൂന്യമായ എഡിറ്റുകൾ ശേഷിക്കുന്നു",
-        "downloadQr": "QR ഡൗൺലോഡ് ചെയ്യുക",
-        "editDetails": "വിശദാംശങ്ങൾ എഡിറ്റ് ചെയ്യുക",
-        "name": "പേര്",
-        "bloodGroup": "ബ്ലഡ് ഗ്രൂപ്പ്",
-        "city": "നഗരം",
-        "preview": "മുന്‍ദൃശ്യം",
-        "welcomeRider": "സ്വാഗതം റൈഡറെ!",
-        "letsSecureYourRide": "നിന്റെ യാത്ര സുരക്ഷിതമാക്കാം",
-        "upgradeToPro": "പ്രൊവിലേക്ക് അപ്ഗ്രേഡ് ചെയ്യുക"
-    },
-    "notification": {
-        "noLogsFound": "ലോഗുകൾ ലഭ്യമായില്ല",
-        "city": "നഗരം",
-        "state": "സംസ്ഥാനം",
-        "country": "രാജ്യം",
-        "accuracy": "കൃത്യത",
-        "viewOnGoogleMap": "Google മാപ്പിൽ കാണുക"
-    },
-    "details": {
-        "failedToLoadProfileData": "പ്രൊഫൈൽ ഡാറ്റ ലോഡ് ചെയ്യാൻ പരാജയപ്പെട്ടു.",
-        "bloodGroup": "ബ്ലഡ് ഗ്രൂപ്പ്",
-        "dob": "ജനന തീയതി",
-        "status": "നില",
-        "address": "വിലാസം",
-        "emergencyContact": "അപാത്തകാല സമ്പർക്കങ്ങൾ",
-        "noEmergencyContactFount": "അപാത്തകാല സമ്പർക്കം ലഭ്യമായില്ല.",
-        "noProfileDataFound": "പ്രൊഫൈൽ ഡാറ്റ ലഭ്യമല്ല."
-    },
-    "validation": {
-        "isRequired": "{name} ആവശ്യമുണ്ട്",
-        "passwordDoNotMatch": "പാസ്‌വേർഡുകൾ പൊരുത്തപ്പെടുന്നില്ല"
-    },
-    "fields": {
-        "email": "ഇമെയിൽ",
-        "password": "പാസ്‌വേഡ്",
-        "fullName": "പൂർണ പേര്",
-        "phoneNumber": "ഫോൺ നമ്പർ",
-        "confirmPassword": "പാസ്‌വേഡ് സ്ഥിരീകരിക്കുക"
-    },
-    "languages": {
-        "English": "English",
-        "Tamil": "தமிழ்",
-        "Kannada": "ಕನ್ನಡ",
-        "Hindi": "हिन्दी",
-        "Malayalam": "മലയാളം",
-        "Telugu": "తెలుగు"
-    }
+  "login": {
+    "heading": "ലോഗിൻ",
+    "newHere": "പുതിയവനോ?",
+    "createAnAccount": "ഒരു അക്കൗണ്ട് സൃഷ്‌ടിക്കുക!",
+    "submit": "സമർപ്പിക്കുക",
+    "submitting": "സമർപ്പിക്കുന്നു..."
+  },
+  "register": {
+    "heading": "രജിസ്റ്റർ ചെയ്യുക",
+    "alreadyRegister": "ഇപ്പോൾതന്നെ രജിസ്റ്റർ ചെയ്‌തോ?",
+    "login": "ലോഗിൻ",
+    "submit": "സമർപ്പിക്കുക",
+    "submitting": "സമർപ്പിക്കുന്നു...",
+    "sendOtp": "ഒടിപി അയയ്ക്കുക",
+    "sending": "അയയ്ക്കുന്നു...",
+    "back": "← തിരികെ",
+    "verifyOtp": "ഒടിപി പരിശോധിക്കുക",
+    "verifying": "പരിശോധിക്കുന്നു..."
+  },
+  "home": {
+    "qrCodeStatus": "QR കോഡ് നില",
+    "freeEditLeft": "ശേഷിച്ച സൗജന്യ എഡിറ്റുകൾ",
+    "downloadQr": "QR ഡൗൺലോഡ് ചെയ്യുക",
+    "editDetails": "വിശദാംശങ്ങൾ തിരുത്തുക",
+    "name": "പേര്",
+    "bloodGroup": "രക്ത ഗ്രൂപ്പ്",
+    "city": "നഗരം",
+    "preview": "മുൻകാഴ്ച",
+    "welcomeRider": "സ്വാഗതം റൈഡർ",
+    "letsSecureYourRide": "നിന്റെ യാത്ര സുരക്ഷിതമാക്കാം",
+    "upgradeToPro": "പ്രോ പതിപ്പിലേക്ക് അപ്‌ഗ്രേഡ് ചെയ്യുക"
+  },
+  "notification": {
+    "noLogsFound": "ലോഗുകൾ കണ്ടെത്തിയില്ല",
+    "city": "നഗരം",
+    "state": "സംസ്ഥാനം",
+    "country": "രാജ്യം",
+    "accuracy": "കൃത്യത",
+    "viewOnGoogleMap": "ഗൂഗിൾ മാപ്പിൽ കാണുക"
+  },
+  "details": {
+    "failedToLoadProfileData": "പ്രൊഫൈൽ ഡാറ്റ ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.",
+    "bloodGroup": "രക്ത ഗ്രൂപ്പ്",
+    "dob": "ജനന തീയതി",
+    "status": "സ്ഥിതി",
+    "address": "വിലാസം",
+    "emergencyContacts": "അവശ്യ ബന്ധപ്പെടേണ്ടവർ",
+    "noEmergencyContactFount": "അവശ്യ ബന്ധപ്പെടേണ്ട വിവരങ്ങൾ ലഭ്യമായില്ല.",
+    "noProfileDataFound": "പ്രൊഫൈൽ ഡാറ്റ ലഭ്യമല്ല.",
+    "AddemergencyContact": "അവശ്യ ബന്ധപ്പെടേണ്ടവരെ ചേർക്കുക",
+    "emergencyContact": "അവശ്യ ബന്ധപ്പെടേണ്ടവൻ",
+    "sumbit": "സമർപ്പിക്കുക",
+    "adding": "ചേർക്കുന്നു",
+    "addDetails": "വിശദാംശങ്ങൾ ചേർക്കുക",
+    "updating": "അപ്ഡേറ്റ് ചെയ്യുന്നു...",
+    "updateDetails": "വിശദാംശങ്ങൾ അപ്ഡേറ്റ് ചെയ്യുക",
+    "profileUpdated": "പ്രൊഫൈൽ വിജയകരമായി അപ്ഡേറ്റ് ചെയ്തു"
+  },
+  "validation": {
+    "isRequired": "{name} ആവശ്യമാണ്",
+    "passwordDoNotMatch": "പാസ്‌വേഡുകൾ പൊരുത്തപ്പെടുന്നില്ല"
+  },
+  "fields": {
+    "email": "ഇമെയിൽ",
+    "password": "പാസ്‌വേഡ്",
+    "fullName": "പൂർണ്ണ നാമം",
+    "phoneNumber": "ഫോൺ നമ്പർ",
+    "confirmPassword": "പാസ്‌വേഡ് സ്ഥിരീകരിക്കുക",
+    "enterOtp": "ഒടിപി നൽകുക",
+    "profileName": "പ്രൊഫൈൽ പേര്",
+    "bloodGroup": "രക്ത ഗ്രൂപ്പ്",
+    "address": "വിലാസം",
+    "pincode": "പിൻകോഡ്",
+    "dateOfBirth": "ജനന തീയതി",
+    "state": "സംസ്ഥാനം",
+    "city": "നഗരം",
+    "showPrivateData": "സ്വകാര്യ ഡാറ്റ കാണിക്കുക"
+  },
+  "modal": {
+    "cancel": "റദ്ദാക്കുക",
+    "upload": "അപ്‌ലോഡ് ചെയ്യുക",
+    "title": "പ്രൊഫൈൽ ചിത്രം അപ്‌ലോഡ് ചെയ്യുക",
+    "uploading": "അപ്‌ലോഡ് ചെയ്യുന്നു..."
+  },
+  "languages": {
+    "English": "English",
+    "Tamil": "தமிழ்",
+    "Kannada": "ಕನ್ನಡ",
+    "Hindi": "हिन्दी",
+    "Malayalam": "മലയാളം",
+    "Telugu": "తెలుగు"
+  }
 }

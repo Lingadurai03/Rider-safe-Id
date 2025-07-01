@@ -1,18 +1,18 @@
 'use client';
 
-import React, { useTransition } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { LoginApiPayload, RTKError } from '@ridersafeid/types';
 import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 
 import { ACCESS_TOKEN, REFRESH_TOKEN } from '@/constant';
+import { useGenerateErrorMessage } from '@/hooks';
 import { saveToken } from '@/utils';
 
 import { Button, Error, Input } from '@/components';
 import { useLoginMutation } from '@/store/auth/authApi';
-import { useTranslations } from 'next-intl';
-import { useGenerateErrorMessage } from '@/hooks';
 
 const LoginForm = () => {
     const {
@@ -36,16 +36,11 @@ const LoginForm = () => {
             navigate.push('/');
         } catch (err) {
             const error = err as RTKError;
-            toast.error(
-                <Error
-                    title={error.data?.error}
-                    message={error.data?.message}
-                />,
-            );
+            toast.error(<Error title={error.data?.error} message={error.data?.message} />);
         }
     };
     return (
-        <form className='space-y-4' onSubmit={handleSubmit(onSubmit)}>
+        <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
             <Input
                 label={t('fields.email')}
                 registration={register('email', {
@@ -56,14 +51,14 @@ const LoginForm = () => {
             />
             <Input
                 label={t('fields.password')}
-                type='password'
+                type="password"
                 isDarkPage
                 registration={register('password', {
                     required: generateErrorMessage('password'),
                 })}
                 error={errors.password}
             />
-            <div className='flex justify-center items-center '>
+            <div className="flex justify-center items-center ">
                 <Button
                     isLoading={isLoading}
                     loadingText={t('login.submitting')}

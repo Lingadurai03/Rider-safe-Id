@@ -1,66 +1,94 @@
 {
-    "login": {
-        "heading": "లాగిన్",
-        "newHere": "ఇక్కడ కొత్తవారా?",
-        "createAnAccount": "ఖాతాను సృష్టించండి!",
-        "submit": "సబ్మిట్ చేయండి",
-        "submitting": "సబ్మిట్ జరుగుతోంది..."
-    },
-    "register": {
-        "heading": "రిజిస్టర్",
-        "alreadyRegister": "ఇప్పటికే రిజిస్టర్ అయ్యారా?",
-        "login": "లాగిన్ చేయండి",
-        "submit": "సబ్మిట్ చేయండి",
-        "submitting": "సబ్మిట్ జరుగుతోంది..."
-    },
-    "home": {
-        "qrCodeStatus": "QR కోడ్ స్థితి",
-        "freeEditLeft": "మిగిలిన ఉచిత ఎడిట్లు",
-        "downloadQr": "QR డౌన్‌లోడ్ చేయండి",
-        "editDetails": "వివరాలను సవరించండి",
-        "name": "పేరు",
-        "bloodGroup": "రక్త గ్రూప్",
-        "city": "నగరం",
-        "preview": "ప్రివ్యూ",
-        "welcomeRider": "స్వాగతం రైడర్",
-        "letsSecureYourRide": "మీ ప్రయాణాన్ని సురక్షితంగా చేయుదాం",
-        "upgradeToPro": "ప్రోకు అప్‌గ్రేడ్ చేయండి"
-    },
-    "notification": {
-        "noLogsFound": "లాగ్స్ కనబడలేదు",
-        "city": "నగరం",
-        "state": "రాష్ట్రం",
-        "country": "దేశం",
-        "accuracy": "ఖచ్చితత్వం",
-        "viewOnGoogleMap": "గూగుల్ మ్యాప్‌లో చూడండి"
-    },
-    "details": {
-        "failedToLoadProfileData": "ప్రొఫైల్ డేటా లోడ్ కాలేదు.",
-        "bloodGroup": "రక్త గ్రూప్",
-        "dob": "పుట్టిన తేదీ",
-        "status": "స్థితి",
-        "address": "చిరునామా",
-        "emergencyContact": "అత్యవసర సంప్రదింపులు",
-        "noEmergencyContactFount": "అత్యవసర సంప్రదింపు కనబడలేదు.",
-        "noProfileDataFound": "ప్రొఫైల్ డేటా కనబడలేదు."
-    },
-    "validation": {
-        "isRequired": "{name} అవసరం",
-        "passwordDoNotMatch": "పాస్వర్డ్లు తేడాగా ఉన్నాయి"
-    },
-    "fields": {
-        "email": "ఈమెయిల్",
-        "password": "పాస్వర్డ్",
-        "fullName": "పూర్తి పేరు",
-        "phoneNumber": "ఫోన్ నంబర్",
-        "confirmPassword": "పాస్వర్డ్ నిర్ధారించండి"
-    },
-    "languages": {
-        "English": "English",
-        "Tamil": "தமிழ்",
-        "Kannada": "ಕನ್ನಡ",
-        "Hindi": "हिन्दी",
-        "Malayalam": "മലയാളം",
-        "Telugu": "తెలుగు"
-    }
+  "login": {
+    "heading": "లాగిన్",
+    "newHere": "కొత్తవారా?",
+    "createAnAccount": "ఖాతా సృష్టించండి!",
+    "submit": "సబ్మిట్ చేయండి",
+    "submitting": "సబ్మిట్ అవుతోంది..."
+  },
+  "register": {
+    "heading": "రిజిస్టర్",
+    "alreadyRegister": "ఇప్పటికే రిజిస్టర్ అయ్యారా?",
+    "login": "లాగిన్",
+    "submit": "సబ్మిట్ చేయండి",
+    "submitting": "సబ్మిట్ అవుతోంది...",
+    "sendOtp": "OTP పంపండి",
+    "sending": "పంపుతోంది...",
+    "back": "← వెనక్కి",
+    "verifyOtp": "OTP ధృవీకరించండి",
+    "verifying": "ధృవీకరిస్తోంది..."
+  },
+  "home": {
+    "qrCodeStatus": "QR కోడ్ స్థితి",
+    "freeEditLeft": "ఉచిత ఎడిట్లు మిగిలినవి",
+    "downloadQr": "QR డౌన్‌లోడ్ చేయండి",
+    "editDetails": "వివరాలను సవరించండి",
+    "name": "పేరు",
+    "bloodGroup": "రక్త గ్రూప్",
+    "city": "నగరం",
+    "preview": "ప్రివ్యూ",
+    "welcomeRider": "స్వాగతం రైడర్",
+    "letsSecureYourRide": "మీ రైడ్‌ను సురక్షితంగా చేయండి",
+    "upgradeToPro": "ప్రోకు అప్‌గ్రేడ్ చేయండి"
+  },
+  "notification": {
+    "noLogsFound": "లాగ్లు కనబడలేదు",
+    "city": "నగరం",
+    "state": "రాష్ట్రం",
+    "country": "దేశం",
+    "accuracy": "ఖచ్చితత్వం",
+    "viewOnGoogleMap": "గూగుల్ మ్యాప్‌లో చూడండి"
+  },
+  "details": {
+    "failedToLoadProfileData": "ప్రొఫైల్ డేటా లోడ్ చేయడం విఫలమైంది.",
+    "bloodGroup": "రక్త గ్రూప్",
+    "dob": "పుట్టిన తేదీ",
+    "status": "స్థితి",
+    "address": "చిరునామా",
+    "emergencyContacts": "అత్యవసర సంబంధాలు",
+    "noEmergencyContactFount": "ఎటువంటి అత్యవసర సంబంధాలు కనుగొనబడలేదు.",
+    "noProfileDataFound": "ప్రొఫైల్ డేటా కనుగొనబడలేదు.",
+    "AddemergencyContact": "అత్యవసర సంబంధాన్ని జోడించండి",
+    "emergencyContact": "అత్యవసర సంబంధం",
+    "sumbit": "సబ్మిట్ చేయండి",
+    "adding": "జోడిస్తోంది...",
+    "addDetails": "వివరాలను జోడించండి",
+    "updating": "అప్డేట్ అవుతోంది...",
+    "updateDetails": "వివరాలను అప్డేట్ చేయండి",
+    "profileUpdated": "ప్రొఫైల్ విజయవంతంగా అప్డేట్ చేయబడింది"
+  },
+  "validation": {
+    "isRequired": "{name} అవసరం",
+    "passwordDoNotMatch": "పాస్వర్డ్లు సరిపోలడం లేదు"
+  },
+  "fields": {
+    "email": "ఇమెయిల్",
+    "password": "పాస్వర్డ్",
+    "fullName": "పూర్తి పేరు",
+    "phoneNumber": "ఫోన్ నెంబర్",
+    "confirmPassword": "పాస్వర్డ్ ధృవీకరించండి",
+    "enterOtp": "OTP నమోదు చేయండి",
+    "profileName": "ప్రొఫైల్ పేరు",
+    "bloodGroup": "రక్త గ్రూప్",
+    "address": "చిరునామా",
+    "pincode": "పిన్ కోడ్",
+    "dateOfBirth": "పుట్టిన తేదీ",
+    "state": "రాష్ట్రం",
+    "city": "నగరం",
+    "showPrivateData": "ప్రైవేట్ డేటా చూపించండి"
+  },
+  "modal": {
+    "cancel": "రద్దు చేయండి",
+    "upload": "అప్లోడ్ చేయండి",
+    "title": "ప్రొఫైల్ చిత్రాన్ని అప్లోడ్ చేయండి",
+    "uploading": "అప్లోడ్ అవుతోంది..."
+  },
+  "languages": {
+    "English": "English",
+    "Tamil": "தமிழ்",
+    "Kannada": "ಕನ್ನಡ",
+    "Hindi": "हिन्दी",
+    "Malayalam": "മലയാളം",
+    "Telugu": "తెలుగు"
+  }
 }

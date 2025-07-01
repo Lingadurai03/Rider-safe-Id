@@ -11,7 +11,12 @@
         "alreadyRegister": "Already Register?",
         "login": "Login",
         "submit": "Submit",
-        "submitting": "Submitting..."
+        "submitting": "Submitting...",
+        "sendOtp": "Send Otp",
+        "sending": "Sending ...",
+        "back": "← Back",
+        "verifyOtp": "Verify Otp",
+        "verifying": "Verifying..."
     },
     "home": {
         "qrCodeStatus": "QR code status",
@@ -41,9 +46,14 @@
         "dob": "Date of birth",
         "status": "Status",
         "address": "Addresss",
-        "emergencyContact": "Emergency Contacts",
+        "emergencyContacts": "Emergency Contacts",
         "noEmergencyContactFount": "No Emergency Contact Found.",
-        "noProfileDataFound": "No profile data found."
+        "noProfileDataFound": "No profile data found.",
+        "AddemergencyContact":"Add Emergency Contact",
+        "emergencyContact":"Emergency Contact", 
+        "sumbit":"Submit",
+        "adding":"Adding",
+        "addDetails": "Add details"
     },
     "validation": {
         "isRequired": "{name} is Required",
@@ -54,7 +64,22 @@
         "password": "Password",
         "fullName": "Full Name",
         "phoneNumber": "Phone Number",
-        "confirmPassword": "Confirm Password"
+        "confirmPassword": "Confirm Password",
+        "enterOtp": "Enter Otp",
+        "profileName":"Profile Name",
+        "bloodGroup":"Blood Group",
+        "address":"Addresss",
+        "pincode": "PinCode",
+        "dateOfBirth":"Date of birth",
+        "state":"State",
+        "city":"City",
+        "showPrivateData":"Show Private Data"
+    },
+    "modal": {
+        "cancel": "Cancel",
+        "upload": "Upload",
+        "title": "Upload Profile Image",
+        "uploading": "Uploading..."
     },
     "languages": {
         "English": "English",

@@ -19,7 +19,7 @@ interface EmergencyContactType {
     phone: string;
 }
 
-export class AddOrUpdateProfileApiPayload {
+export interface AddOrUpdateProfileApiPayload {
     profileName: string;
     bloodGroup: string;
     address: string;
@@ -32,11 +32,20 @@ export class AddOrUpdateProfileApiPayload {
     emergencyContacts?: EmergencyContactType[];
 }
 
-export class CreateLogApiPayload {
+export interface CreateLogApiPayload {
     city: string;
     state: string;
     country: string;
     lat: number;
     long: number;
     accuracy: string;
+}
+
+export interface RequestOtpPayload {
+    email: string;
+}
+
+export interface ValidateOtpPayload {
+    email: string;
+    otp: string;
 }

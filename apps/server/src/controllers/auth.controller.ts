@@ -12,7 +12,13 @@ import {
     RegisterApiResponse,
 } from '@ridersafeid/types';
 
-import { LoginDto, RegisterDto, RefreshTokenDto } from '@/dto';
+import {
+    LoginDto,
+    RefreshTokenDto,
+    RegisterDto,
+    RequestOtpDto,
+    ValidateOtpDto,
+} from '@/dto';
 import { JwtAuthGuard } from '@/guards';
 import { AuthService } from '@/services';
 
@@ -29,6 +35,17 @@ export class AuthController {
     login(@Body() loginData: LoginDto): Promise<LoginApiResponse> {
         return this.authService.login(loginData);
     }
+
+    @Post('request-otp')
+    requestOtp(@Body() body: RequestOtpDto) {
+        return this.authService.requestOtp(body);
+    }
+
+    @Post('verify-otp')
+    verifyOtp(@Body() body: ValidateOtpDto) {
+        return this.authService.verifyOtp(body);
+    }
+
     @Post('refresh')
     async refresh(
         @Body() body: RefreshTokenDto,

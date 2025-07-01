@@ -6,14 +6,17 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "build": "nest build",
+    "postinstall": "prisma generate",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "nest start",
     "lint": "eslint .",
+    "generate": "pnpm --filter server exec prisma generate",
     "dev": "pnpm start:dev",
     "start:dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --require tsconfig-paths/register src/main.ts",
     "start:debug": "nest start --debug --watch",
-    "start:prod": "node dist/apps/server/src/main.js",
+    "debug:prod": "cd dist && ls -R && find . -name main.ts",
+    "build": "nest build",
+    "start": "pnpm prisma generate && pnpm build && pnpm start:prod",
+     "start:prod": "NODE_ENV=production node dist/apps/server/src/main.js",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
@@ -21,7 +24,9 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
+    "@nestjs-modules/mailer": "^2.0.2",
     "@nestjs/common": "^11.0.1",
+    "@nestjs/config": "^4.0.2",
     "@nestjs/core": "^11.0.1",
     "@nestjs/jwt": "^11.0.0",
     "@nestjs/mapped-types": "*",
@@ -29,8 +34,13 @@
     "@nestjs/platform-express": "^11.0.1",
     "@prisma/client": "6.9.0",
     "bcrypt": "^6.0.0",
+    "buffer-to-stream": "^1.0.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.2",
+    "cloudinary": "^1.41.3",
+    "multer": "^2.0.1",
+    "multer-storage-cloudinary": "^4.0.0",
+    "nodemailer": "^7.0.3",
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",
     "passport-local": "^1.0.0",
@@ -46,9 +56,12 @@
     "@swc/cli": "^0.6.0",
     "@swc/core": "^1.10.7",
     "@types/bcrypt": "^5.0.2",
+    "@types/buffer-to-stream": "^1.0.3",
     "@types/express": "^5.0.0",
     "@types/jest": "^29.5.14",
+    "@types/multer": "^1.4.13",
     "@types/node": "^22.10.7",
+    "@types/nodemailer": "^6.4.17",
     "@types/passport-jwt": "^4.0.1",
     "@types/passport-local": "^1.0.38",
     "@types/supertest": "^6.0.2",
@@ -68,6 +81,9 @@
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.7.3",
     "typescript-eslint": "^8.20.0"
+  },
+  "prisma": {
+    "schema": "./prisma/schema.prisma"
   },
   "jest": {
     "moduleFileExtensions": [

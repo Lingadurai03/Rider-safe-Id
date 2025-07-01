@@ -1,9 +1,9 @@
 import { Controller, Get, Req, UseGuards } from '@nestjs/common';
 import { GetQrApiResponse } from '@ridersafeid/types';
+import { Request } from 'express';
 
 import { JwtAuthGuard } from '@/guards';
 import { AppService } from '@/services';
-import { Request } from 'express';
 
 @Controller()
 export class AppController {
@@ -22,8 +22,8 @@ export class AppController {
 
     @UseGuards(JwtAuthGuard)
     @Get('getLogs')
-    async getUserId(@Req() req:Request){
-          const user = req.user as { id: string }; 
-        return this.appService.getLogs(user.id, req)
+    async getUserId(@Req() req: Request) {
+        const user = req.user as { id: string };
+        return this.appService.getLogs(user.id, req);
     }
 }

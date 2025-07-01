@@ -29,6 +29,15 @@ model User {
   lastSeenNotificationAt DateTime? 
 }
 
+model EmailVerification {
+  id        String   @id @default(uuid())
+  email     String
+  otp       String
+  isUsed    Boolean  @default(false)
+  isVerified Boolean @default(false)
+  createdAt DateTime @default(now())
+}
+
 model Profile {
   id                     String   @id @default(uuid())
   userId                 String   @unique
