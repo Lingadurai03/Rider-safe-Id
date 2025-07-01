@@ -1,0 +1,14 @@
+{
+  "services": {
+    "rider-safe-id-backend": {
+      "rootDirectory": "./",
+      "buildCommand": "pnpm --filter server run build",
+      "startCommand": "pnpm --filter server run start:prod"
+    },
+    "qr-service": {
+      "rootDirectory": "apps/qr_service",
+      "buildCommand": "pnpm install",
+      "startCommand": "node index.js"
+    }
+  }
+}
