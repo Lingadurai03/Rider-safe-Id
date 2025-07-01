@@ -16,7 +16,7 @@
     "debug:prod": "cd dist && ls -R && find . -name main.ts",
     "build": "nest build",
     "start": "pnpm prisma generate && pnpm build && pnpm start:prod",
-     "start:prod": "NODE_ENV=production node dist/apps/server/src/main.js",
+    "start:prod": "NODE_ENV=production node dist/apps/server/src/main.js",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",

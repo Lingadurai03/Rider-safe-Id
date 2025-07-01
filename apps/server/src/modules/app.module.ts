@@ -11,9 +11,9 @@ import { UploadModule } from './upload.module';
 @Module({
     imports: [
         ConfigModule.forRoot({
-            isGlobal: true, // Make the config available throughout the app,
-            envFilePath:
-                process.env.NODE_ENV === 'production' ? undefined : ['.env'],
+            isGlobal: true,
+            envFilePath: ['.env'],
+            ignoreEnvFile: process.env.NODE_ENV === 'production',
         }),
         AuthModule,
         ProfileModule,
