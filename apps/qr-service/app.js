@@ -18,6 +18,7 @@ app.use(
 );
 
 // Routes
+app.use('', (req, res) => res.send('<h1>Hello world</h1>'));
 app.use('/api/scan', scanRoutes);
 app.use('/api/qr', qrRoutes);
 
