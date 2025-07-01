@@ -57,9 +57,9 @@ const PublicDetails = async ({ userId }: { userId: string }) => {
             {/* Emergency Contacts */}
             <div className="space-y-3 bg-gray-50 p-4 rounded-lg shadow-sm">
                 <h3 className="font-semibold text-xl text-primary underline underline-offset-4 text-center">
-                    {t('emergencyContact')}
+                    {t('emergencyContacts')}
                 </h3>
-                {qrProfileData.emergencyContacts.length > 0 ? (
+                {qrProfileData.emergencyContacts && qrProfileData.emergencyContacts.length > 0 ? (
                     <ul className="space-y-2 text-center">
                         {qrProfileData.emergencyContacts.map((contact) => (
                             <li key={contact.id} className="font-medium text-gray-700">

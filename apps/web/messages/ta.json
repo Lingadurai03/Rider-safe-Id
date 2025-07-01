@@ -1,78 +1,94 @@
 {
-    "login": {
-        "heading": "உள்நுழைவு",
-        "newHere": "இங்கு புதியவர்?",
-        "createAnAccount": "ஒரு கணக்கை உருவாக்கு!",
-        "submit": "சமர்பிக்கவும்",
-        "submitting": "சமர்ப்பிப்பு தொடர்கிறது..."
-    },
-    "register": {
-        "heading": "பதிவு",
-        "alreadyRegister": "ஏற்கனவே பதிவு செய்துள்ளீர்களா?",
-        "login": "உள் நுழையவும்",
-        "submit": "சமர்பிக்கவும்",
-        "submitting": "சமர்ப்பிப்பு தொடர்கிறது...",
-        "sendOtp": "OTP அனுப்பு",
-        "sending": "அனுப்புகிறது...",
-        "back": "← பின்செல்",
-        "verifyOtp": "OTP சரிபார்க்கவும்",
-        "verifying": "சரிபார்க்கிறது..."
-    },
-    "home": {
-        "qrCodeStatus": "QR குறியீட்டு நிலை",
-        "freeEditLeft": "மீதமுள்ள இலவசத் திருத்தங்கள்",
-        "downloadQr": "QR பதிவிறக்கவும்",
-        "editDetails": "விவரங்களை திருத்தவும்",
-        "name": "பெயர்",
-        "bloodGroup": "இரத்த வகை",
-        "city": "நகரம்",
-        "preview": "முன்னோட்டம்",
-        "welcomeRider": "சவாரியருக்கு வரவேற்பு",
-        "letsSecureYourRide": "உங்கள் சவாரியை பாதுகாப்பாக்கலாம்",
-        "upgradeToPro": "ப்ரோவிற்கு மேம்படுத்தவும்"
-    },
-    "notification": {
-        "noLogsFound": "பதிவுகள் இல்லை",
-        "city": "நகரம்",
-        "state": "மாநிலம்",
-        "country": "நாடு",
-        "accuracy": "துல்லியம்",
-        "viewOnGoogleMap": "Google வரைபடத்தில் பார்க்கவும்"
-    },
-    "details": {
-        "failedToLoadProfileData": "சுயவிவரத் தரவை ஏற்ற முடியவில்லை.",
-        "bloodGroup": "இரத்த வகை",
-        "dob": "பிறந்த தேதி",
-        "status": "நிலை",
-        "address": "முகவரி",
-        "emergencyContact": "அவசரத் தொடர்பு",
-        "noEmergencyContactFount": "அவசரத் தொடர்பு கிடைக்கவில்லை.",
-        "noProfileDataFound": "சுயவிவரத் தரவு இல்லை."
-    },
-    "validation": {
-        "isRequired": "{name} அவசியம் தேவை",
-        "passwordDoNotMatch": "கடவுச்சொற்கள் பொருந்தவில்லை"
-    },
-    "fields": {
-        "email": "மின்னஞ்சல்",
-        "password": "கடவுச்சொல்",
-        "fullName": "முழுப்பெயர்",
-        "phoneNumber": "தொலைபேசி எண்",
-        "confirmPassword": "கடவுச்சொல்லை உறுதிப்படுத்தவும்",
-        "enterOtp": "OTP ஐ உள்ளிடவும்"
-    },
-    "modal": {
-        "cancel": "ரத்து செய்க",
-        "upload": "பதிவேற்றம்",
-        "title": "சுயவிவர படத்தை பதிவேற்றவும்",
-        "uploading": "பதிவேற்றம் நடைபெறுகிறது..."
-    },
-    "languages": {
-        "English": "English",
-        "Tamil": "தமிழ்",
-        "Kannada": "கನ್ನಡ",
-        "Hindi": "हिन्दी",
-        "Malayalam": "മലയാളം",
-        "Telugu": "తెలుగు"
-    }
+  "login": {
+    "heading": "உள்நுழை",
+    "newHere": "புதியவரா?",
+    "createAnAccount": "கணக்கை உருவாக்கு!",
+    "submit": "சமர்ப்பி",
+    "submitting": "சமர்ப்பிக்கப்படுகிறது..."
+  },
+  "register": {
+    "heading": "பதிவுபெறு",
+    "alreadyRegister": "ஏற்கனவே பதிவு செய்யப்பட்டுள்ளீர்களா?",
+    "login": "உள்நுழை",
+    "submit": "சமர்ப்பி",
+    "submitting": "சமர்ப்பிக்கப்படுகிறது...",
+    "sendOtp": "OTP அனுப்பு",
+    "sending": "அனுப்புகிறது...",
+    "back": "← பின்செல்",
+    "verifyOtp": "OTP ஐ சரிபார்",
+    "verifying": "சரிபார்க்கப்படுகிறது..."
+  },
+  "home": {
+    "qrCodeStatus": "QR குறியீட்டு நிலை",
+    "freeEditLeft": "மிகும் இலவச திருத்தங்கள்",
+    "downloadQr": "QR பதிவிறக்கு",
+    "editDetails": "விவரங்களை திருத்து",
+    "name": "பெயர்",
+    "bloodGroup": "இரத்த வகை",
+    "city": "நகரம்",
+    "preview": "முன்தோற்றம்",
+    "welcomeRider": "வரவேற்கிறோம் ரைடரே",
+    "letsSecureYourRide": "உங்கள் பயணத்தை பாதுகாப்போம்",
+    "upgradeToPro": "ப்ரோக்கு மேம்படுத்து"
+  },
+  "notification": {
+    "noLogsFound": "பதிவுகள் எதுவும் இல்லை",
+    "city": "நகரம்",
+    "state": "மாநிலம்",
+    "country": "நாடு",
+    "accuracy": "துல்லியம்",
+    "viewOnGoogleMap": "கூகுள் வரைபடத்தில் காண்க"
+  },
+  "details": {
+    "failedToLoadProfileData": "சுயவிவரத்தை ஏற்ற முடியவில்லை.",
+    "bloodGroup": "இரத்த வகை",
+    "dob": "பிறந்த தேதி",
+    "status": "நிலை",
+    "address": "முகவரி",
+    "emergencyContacts": "அவசர தொடர்புகள்",
+    "noEmergencyContactFount": "அவசர தொடர்புகள் இல்லை.",
+    "noProfileDataFound": "சுயவிவரத் தகவல் இல்லை.",
+    "AddemergencyContact": "அவசர தொடர்பை சேர்க்க",
+    "emergencyContact": "அவசர தொடர்பு",
+    "sumbit": "சமர்ப்பி",
+    "adding": "சேர்க்கப்படுகிறது...",
+    "updateDetails": "விவரங்களை புதுப்பி",
+    "addDetails": "விவரங்களைச் சேர்க்க",
+    "updating": "புதுப்பிக்கப்படுகிறது...",
+    "profileUpdated": "சுயவிவரம் வெற்றிகரமாக புதுப்பிக்கப்பட்டது!"
+  },
+  "validation": {
+    "isRequired": "{name} தேவைப்படுகிறது",
+    "passwordDoNotMatch": "கடவுச்சொற்கள் பொருந்தவில்லை"
+  },
+  "fields": {
+    "email": "மின்னஞ்சல்",
+    "password": "கடவுச்சொல்",
+    "fullName": "முழுப்பெயர்",
+    "phoneNumber": "தொலைபேசி எண்",
+    "confirmPassword": "கடவுச்சொல்லை உறுதிப்படுத்து",
+    "enterOtp": "OTP ஐ உள்ளிடு",
+    "profileName": "சுயவிவரப் பெயர்",
+    "bloodGroup": "இரத்த வகை",
+    "address": "முகவரி",
+    "pincode": "அஞ்சல் குறியீடு",
+    "dateOfBirth": "பிறந்த தேதி",
+    "state": "மாநிலம்",
+    "city": "நகரம்",
+    "showPrivateData": "தனிப்பட்ட தகவல்களை காட்டு"
+  },
+  "modal": {
+    "cancel": "ரத்து செய்",
+    "upload": "பதிவேற்று",
+    "title": "சுயவிவரப் படத்தை பதிவேற்று",
+    "uploading": "பதிவேற்றுகிறது..."
+  },
+"languages": {
+  "English": "English",
+  "Tamil": "தமிழ்",
+  "Kannada": "ಕನ್ನಡ",
+  "Hindi": "हिन्दी",
+  "Malayalam": "മലയാളം",
+  "Telugu": "తెలుగు"
+}
 }

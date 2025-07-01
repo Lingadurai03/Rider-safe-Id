@@ -6,14 +6,17 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "build": "nest build",
+    "postinstall": "prisma generate",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "nest start",
     "lint": "eslint .",
+    "generate": "pnpm --filter server exec prisma generate",
     "dev": "pnpm start:dev",
     "start:dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --require tsconfig-paths/register src/main.ts",
     "start:debug": "nest start --debug --watch",
-    "start:prod": "node dist/apps/server/src/main.js",
+    "debug:prod": "cd dist && ls -R && find . -name main.ts",
+    "build": "nest build",
+    "start": "pnpm prisma generate && pnpm build && pnpm start:prod",
+     "start:prod": "NODE_ENV=production node dist/apps/server/src/main.js",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
@@ -23,6 +26,7 @@
   "dependencies": {
     "@nestjs-modules/mailer": "^2.0.2",
     "@nestjs/common": "^11.0.1",
+    "@nestjs/config": "^4.0.2",
     "@nestjs/core": "^11.0.1",
     "@nestjs/jwt": "^11.0.0",
     "@nestjs/mapped-types": "*",
@@ -77,6 +81,9 @@
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.7.3",
     "typescript-eslint": "^8.20.0"
+  },
+  "prisma": {
+    "schema": "./prisma/schema.prisma"
   },
   "jest": {
     "moduleFileExtensions": [

@@ -36,13 +36,10 @@ export default function StepEmail({ setEmail, goNext }: StepEmailProps) {
     };
 
     return (
-        <form
-            onSubmit={handleSubmit(onSubmit)}
-            className='space-y-4 animate-fade-in'
-        >
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 animate-fade-in">
             <Input
                 label={t('fields.email')}
-                type='email'
+                type="email"
                 registration={register('email', {
                     required: 'Email is required',
                     pattern: {
@@ -54,7 +51,7 @@ export default function StepEmail({ setEmail, goNext }: StepEmailProps) {
                 isDarkPage
             />
             <Button
-                type='submit'
+                type="submit"
                 label={t('register.sendOtp')}
                 loadingText={t('register.sending')}
                 isLoading={isSubmitting}

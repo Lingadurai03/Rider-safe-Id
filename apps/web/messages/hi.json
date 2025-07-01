@@ -1,78 +1,94 @@
 {
-    "login": {
-        "heading": "लॉगिन",
-        "newHere": "नए हैं?",
-        "createAnAccount": "खाता बनाएँ!",
-        "submit": "जमा करें",
-        "submitting": "जमा किया जा रहा है..."
-    },
-    "register": {
-        "heading": "पंजीकरण",
-        "alreadyRegister": "पहले से ही पंजीकृत हैं?",
-        "login": "लॉगिन करें",
-        "submit": "जमा करें",
-        "submitting": "जमा किया जा रहा है...",
-        "sendOtp": "OTP भेजें",
-        "sending": "भेजा जा रहा है...",
-        "back": "← पीछे जाएं",
-        "verifyOtp": "OTP सत्यापित करें",
-        "verifying": "सत्यापन किया जा रहा है..."
-    },
-    "home": {
-        "qrCodeStatus": "QR कोड स्थिति",
-        "freeEditLeft": "बचे हुए फ्री एडिट",
-        "downloadQr": "QR डाउनलोड करें",
-        "editDetails": "विवरण संपादित करें",
-        "name": "नाम",
-        "bloodGroup": "ब्लड ग्रुप",
-        "city": "शहर",
-        "preview": "पूर्वावलोकन",
-        "welcomeRider": "स्वागत है राइडर!",
-        "letsSecureYourRide": "अपनी राइड को सुरक्षित बनाएं",
-        "upgradeToPro": "प्रो में अपग्रेड करें"
-    },
-    "notification": {
-        "noLogsFound": "कोई लॉग नहीं मिला",
-        "city": "शहर",
-        "state": "राज्य",
-        "country": "देश",
-        "accuracy": "सटीकता",
-        "viewOnGoogleMap": "Google मैप पर देखें"
-    },
-    "details": {
-        "failedToLoadProfileData": "प्रोफ़ाइल डेटा लोड करने में विफल।",
-        "bloodGroup": "ब्लड ग्रुप",
-        "dob": "जन्म तिथि",
-        "status": "स्थिति",
-        "address": "पता",
-        "emergencyContact": "आपातकालीन संपर्क",
-        "noEmergencyContactFount": "कोई आपातकालीन संपर्क नहीं मिला।",
-        "noProfileDataFound": "कोई प्रोफ़ाइल डेटा नहीं मिला।"
-    },
-    "validation": {
-        "isRequired": "{name} आवश्यक है",
-        "passwordDoNotMatch": "पासवर्ड मेल नहीं खा रहे हैं"
-    },
-    "fields": {
-        "email": "ईमेल",
-        "password": "पासवर्ड",
-        "fullName": "पूरा नाम",
-        "phoneNumber": "फ़ोन नंबर",
-        "confirmPassword": "पासवर्ड की पुष्टि करें",
-        "enterOtp": "OTP दर्ज करें"
-    },
-    "modal": {
-        "cancel": "रद्द करें",
-        "upload": "अपलोड करें",
-        "title": "प्रोफ़ाइल छवि अपलोड करें",
-        "uploading": "अपलोड हो रहा है..."
-    },
-    "languages": {
-        "English": "English",
-        "Tamil": "தமிழ்",
-        "Kannada": "ಕನ್ನಡ",
-        "Hindi": "हिन्दी",
-        "Malayalam": "മലയാളം",
-        "Telugu": "తెలుగు"
-    }
+  "login": {
+    "heading": "लॉगिन",
+    "newHere": "नए हैं?",
+    "createAnAccount": "खाता बनाएं!",
+    "submit": "सबमिट करें",
+    "submitting": "सबमिट हो रहा है..."
+  },
+  "register": {
+    "heading": "रजिस्टर करें",
+    "alreadyRegister": "पहले से ही रजिस्टर हैं?",
+    "login": "लॉगिन करें",
+    "submit": "सबमिट करें",
+    "submitting": "सबमिट हो रहा है...",
+    "sendOtp": "OTP भेजें",
+    "sending": "भेजा जा रहा है...",
+    "back": "← वापस",
+    "verifyOtp": "OTP सत्यापित करें",
+    "verifying": "सत्यापित हो रहा है..."
+  },
+  "home": {
+    "qrCodeStatus": "QR कोड स्थिति",
+    "freeEditLeft": "शेष मुफ्त संपादन",
+    "downloadQr": "QR डाउनलोड करें",
+    "editDetails": "विवरण संपादित करें",
+    "name": "नाम",
+    "bloodGroup": "ब्लड ग्रुप",
+    "city": "शहर",
+    "preview": "पूर्वावलोकन",
+    "welcomeRider": "स्वागत है राइडर",
+    "letsSecureYourRide": "आइए आपकी सवारी को सुरक्षित करें",
+    "upgradeToPro": "प्रो में अपग्रेड करें"
+  },
+  "notification": {
+    "noLogsFound": "कोई लॉग नहीं मिला",
+    "city": "शहर",
+    "state": "राज्य",
+    "country": "देश",
+    "accuracy": "सटीकता",
+    "viewOnGoogleMap": "Google मैप पर देखें"
+  },
+  "details": {
+    "failedToLoadProfileData": "प्रोफ़ाइल डेटा लोड करने में विफल।",
+    "bloodGroup": "ब्लड ग्रुप",
+    "dob": "जन्म तिथि",
+    "status": "स्थिति",
+    "address": "पता",
+    "emergencyContacts": "आपातकालीन संपर्क",
+    "noEmergencyContactFount": "कोई आपातकालीन संपर्क नहीं मिला।",
+    "noProfileDataFound": "कोई प्रोफ़ाइल डेटा नहीं मिला।",
+    "AddemergencyContact": "आपातकालीन संपर्क जोड़ें",
+    "emergencyContact": "आपातकालीन संपर्क",
+    "sumbit": "सबमिट करें",
+    "adding": "जोड़ रहे हैं",
+    "addDetails": "विवरण जोड़ें",
+    "updating": "अपडेट कर रहे हैं...",
+    "updateDetails": "विवरण अपडेट करें",
+    "profileUpdated": "प्रोफ़ाइल सफलतापूर्वक अपडेट हो गया"
+  },
+  "validation": {
+    "isRequired": "{name} आवश्यक है",
+    "passwordDoNotMatch": "पासवर्ड मेल नहीं खा रहे हैं"
+  },
+  "fields": {
+    "email": "ईमेल",
+    "password": "पासवर्ड",
+    "fullName": "पूरा नाम",
+    "phoneNumber": "फोन नंबर",
+    "confirmPassword": "पासवर्ड की पुष्टि करें",
+    "enterOtp": "OTP दर्ज करें",
+    "profileName": "प्रोफ़ाइल नाम",
+    "bloodGroup": "ब्लड ग्रुप",
+    "address": "पता",
+    "pincode": "पिनकोड",
+    "dateOfBirth": "जन्म तिथि",
+    "state": "राज्य",
+    "city": "शहर",
+    "showPrivateData": "निजी डेटा दिखाएं"
+  },
+  "modal": {
+    "cancel": "रद्द करें",
+    "upload": "अपलोड करें",
+    "title": "प्रोफ़ाइल चित्र अपलोड करें",
+    "uploading": "अपलोड हो रहा है..."
+  },
+  "languages": {
+    "English": "English",
+    "Tamil": "தமிழ்",
+    "Kannada": "ಕನ್ನಡ",
+    "Hindi": "हिन्दी",
+    "Malayalam": "മലയാളം",
+    "Telugu": "తెలుగు"
+  }
 }

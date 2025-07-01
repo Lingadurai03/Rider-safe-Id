@@ -60,9 +60,9 @@ const Details = async () => {
             {/* Emergency Contacts */}
             <div className="space-y-2">
                 <h3 className="font-semibold text-xl underline text-center">
-                    {t('emergencyContact')}
+                    {t('emergencyContacts')}
                 </h3>
-                {qrProfileData.emergencyContacts.length > 0 ? (
+                {qrProfileData.emergencyContacts && qrProfileData.emergencyContacts.length > 0 ? (
                     <ul className="space-y-1 text-center">
                         {qrProfileData.emergencyContacts.map((contact) => (
                             <li key={contact.id} className="font-medium">
