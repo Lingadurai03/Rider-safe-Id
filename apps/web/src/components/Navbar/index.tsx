@@ -13,6 +13,7 @@ import { clearTokens } from '@/utils';
 import { useLogoutMutation } from '@/store/profile/profile.api';
 
 import LanguageSelect from '../LanguageSelect';
+import ThemeToggle from '../ThemeToggle';
 
 export default function Navbar() {
     const [notificationCount, setNotificationCount] = useState<NotificationCountApiReponse | null>(
@@ -34,7 +35,7 @@ export default function Navbar() {
 
     useEffect(() => {
         fetchCount(); // initial fetch
-        const interval = setInterval(fetchCount, 15000); // every 15 sec
+        const interval = setInterval(fetchCount, 60000);
 
         return () => clearInterval(interval); // cleanup
     }, []);
@@ -61,7 +62,7 @@ export default function Navbar() {
                 <div className="flex items-center gap-4">
                     {/* Language Select */}
                     <LanguageSelect />
-
+                    <ThemeToggle />
                     {/* Notification Icon with Count */}
                     <Link href={'/notifications'} className="relative">
                         <Bell className="text- w-7 h-7 text cursor-pointer hover:rotate-20 transition-all duration-300 hover:text-[color:var(--color-primary)]" />

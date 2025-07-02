@@ -10,3 +10,4 @@ export { default as ImagePickerWithCrop } from './ImagePickerWithCrop';
 export { default as ProfileImageWithEdit } from './ProfileImageWithEdit';
 export { default as LocaleLayout } from './LocaleLayout';
 export { default as StepWrapper } from './StepWrapper';
+export { default as ThemeToggle } from './ThemeToggle';
