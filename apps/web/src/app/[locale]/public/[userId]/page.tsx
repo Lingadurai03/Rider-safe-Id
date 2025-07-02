@@ -7,7 +7,11 @@ import { BoxSkeletons } from '@/skeletons';
 import PublicDetails from './component/publicDetails';
 import ScanLogger from './component/ScanLogger';
 
-const Details = async ({ params }: { params: { userId: string } }) => {
+interface PageProps {
+    params: Promise<{ userId: string }>;
+}
+
+const Details = async ({ params }: PageProps) => {
     const param = await params;
     const userId = param.userId;
     const ipRes = await getIpAddress();

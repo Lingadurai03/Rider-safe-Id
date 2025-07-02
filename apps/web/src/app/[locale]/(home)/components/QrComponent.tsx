@@ -1,7 +1,6 @@
 import React from 'react';
 import { GetQrApiResponse } from '@ridersafeid/types';
 import Image from 'next/image';
-import { getTranslations } from 'next-intl/server';
 
 import { createServerAxios } from '@/lib/axiosServer.lib';
 
@@ -9,7 +8,6 @@ import QrComponentButtons from './QrComponentButtons';
 
 const QrComponent = async () => {
     const axios = await createServerAxios();
-    const t = await getTranslations('home');
 
     let qrData: GetQrApiResponse | null = null;
 
