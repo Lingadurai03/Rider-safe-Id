@@ -1,5 +1,7 @@
 import { ToastContainer } from 'react-toastify';
 import { cookies } from 'next/headers';
+import { notFound } from 'next/navigation';
+import { getMessages } from 'next-intl/server';
 
 import { LocaleLayout, StoreProvider } from '@/components';
 
@@ -16,7 +18,9 @@ export default async function RootLayout({
     const cookieStore = await cookies();
     const theme = cookieStore.get('theme')?.value ?? null;
     const isDark = theme === 'dark';
+    const messages = await getMessages();
 
+    if (!messages) notFound();
     return (
         <html className={isDark ? 'dark' : ''}>
             <body className="text-muted">
