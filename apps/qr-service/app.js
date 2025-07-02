@@ -12,8 +12,8 @@ app.use(express.json());
 
 app.use(
     cors({
-        origin: 'http://localhost:3000', // your frontend URL
-        credentials: true, // if you need cookies/auth headers
+        origin: ['http://localhost:3000', 'https://rider-safe-id-web.vercel.app'],
+        credentials: true,
     }),
 );
 
