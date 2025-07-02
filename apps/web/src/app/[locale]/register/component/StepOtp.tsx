@@ -51,7 +51,7 @@ export default function StepOtp({ email, goNext, goBack }: Props) {
                 error={errors.otp}
                 isDarkPage
             />
-            <div className="flex justify-between">
+            <div className="flex justify-between gap-3">
                 <Button label={t('register.back')} type="button" onClick={goBack} />
                 <Button
                     label={t('register.verifyOtp')}

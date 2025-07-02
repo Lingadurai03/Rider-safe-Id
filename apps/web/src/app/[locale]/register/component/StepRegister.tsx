@@ -87,7 +87,7 @@ export default function StepRegister({ email, goBack }: any) {
                 error={errors.confirmPassword}
                 isDarkPage
             />
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center gap-3">
                 <Button label={t('register.back')} onClick={goBack} />
                 <Button
                     type="submit"
