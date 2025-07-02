@@ -5,6 +5,11 @@ import { getTranslations } from 'next-intl/server';
 
 import { createServerAxios } from '@/lib/axiosServer.lib';
 
+export const generateMetadata = () => ({
+    title: 'Profile Preview | RiderSafeID',
+    description: 'Preview your emergency profile as others will see it through your QR code.',
+});
+
 const Details = async () => {
     const axios = await createServerAxios();
     let qrProfileData: GetProfileApiResponse | null = null;

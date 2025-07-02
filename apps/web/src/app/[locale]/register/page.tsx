@@ -4,6 +4,12 @@ import { getTranslations } from 'next-intl/server';
 
 import RegisterForm from './component/RegisterForm';
 
+export const generateMetadata = () => ({
+    title: 'Register | RiderSafeID',
+    description:
+        'Create your RiderSafeID account and set up your emergency profile in just a few steps.',
+});
+
 export default async function Register() {
     const t = await getTranslations('register');
     return (

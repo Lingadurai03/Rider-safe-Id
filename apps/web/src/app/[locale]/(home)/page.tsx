@@ -5,6 +5,11 @@ import { BoxSkeletons } from '@/skeletons';
 
 import QrComponent from './components/QrComponent';
 import QrProfiledata from './components/QrProfiledata';
+export const generateMetadata = () => ({
+    title: 'Dashboard | RiderSafeID',
+    description:
+        'Welcome to your RiderSafeID dashboard. Manage your profile, view notifications, and stay safe on the road.',
+});
 
 const Home = async () => {
     const t = await getTranslations('home');

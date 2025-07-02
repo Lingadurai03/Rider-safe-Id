@@ -4,6 +4,12 @@ import { NotificationItemSkeleton } from '@/skeletons';
 
 import NotificationList from './components/NotificationList';
 
+export const generateMetadata = () => ({
+    title: 'Notifications | RiderSafeID',
+    description:
+        'Stay updated with real-time alerts and important updates about your RiderSafeID account.',
+});
+
 const Notifications = async () => {
     return (
         <Suspense

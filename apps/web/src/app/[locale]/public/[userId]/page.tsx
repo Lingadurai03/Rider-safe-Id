@@ -11,6 +11,12 @@ interface PageProps {
     params: Promise<{ userId: string }>;
 }
 
+export const generateMetadata = () => ({
+    title: 'Emergency Profile | RiderSafeID',
+    description:
+        'View the emergency details shared via RiderSafeID QR. Help the rider stay safe and supported.',
+});
+
 const Details = async ({ params }: PageProps) => {
     const param = await params;
     const userId = param.userId;

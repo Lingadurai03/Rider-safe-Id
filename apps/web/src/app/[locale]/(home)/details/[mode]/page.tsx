@@ -6,6 +6,15 @@ interface PageProps {
     searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
+export const generateMetadata = async ({ params }: PageProps) => {
+    const resolvedParams = await params;
+    const capitalized = resolvedParams.mode === 'edit' ? 'Edit' : 'Add';
+    return {
+        title: `${capitalized} Details | RiderSafeID`,
+        description: `${capitalized} your personal and emergency details to keep your RiderSafeID profile accurate and helpful.`,
+    };
+};
+
 const DetailsPage = async ({ params }: PageProps) => {
     const resolvedParams = await params;
     const mode = resolvedParams.mode;

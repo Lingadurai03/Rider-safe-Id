@@ -4,6 +4,12 @@ import { getTranslations } from 'next-intl/server';
 
 import LoginForm from './component/LoginForm';
 
+export const generateMetadata = () => ({
+    title: 'Login | RiderSafeID',
+    description:
+        'Access your RiderSafeID account to manage your emergency QR code and profile details securely.',
+});
+
 export default async function Login() {
     const t = await getTranslations('login');
     return (
