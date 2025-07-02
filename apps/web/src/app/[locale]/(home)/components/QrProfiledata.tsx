@@ -24,7 +24,7 @@ const QrProfiledata = async () => {
     return (
         <section className=" mt-4 w-full bg-white-sm  backdrop-blur-sm py-8 p-4 border-white-sm rounded-lg shadow-sm inset-shadow-sm">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div className="relative h-40 w-40 flex justify-center items-center">
+                <div className="relative h-40 w-40 flex justify-center items-center mx-auto">
                     <Image
                         src={qrProfileData?.imageUrl || 'https://placehold.co/600x400/png'}
                         className="h-32 w-32 rounded-full object-cover border-2 border-primary"
